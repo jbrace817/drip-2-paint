@@ -72,6 +72,10 @@ const config: Config = {
           dark5: 'hsl(var(--coolGray-dark5))',
         },
       },
+      fontFamily: {
+        headings: ['var(--font-openSans-header)'],
+        body: ['var(--font-lato-body)'],
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
