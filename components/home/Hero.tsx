@@ -1,25 +1,30 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import TypeWriter from '../common/TypeWriter';
 
 const Hero = () => {
   return (
-    <section className="py-32 px-4 ">
+    <section className="py-32 md:px-4">
       <div className="from-coolGray-light2 to-transparent from-80% rounded-lg bg-gradient-to-b px-4">
-        <div className="mx-auto container flex flex-col items-center py-12 text-center lg:py-32">
-          <p className=" text-lg text-nowrap font-semibold text-primary ">
-            BRING NEW LIFE TO YOUR SPACE
-          </p>
-          <h1 className="my-3 text-pretty text-2xl font-bold sm:text-4xl md:my-6 lg:text-5xl">
-            Expert Painting, Remarkable Transformations
+        {' '}
+        {/*review px-4 later*/}
+        <div className="mx-auto container flex flex-col items-center py-12 text-center lg:py-32 ">
+          <h1 className="my-3 font-headings text-pretty text-coolGray-dark5 text-4xl font-bold sm:text-4xl md:my-6 lg:text-5xl">
+            Expert Painting, Stunning
+            <TypeWriter
+              colorClass="text-support"
+              strings={['Transformations', 'Service', 'Results']}
+            />
           </h1>
-          <p className="mb-6 max-w-xl text-muted-foreground md:mb-12 lg:text-xl whitespace-break-spaces">
-            Drip Painting delivers exceptional craftsmanship with a focus on
-            quality and care. Our licensed and insured team specializes in
-            custom finishes that elevate your home. Schedule your free
-            consultation today and bring your vision to life!
+          <p className="font-body mb-6 max-w-xl text-lg text-coolGray-dark2 md:mb-12 lg:text-xl">
+            Drip Painting delivers licensed expertise and custom finishes with
+            unmatched quality&nbsp;and care. Schedule your free
+            consultation&nbsp;today!
           </p>
           <div>
-            <Button>SCHEDULE NOW</Button>
+            <Button className="font-heading font-semibold text-primary-foreground bg-primary-light5">
+              SCHEDULE NOW
+            </Button>
           </div>
         </div>
         <div className="mx-auto container">

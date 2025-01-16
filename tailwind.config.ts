@@ -71,6 +71,9 @@ const config: Config = {
           dark4: 'hsl(var(--coolGray-dark4))',
           dark5: 'hsl(var(--coolGray-dark5))',
         },
+        support: {
+          DEFAULT: 'hsl(var(--indigo-light5))',
+        },
       },
       fontFamily: {
         headings: ['var(--font-openSans-header)'],
