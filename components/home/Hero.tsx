@@ -20,8 +20,8 @@ const slides = [
 
 const Hero = () => {
   return (
-    <section className="py-32 md:px-4">
-      <div className="from-coolGray-light2 to-transparent from-80% rounded-lg bg-gradient-to-b px-4">
+    <section className="py-32 md:px-4 bg-white">
+      <div className="from-coolGray-light2 to-white from-80% rounded-lg bg-gradient-to-b px-4">
         {' '}
         {/*review px-4 later*/}
         <div className="mx-auto container flex flex-col items-center py-12 text-center lg:py-32 ">
