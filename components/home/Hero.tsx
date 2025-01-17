@@ -1,7 +1,22 @@
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
+
 import TypeWriter from '../common/TypeWriter';
 import SwiperComponent from '../ui/swiper/SwiperComponent';
+
+const slides = [
+  {
+    src: 'https://images.unsplash.com/photo-1593696140826-c58b021acf8b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    alt: 'Beautiful Living Area',
+  },
+  {
+    src: 'https://res.cloudinary.com/dsjx8ner3/image/upload/v1735734476/freepik__adjust__54031_poocbe.webp',
+    alt: 'Beautiful dining room',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    alt: 'Beautiful Patio Entrance',
+  },
+];
 
 const Hero = () => {
   return (
@@ -29,16 +44,8 @@ const Hero = () => {
           </div>
         </div>
         <div className="mx-auto container">
-          <div className="aspect-video [mask-image:linear-gradient(#000_80%,transparent_100%)]">
-            <SwiperComponent>
-              <Image
-                src="https://images.unsplash.com/photo-1593696140826-c58b021acf8b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="placeholder hero"
-                className="h-full w-full rounded-md object-cover"
-                width={1920}
-                height={1080}
-              />
-            </SwiperComponent>
+          <div className="aspect-video [mask-image:linear-gradient(#000_80%,transparent_100%)] rounded-lg">
+            <SwiperComponent slides={slides}></SwiperComponent>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
 // import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { ReactNode } from 'react';
+import Image from 'next/image';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -11,11 +11,17 @@ import 'swiper/css/effect-fade';
 
 // import required modules
 import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
-type SwiperComponentProps = {
-  children: ReactNode;
-};
 
-export default function SwiperComponent({ children }: SwiperComponentProps) {
+interface Slide {
+  src: string;
+  alt: string;
+}
+
+interface SliderComponentProps {
+  slides: Slide[];
+}
+
+export default function SwiperComponent({ slides }: SliderComponentProps) {
   return (
     <>
       <Swiper
@@ -35,9 +41,17 @@ export default function SwiperComponent({ children }: SwiperComponentProps) {
         effect="fade"
         className="mySwiper"
       >
-        <SwiperSlide>{children}</SwiperSlide>
-        <SwiperSlide>slide 2</SwiperSlide>
-        <SwiperSlide>slide 3</SwiperSlide>
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              width={1920}
+              height={1080}
+              className="rounded-lg object-cover"
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );
