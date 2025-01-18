@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 
 import TypeWriter from '../common/TypeWriter';
 import SwiperComponent from '../ui/swiper/SwiperComponent';
+import { ArrowRight } from 'lucide-react';
 
 const slides = [
   {
@@ -9,12 +10,16 @@ const slides = [
     alt: 'Beautiful Living Area',
   },
   {
-    src: 'https://res.cloudinary.com/dsjx8ner3/image/upload/v1735734476/freepik__adjust__54031_poocbe.webp',
-    alt: 'Beautiful dining room',
+    src: 'https://images.unsplash.com/photo-1638799869566-b17fa794c4de?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    alt: 'Beautiful Bathroom remodel',
   },
   {
     src: 'https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'Beautiful Patio Entrance',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1602028617950-0ed35e50e460?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    alt: 'Beautiful Kitchen Remodel',
   },
 ];
 
@@ -38,8 +43,9 @@ const Hero = () => {
             consultation&nbsp;today!
           </p>
           <div>
-            <Button className="font-heading font-semibold text-primary-foreground bg-primary-light5">
+            <Button className="group font-heading font-semibold text-primary-foreground bg-gradient-to-r from-primary-light4 to-primary-dark2">
               SCHEDULE NOW
+              <ArrowRight className="ml-1 size-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
         </div>
