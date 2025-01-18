@@ -107,6 +107,10 @@ body {
   padding: 0;
 }
 
+/* =================
+   Swiper
+   =================*/
+
 .swiper {
   width: 100%;
   height: 100%;
@@ -135,10 +139,31 @@ body {
   margin-right: auto;
 }
 
-/* .swiper-pagination {
-  top: 10px !important; 
-} */
+.swiper-pagination {
+  top: 8px !important;
+  bottom: auto;
+  pointer-events: none; /* Disable pointer events for the container */
+}
+
+.swiper-pagination-bullet {
+  pointer-events: auto; /* Allow pointer events on individual bullets */
+}
 
 .swiper-pagination-bullet-active {
   background-color: #f0703e !important ;
+}
+
+p {
+  @apply font-body;
+  @apply text-coolGray-dark2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-headings;
+  @apply text-coolGray-dark5;
 }

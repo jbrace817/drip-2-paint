@@ -25,7 +25,6 @@ export default function SwiperComponent({ slides }: SliderComponentProps) {
   return (
     <>
       <Swiper
-        direction={'vertical'}
         slidesPerView={1}
         spaceBetween={30}
         loop={true}
@@ -33,7 +32,7 @@ export default function SwiperComponent({ slides }: SliderComponentProps) {
           clickable: true,
         }}
         autoplay={{
-          delay: 2500,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         navigation={false}
