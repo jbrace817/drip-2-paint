@@ -25,9 +25,8 @@ const slides = [
 
 const Hero = () => {
   return (
-    <section className="py-32 md:px-4 bg-white">
-      <div className="from-coolGray-light2 to-white from-80% rounded-lg bg-gradient-to-b px-4">
-        {' '}
+    <section className="pt-32 md:px-4 bg-white">
+      <div className="from-coolGray-light2 to-white from-80%  rounded-lg bg-gradient-to-b px-4 pb-32">
         {/*review px-4 later*/}
         <div className="mx-auto container flex flex-col items-center py-12 text-center lg:py-32 ">
           <h1 className="my-3 font-headings text-pretty text-coolGray-dark5 text-4xl font-bold sm:text-4xl md:my-6 lg:text-5xl">
@@ -50,7 +49,8 @@ const Hero = () => {
           </div>
         </div>
         <div className="mx-auto container">
-          <div className="aspect-video [mask-image:linear-gradient(#000_80%,transparent_100%)] rounded-lg">
+          <div className="aspect-video rounded-lg">
+            {/*[mask-image:linear-gradient(#000_80%,transparent_100%)]*/}
             <SwiperComponent slides={slides}></SwiperComponent>
           </div>
         </div>

@@ -119,7 +119,7 @@ body {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: var(--coolGray-light2);
 
   /* Center slide text vertically */
   display: flex;
@@ -139,16 +139,6 @@ body {
   margin-right: auto;
 }
 
-.swiper-pagination {
-  top: 8px !important;
-  bottom: auto;
-  pointer-events: none; /* Disable pointer events for the container */
-}
-
-.swiper-pagination-bullet {
-  pointer-events: auto; /* Allow pointer events on individual bullets */
-}
-
 .swiper-pagination-bullet-active {
   background-color: #f0703e !important ;
 }
@@ -166,4 +156,13 @@ h5,
 h6 {
   @apply font-headings;
   @apply text-coolGray-dark5;
+}
+
+.heading-gradient {
+  @apply bg-gradient-to-r;
+  @apply from-primary-light4;
+  @apply to-primary-dark2;
+  @apply inline-block;
+  @apply bg-clip-text;
+  @apply text-transparent;
 }
