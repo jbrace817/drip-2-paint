@@ -85,15 +85,26 @@ const Service = () => {
   }, [selection, api]);
 
   // Scroll the active tab into view
+  const hasMounted = React.useRef(false);
+  const initialSelection = React.useRef(selection);
+
   React.useEffect(() => {
-    const activeTab =
-      tabRefs.current[features.findIndex((f) => f.id === selection)];
-    activeTab?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center',
-    });
+    if (hasMounted.current && selection !== initialSelection.current) {
+      const activeTab =
+        tabRefs.current[features.findIndex((f) => f.id === selection)];
+      activeTab?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      });
+    } else {
+      hasMounted.current = true;
+    }
   }, [selection]);
+
+  React.useEffect(() => {
+    hasMounted.current = true;
+  }, []);
 
   //Arrow functionality to update Carousel and tabs
   React.useEffect(() => {
@@ -151,6 +162,7 @@ const Service = () => {
                   </TabsList>
                 </div>
               </div>
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--background))_0%,transparent_10%,transparent_90%,hsl(var(--background))_100%)] md:hidden" />
             </div>
             <div className="container mt-12 flex flex-col md:col-span-2 md:mt-20 md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
               <Carousel setApi={setApi} className="w-full">
