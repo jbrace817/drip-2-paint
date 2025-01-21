@@ -190,20 +190,7 @@ const Service = () => {
                   ))}
                 </CarouselContent>
               </Carousel>
-
-              {features.map((feature) => (
-                <TabsContent key={feature.id} value={feature.id}>
-                  <div className="flex flex-col justify-center min-h-full py-8 md:py-0 md:px-8 lg:px-10 ">
-                    <h3 className="mb-3 text-xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
-                      {feature.title}
-                    </h3>
-                    <p className="text-muted-foreground text-base lg:text-lg">
-                      {feature.description}
-                    </p>
-                  </div>
-                </TabsContent>
-              ))}
-              <div className="mt-0 flex shrink-0 items-center justify-end gap-2">
+              <div className=" flex shrink-0 items-center mt-6 md:mt-0 justify-end gap-2 md:row-start-2">
                 <Button
                   size="icon"
                   variant="outline"
@@ -227,6 +214,18 @@ const Service = () => {
                   <ArrowRight className="size-5" />
                 </Button>
               </div>
+              {features.map((feature) => (
+                <TabsContent key={feature.id} value={feature.id}>
+                  <div className="flex flex-col justify-center min-h-full py-8 md:py-0 md:px-8 lg:px-10 ">
+                    <h3 className="mb-3 text-xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground text-base lg:text-lg">
+                      {feature.description}
+                    </p>
+                  </div>
+                </TabsContent>
+              ))}
             </div>
           </Tabs>
         </div>
