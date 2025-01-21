@@ -157,6 +157,7 @@ const Service = () => {
                   <TabsList>
                     {features.map((feature, index) => (
                       <TabsTrigger
+                        className="text-base"
                         key={feature.id}
                         value={feature.id}
                         ref={(el) => {
@@ -172,7 +173,11 @@ const Service = () => {
               <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--background))_0%,transparent_10%,transparent_90%,hsl(var(--background))_100%)] md:hidden" />
             </div>
             <div className="container mt-12 flex flex-col md:col-span-2 md:mt-20 md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
-              <Carousel setApi={setApi} className="w-full" plugins={[Fade()]}>
+              <Carousel
+                setApi={setApi}
+                className="w-full rounded-lg overflow-hidden"
+                plugins={[Fade()]}
+              >
                 <CarouselContent>
                   {features.map((feature) => (
                     <CarouselItem key={feature.id}>
