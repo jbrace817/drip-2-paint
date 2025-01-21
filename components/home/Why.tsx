@@ -19,7 +19,7 @@ const Why = () => {
               <ShieldCheck className="size-6 md:size-7 text-support" />
             </span>
             <div>
-              <h3 className="font-medium text-base md:mb-2 md:text-xl">
+              <h3 className="font-medium text-lg md:mb-2 md:text-xl">
                 Licensed and Insured
                 <span className="absolute -left-px hidden h-6 w-px bg-support md:inline-block"></span>
               </h3>
@@ -36,7 +36,7 @@ const Why = () => {
               <SquareCheckBig className="size-6 md:size-7 text-[#F7D070]" />
             </span>
             <div>
-              <h3 className="text-base font-medium md:mb-2 md:text-xl">
+              <h3 className="text-lg font-medium md:mb-2 md:text-xl">
                 100% Satisfaction Guarantee
                 <span className="absolute -left-px hidden h-6 w-px bg-[#F7D070] md:inline-block"></span>
               </h3>
@@ -52,7 +52,7 @@ const Why = () => {
               <CalendarClock className="size-6 md:size-7 text-[#7BC47F]" />
             </span>
             <div>
-              <h3 className="text-base font-medium md:mb-2 md:text-xl">
+              <h3 className="text-lg font-medium md:mb-2 md:text-xl">
                 Flexible Scheduling
                 <span className="absolute -left-px hidden h-6 w-px bg-[#7BC47F] md:inline-block"></span>
               </h3>
@@ -69,7 +69,7 @@ const Why = () => {
               <SearchCheck className="size-6 md:size-7 text-[#E66A6A]" />
             </span>
             <div>
-              <h3 className="text-base font-medium md:mb-2 md:text-xl">
+              <h3 className="text-lg font-medium md:mb-2 md:text-xl">
                 Transparent Pricing
                 <span className="absolute -left-px hidden h-6 w-px bg-primary md:inline-block bg-[#E66A6A]"></span>
               </h3>
