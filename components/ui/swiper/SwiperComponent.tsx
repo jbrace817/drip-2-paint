@@ -12,14 +12,14 @@ import 'swiper/css/effect-fade';
 // import required modules
 import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
 
-interface Slide {
+type Slide = {
   src: string;
   alt: string;
-}
+};
 
-interface SliderComponentProps {
+type SliderComponentProps = {
   slides: Slide[];
-}
+};
 
 export default function SwiperComponent({ slides }: SliderComponentProps) {
   return (
