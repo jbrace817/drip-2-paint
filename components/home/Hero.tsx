@@ -1,8 +1,9 @@
 import { Button } from '@/components/ui/button';
 
 import TypeWriter from '../common/TypeWriter';
-import SwiperComponent from '../ui/swiper/SwiperComponent';
+
 import { ArrowRight } from 'lucide-react';
+import TripleSlider from '../ui/swiper/TripleSlider';
 
 const slides = [
   {
@@ -51,7 +52,7 @@ const Hero = () => {
         <div className="mx-auto container">
           <div className="aspect-video rounded-lg">
             {/*[mask-image:linear-gradient(#000_80%,transparent_100%)]*/}
-            <SwiperComponent slides={slides}></SwiperComponent>
+            <TripleSlider slides={slides} />
           </div>
         </div>
       </div>
