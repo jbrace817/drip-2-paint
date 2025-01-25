@@ -83,7 +83,7 @@ const Testimonials = () => {
         <div className="mb-8 flex items-end justify-between lg:flex-col lg:items-start lg:justify-between">
           <div>
             <p className="text-xl/7 font-semibold text-coolGray-dark5">
-              Don't Just Take Our Word For It
+              Don&apos;t Just Take Our Word For It
             </p>
             <h2 className="mb-5 text-pretty text-3xl font-bold lg:text-4xl xl:text-5xl bg-gradient-to-r from-primary-light4 to-primary-dark2 inline-block bg-clip-text text-transparent">
               Hear It Straight From Our Clients
