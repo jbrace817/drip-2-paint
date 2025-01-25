@@ -7,7 +7,12 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-creative';
 import Image from 'next/image';
-import { Navigation, Pagination, EffectCoverflow } from 'swiper/modules';
+import {
+  Navigation,
+  Pagination,
+  EffectCoverflow,
+  Autoplay,
+} from 'swiper/modules';
 
 type Slide = {
   src: string;
@@ -34,8 +39,12 @@ const TripleSlider: React.FC<SwiperCarouselProps> = ({ slides }) => {
           slideShadows: false,
         }}
         loop={true}
-        pagination={{ clickable: true }}
-        modules={[Navigation, Pagination, EffectCoverflow]}
+        // pagination={{ clickable: true }}
+        modules={[Navigation, Pagination, EffectCoverflow, Autoplay]}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
         className="triple-slider-main"
       >
         {slides.map((slide, index) => (
