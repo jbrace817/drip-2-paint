@@ -14,16 +14,11 @@ import {
   Autoplay,
 } from 'swiper/modules';
 
-type Slide = {
-  src: string;
-  alt: string;
-};
-
 type SwiperCarouselProps = {
-  slides: Slide[];
+  slides: { src: string; alt: string }[];
 };
 
-const TripleSlider: React.FC<SwiperCarouselProps> = ({ slides }) => {
+const TripleSlider = ({ slides }: SwiperCarouselProps) => {
   return (
     <div id="app">
       <Swiper
