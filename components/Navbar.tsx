@@ -4,7 +4,7 @@ import { Book, Sunset, Trees, Zap } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 import { cn } from '@/lib/utils';
-
+import { Squash as Hamburger } from 'hamburger-react';
 import {
   Accordion,
   AccordionContent,
@@ -222,29 +222,14 @@ const Navbar = () => {
                 aria-controls="mobile-navigation"
                 aria-label={isOpen ? 'Close menu' : 'Open menu'}
                 onClick={handleMobileNav}
-                className={`absolute top-2 right-4 z-20 flex flex-col items-center justify-center transition-all duration-500 ease-out ${
-                  isOpen && '-rotate-180'
-                }`}
+                className={`absolute -bottom-2 right-0 z-20 flex flex-col items-center justify-center `}
               >
-                <span
-                  className={`mb-1 block h-0.5 w-8 rounded-sm bg-stone-700 transition-all duration-300 ease-out ${
-                    isOpen
-                      ? '-mb-1 translate-y-2 rotate-45 bg-white/70'
-                      : '-translate-y-0.5'
-                  }`}
-                ></span>
-                <span
-                  className={`my-0.5 block h-0.5 w-8 self-start rounded-sm bg-stone-700 transition-all duration-300 ease-out ${
-                    isOpen ? 'opacity-0' : 'opacity-100'
-                  }`}
-                ></span>
-                <span
-                  className={`mt-1 block h-0.5 w-8 rounded-sm bg-stone-700 transition-all duration-300 ease-out ${
-                    isOpen
-                      ? '-mt-1 -translate-y-2 -rotate-45  bg-white/70'
-                      : 'translate-y-0.5'
-                  }`}
-                ></span>
+                <Hamburger
+                  color={isOpen ? '#ffffff90' : '#1f2933'}
+                  size={30}
+                  toggled={isOpen}
+                  toggle={setIsOpen}
+                />
               </button>
             </div>
           </div>
