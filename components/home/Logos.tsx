@@ -57,7 +57,7 @@ const logos = [
 
 const Logos = () => {
   return (
-    <section className="py-32 bg-white">
+    <section className="pt-5 pb-36 bg-white">
       <div className="container mx-auto flex flex-col items-center text-center">
         <h1 className="my-6 text-pretty text-2xl font-bold lg:text-4xl">
           Our Partnered Brands

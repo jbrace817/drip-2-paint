@@ -27,7 +27,7 @@ const slides = [
 const Hero = () => {
   return (
     <section className="pt-0 md:px-4 bg-white">
-      <div className="from-coolGray-light2 to-white from-80%  rounded-lg bg-gradient-to-b px-4 pb-32">
+      <div className="from-coolGray-light2 to-white from-80%  rounded-lg bg-gradient-to-b px-4 pb-5">
         {/*review px-4 later*/}
         <div className="mx-auto container flex flex-col items-center py-12 text-center lg:py-32 ">
           <h1 className="my-3 font-headings text-pretty text-coolGray-dark5 text-4xl font-bold sm:text-4xl md:my-6 lg:text-5xl">

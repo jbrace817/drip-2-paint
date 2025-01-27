@@ -100,7 +100,7 @@ const Testimonials = () => {
     };
   }, [carouselApi]);
   return (
-    <section className="py-32 bg-white">
+    <section className="pt-14 md:pt-16 pb-28 md:pb-32 bg-white">
       <div className="container px-4 mx-auto flex flex-col lg:col-span-2 lg:mt-20 lg:grid lg:grid-cols-[1fr_2fr] md:gap-6 lg:gap-8 ">
         <div className="mb-8 flex items-end justify-between lg:flex-col lg:items-start lg:justify-between">
           <div>

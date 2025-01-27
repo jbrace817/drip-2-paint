@@ -7,10 +7,12 @@ import {
 
 const Why = () => {
   return (
-    <section className="py-32 bg-white">
+    <section className="pt-5 pb-14 md:pb-16 bg-white">
       <div className="container mx-auto px-4">
-        <p className="text-xl/7 font-semibold text-coolGray-dark5">Why Us</p>
-        <h2 className="text-pretty text-3xl font-bold lg:text-5xl bg-gradient-to-r from-primary-light4 to-primary-dark2 inline-block bg-clip-text text-transparent">
+        <p className="text-xl/7 font-semibold bg-gradient-to-r from-primary-light4 to-primary-dark2 inline-block bg-clip-text text-transparent ">
+          Why Us
+        </p>
+        <h2 className="text-pretty text-3xl font-medium lg:text-5xl text-coolGray-dark5">
           Excellence You Can Trust
         </h2>
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:mt-20 lg:grid-cols-4">
