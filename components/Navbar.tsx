@@ -16,7 +16,6 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
@@ -71,9 +70,13 @@ const subMenuItemsTwo = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [value, setValue] = useState('');
 
   function handleNav() {
     setIsOpen(!isOpen);
+    if (isOpen) {
+      setValue('');
+    }
   }
 
   useEffect(() => {
@@ -115,28 +118,26 @@ const Navbar = () => {
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <ul className="w-80 p-3">
-                        <NavigationMenuLink>
-                          {subMenuItemsOne.map((item, idx) => (
-                            <li key={idx}>
-                              <a
-                                className={cn(
-                                  'flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
-                                )}
-                                href="#"
-                              >
-                                {item.icon}
-                                <div>
-                                  <div className="text-sm font-semibold">
-                                    {item.title}
-                                  </div>
-                                  <p className="text-sm leading-snug text-muted-foreground">
-                                    {item.description}
-                                  </p>
+                        {subMenuItemsOne.map((item, idx) => (
+                          <li key={idx}>
+                            <a
+                              className={cn(
+                                'flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
+                              )}
+                              href="#"
+                            >
+                              {item.icon}
+                              <div>
+                                <div className="text-sm font-semibold">
+                                  {item.title}
                                 </div>
-                              </a>
-                            </li>
-                          ))}
-                        </NavigationMenuLink>
+                                <p className="text-sm leading-snug text-muted-foreground">
+                                  {item.description}
+                                </p>
+                              </div>
+                            </a>
+                          </li>
+                        ))}
                       </ul>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
@@ -144,28 +145,26 @@ const Navbar = () => {
                     <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <ul className="w-80 p-3">
-                        <NavigationMenuLink>
-                          {subMenuItemsTwo.map((item, idx) => (
-                            <li key={idx}>
-                              <a
-                                className={cn(
-                                  'flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
-                                )}
-                                href="#"
-                              >
-                                {item.icon}
-                                <div>
-                                  <div className="text-sm font-semibold">
-                                    {item.title}
-                                  </div>
-                                  <p className="text-sm leading-snug text-muted-foreground">
-                                    {item.description}
-                                  </p>
+                        {subMenuItemsTwo.map((item, idx) => (
+                          <li key={idx}>
+                            <a
+                              className={cn(
+                                'flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
+                              )}
+                              href="#"
+                            >
+                              {item.icon}
+                              <div>
+                                <div className="text-sm font-semibold">
+                                  {item.title}
                                 </div>
-                              </a>
-                            </li>
-                          ))}
-                        </NavigationMenuLink>
+                                <p className="text-sm leading-snug text-muted-foreground">
+                                  {item.description}
+                                </p>
+                              </div>
+                            </a>
+                          </li>
+                        ))}
                       </ul>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
@@ -206,7 +205,7 @@ const Navbar = () => {
           </div>
         </nav>
         <div className="block lg:hidden">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between relative">
             <div className="flex items-center gap-2">
               <img
                 src="https://shadcnblocks.com/images/block/block-1.svg"
@@ -215,180 +214,188 @@ const Navbar = () => {
               />
               <span className="text-lg font-semibold">Shadcnblocks.com</span>
             </div>
-
-            <div className="-mt-2 lg:hidden ">
-              <div className="z-10 lg:hidden">
-                <button
-                  aria-expanded={isOpen}
-                  aria-controls="mobile-navigation"
-                  aria-label={isOpen ? 'Close menu' : 'Open menu'}
-                  onClick={handleNav}
-                  className={`absolute top-4 right-4 z-20 flex flex-col items-center justify-center transition-all duration-500 ease-out ${
-                    isOpen && '-rotate-180'
-                  }`}
-                >
-                  <span
-                    className={`mb-1 block h-0.5 w-8 rounded-sm bg-stone-700 transition-all duration-300 ease-out ${
-                      isOpen
-                        ? '-mb-1 translate-y-2 rotate-45 bg-white/70'
-                        : '-translate-y-0.5'
-                    }`}
-                  ></span>
-                  <span
-                    className={`my-0.5 block h-0.5 w-8 self-start rounded-sm bg-stone-700 transition-all duration-300 ease-out ${
-                      isOpen ? 'opacity-0' : 'opacity-100'
-                    }`}
-                  ></span>
-                  <span
-                    className={`mt-1 block h-0.5 w-8 rounded-sm bg-stone-700 transition-all duration-300 ease-out ${
-                      isOpen
-                        ? '-mt-1 -translate-y-2 -rotate-45  bg-white/70'
-                        : 'translate-y-0.5'
-                    }`}
-                  ></span>
-                </button>
-              </div>
-              <div
-                className={cn(
-                  'fixed top-0 left-0 bottom-0 lg:hidden inset-y-0 h-full w-3/4 bg-white border-l z-10 flex items-center justify-center text-center shadow-lg transition-transform duration-300 ease-in-out sm:max-w-sm overflow-y-auto',
-                  {
-                    'translate-x-0': isOpen,
-                    '-translate-x-full': !isOpen,
-                  }
-                )}
+            <div className="z-10 lg:hidden">
+              <button
+                aria-expanded={isOpen}
+                aria-controls="mobile-navigation"
+                aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                onClick={handleNav}
+                className={`absolute top-2 right-4 z-20 flex flex-col items-center justify-center transition-all duration-500 ease-out ${
+                  isOpen && '-rotate-180'
+                }`}
               >
-                <div className="w-3/4 h-3/4">
-                  <div className="mb-6 mt-6 flex flex-col gap-4 items-start">
-                    <a href="#" className="font-semibold">
-                      Home
-                    </a>
-                    <Accordion type="single" collapsible className="w-full">
-                      <AccordionItem value="products" className="border-b-0">
-                        <AccordionTrigger className="mb-4 py-0 font-semibold hover:no-underline">
-                          Products
-                        </AccordionTrigger>
-                        <AccordionContent className="mt-2">
-                          {subMenuItemsOne.map((item, idx) => (
-                            <a
-                              key={idx}
-                              className={cn(
-                                'flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
-                              )}
-                              href="#"
-                            >
-                              {item.icon}
-                              <div className="text-left">
-                                <div className="text-sm font-semibold">
-                                  {item.title}
-                                </div>
-                                <p className="text-sm leading-snug text-muted-foreground">
-                                  {item.description}
-                                </p>
-                              </div>
-                            </a>
-                          ))}
-                        </AccordionContent>
-                      </AccordionItem>
-                      <AccordionItem value="resources" className="border-b-0">
-                        <AccordionTrigger className="py-0 font-semibold hover:no-underline">
-                          Resources
-                        </AccordionTrigger>
-                        <AccordionContent className="mt-2">
-                          {subMenuItemsTwo.map((item, idx) => (
-                            <a
-                              key={idx}
-                              className={cn(
-                                'flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
-                              )}
-                              href="#"
-                            >
-                              {item.icon}
-                              <div className="text-left">
-                                <div className="text-sm font-semibold">
-                                  {item.title}
-                                </div>
-                                <p className="text-sm leading-snug text-muted-foreground">
-                                  {item.description}
-                                </p>
-                              </div>
-                            </a>
-                          ))}
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                    <a href="#" className="font-semibold">
-                      Pricing
-                    </a>
-                    <a href="#" className="font-semibold">
-                      Blog
-                    </a>
-                    <div className="w-full">
-                      <div className="border-t py-4">
-                        <div className="grid grid-cols-2 justify-start">
-                          <a
-                            className={cn(
-                              buttonVariants({
-                                variant: 'ghost',
-                              }),
-                              'justify-center text-muted-foreground'
-                            )}
-                            href="#"
-                          >
-                            Press
-                          </a>
-                          <a
-                            className={cn(
-                              buttonVariants({
-                                variant: 'ghost',
-                              }),
-                              'justify-center text-muted-foreground'
-                            )}
-                            href="#"
-                          >
-                            Contact
-                          </a>
-                          <a
-                            className={cn(
-                              buttonVariants({
-                                variant: 'ghost',
-                              }),
-                              'justify-center text-muted-foreground'
-                            )}
-                            href="#"
-                          >
-                            Imprint
-                          </a>
-                          <a
-                            className={cn(
-                              buttonVariants({
-                                variant: 'ghost',
-                              }),
-                              'justify-center text-muted-foreground'
-                            )}
-                            href="#"
-                          >
-                            Sitemap
-                          </a>
-                        </div>
-                      </div>
+                <span
+                  className={`mb-1 block h-0.5 w-8 rounded-sm bg-stone-700 transition-all duration-300 ease-out ${
+                    isOpen
+                      ? '-mb-1 translate-y-2 rotate-45 bg-white/70'
+                      : '-translate-y-0.5'
+                  }`}
+                ></span>
+                <span
+                  className={`my-0.5 block h-0.5 w-8 self-start rounded-sm bg-stone-700 transition-all duration-300 ease-out ${
+                    isOpen ? 'opacity-0' : 'opacity-100'
+                  }`}
+                ></span>
+                <span
+                  className={`mt-1 block h-0.5 w-8 rounded-sm bg-stone-700 transition-all duration-300 ease-out ${
+                    isOpen
+                      ? '-mt-1 -translate-y-2 -rotate-45  bg-white/70'
+                      : 'translate-y-0.5'
+                  }`}
+                ></span>
+              </button>
+            </div>
+          </div>
 
-                      <div className="flex flex-col gap-3">
-                        <Button variant="outline">Log in</Button>
-                        <Button>Sign up</Button>
+          <div className="lg:hidden ">
+            <div
+              className={cn(
+                'fixed top-0 left-0 bottom-0 lg:hidden inset-y-0 h-full w-3/4 bg-white border-l z-10 flex items-center justify-center text-center shadow-lg transition-transform duration-300 ease-in-out sm:max-w-sm overflow-y-auto',
+                {
+                  'translate-x-0': isOpen,
+                  '-translate-x-full': !isOpen,
+                }
+              )}
+            >
+              <div className="w-3/4 h-3/4">
+                <div className="mb-6 mt-6 flex flex-col gap-4 items-start">
+                  <a href="#" className="font-semibold">
+                    Home
+                  </a>
+                  <Accordion
+                    type="single"
+                    value={value}
+                    onValueChange={setValue}
+                    collapsible
+                    className="w-full group"
+                  >
+                    <AccordionItem value="products" className={`border-b-0`}>
+                      <AccordionTrigger
+                        className={`mb-4 py-0 font-semibold hover:no-underline`}
+                      >
+                        Products
+                      </AccordionTrigger>
+                      <AccordionContent className="mt-2">
+                        {subMenuItemsOne.map((item, idx) => (
+                          <a
+                            key={idx}
+                            className={cn(
+                              'flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
+                            )}
+                            href="#"
+                          >
+                            {item.icon}
+                            <div className="text-left">
+                              <div className="text-sm font-semibold">
+                                {item.title}
+                              </div>
+                              <p className="text-sm leading-snug text-muted-foreground">
+                                {item.description}
+                              </p>
+                            </div>
+                          </a>
+                        ))}
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="resources" className="border-b-0">
+                      <AccordionTrigger className="py-0 font-semibold hover:no-underline">
+                        Resources
+                      </AccordionTrigger>
+                      <AccordionContent className="mt-2">
+                        {subMenuItemsTwo.map((item, idx) => (
+                          <a
+                            key={idx}
+                            className={cn(
+                              'flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
+                            )}
+                            href="#"
+                          >
+                            {item.icon}
+                            <div className="text-left">
+                              <div className="text-sm font-semibold">
+                                {item.title}
+                              </div>
+                              <p className="text-sm leading-snug text-muted-foreground">
+                                {item.description}
+                              </p>
+                            </div>
+                          </a>
+                        ))}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                  <a href="#" className="font-semibold">
+                    Pricing
+                  </a>
+                  <a href="#" className="font-semibold">
+                    Blog
+                  </a>
+                  <div className="w-full">
+                    <div className="border-t py-4">
+                      <div className="grid grid-cols-2 justify-start">
+                        <a
+                          className={cn(
+                            buttonVariants({
+                              variant: 'ghost',
+                            }),
+                            'justify-center text-muted-foreground'
+                          )}
+                          href="#"
+                        >
+                          Press
+                        </a>
+                        <a
+                          className={cn(
+                            buttonVariants({
+                              variant: 'ghost',
+                            }),
+                            'justify-center text-muted-foreground'
+                          )}
+                          href="#"
+                        >
+                          Contact
+                        </a>
+                        <a
+                          className={cn(
+                            buttonVariants({
+                              variant: 'ghost',
+                            }),
+                            'justify-center text-muted-foreground'
+                          )}
+                          href="#"
+                        >
+                          Imprint
+                        </a>
+                        <a
+                          className={cn(
+                            buttonVariants({
+                              variant: 'ghost',
+                            }),
+                            'justify-center text-muted-foreground'
+                          )}
+                          href="#"
+                        >
+                          Sitemap
+                        </a>
                       </div>
+                    </div>
+
+                    <div className="flex flex-col gap-3">
+                      <Button variant="outline">Log in</Button>
+                      <Button>Sign up</Button>
                     </div>
                   </div>
                 </div>
               </div>
-              <div
-                className={`fixed inset-0 z-[5] bg-black/80 transition-opacity duration-300 ease-in-out ${
-                  isOpen
-                    ? 'opacity-100 pointer-events-auto'
-                    : 'opacity-0 pointer-events-none'
-                }`}
-                onClick={handleNav}
-              />
             </div>
+            <div
+              className={`fixed inset-0 z-[5] bg-black/80 transition-opacity duration-300 ease-in-out ${
+                isOpen
+                  ? 'opacity-100 pointer-events-auto'
+                  : 'opacity-0 pointer-events-none'
+              }`}
+              onClick={handleNav}
+            />
           </div>
         </div>
       </div>
