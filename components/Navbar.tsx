@@ -26,6 +26,7 @@ const subMenuItemsOne = [
     title: 'Blog',
     description: 'The latest industry news, updates, and info',
     icon: <Book className="size-5 shrink-0" />,
+    link: '/blog',
   },
   {
     title: 'Compnay',
@@ -70,9 +71,9 @@ const subMenuItemsTwo = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(''); //Accordion state for closing when menu is closed
 
-  function handleNav() {
+  function handleMobileNav() {
     setIsOpen(!isOpen);
     if (isOpen) {
       setValue('');
@@ -124,7 +125,8 @@ const Navbar = () => {
                               className={cn(
                                 'flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
                               )}
-                              href="#"
+                              href={item.link}
+                              //   onClick={handleDesktopNav}
                             >
                               {item.icon}
                               <div>
@@ -219,7 +221,7 @@ const Navbar = () => {
                 aria-expanded={isOpen}
                 aria-controls="mobile-navigation"
                 aria-label={isOpen ? 'Close menu' : 'Open menu'}
-                onClick={handleNav}
+                onClick={handleMobileNav}
                 className={`absolute top-2 right-4 z-20 flex flex-col items-center justify-center transition-all duration-500 ease-out ${
                   isOpen && '-rotate-180'
                 }`}
@@ -258,8 +260,8 @@ const Navbar = () => {
               )}
             >
               <div className="w-3/4 h-3/4">
-                <div className="mb-6 mt-6 flex flex-col gap-4 items-start">
-                  <a href="#" className="font-semibold">
+                <div className="mb-6 mt-6 flex flex-col gap-4 items-start text-coolGray-dark5">
+                  <a href="#" className="font-semibold ">
                     Home
                   </a>
                   <Accordion
@@ -282,7 +284,7 @@ const Navbar = () => {
                             className={cn(
                               'flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
                             )}
-                            href="#"
+                            href={item.link}
                           >
                             {item.icon}
                             <div className="text-left">
@@ -394,7 +396,7 @@ const Navbar = () => {
                   ? 'opacity-100 pointer-events-auto'
                   : 'opacity-0 pointer-events-none'
               }`}
-              onClick={handleNav}
+              onClick={handleMobileNav}
             />
           </div>
         </div>
