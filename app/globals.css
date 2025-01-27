@@ -174,3 +174,20 @@ h6 {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* =================
+   Banner above Navbar
+   =================*/
+.animate-to-full-width {
+  animation: to-full-width 1.5s ease-in-out;
+}
+
+/*! CSS Used keyframes */
+@keyframes to-full-width {
+  0% {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

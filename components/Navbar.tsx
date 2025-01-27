@@ -86,7 +86,7 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <section className="py-4 bg-white">
+    <section className="py-6 bg-white">
       <div className="container mx-auto px-4">
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
@@ -226,7 +226,7 @@ const Navbar = () => {
               >
                 <Hamburger
                   color={isOpen ? '#ffffff90' : '#1f2933'}
-                  size={30}
+                  size={28}
                   toggled={isOpen}
                   toggle={setIsOpen}
                 />
