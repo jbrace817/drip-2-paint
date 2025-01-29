@@ -177,6 +177,7 @@ const Service = () => {
                 setApi={setApi}
                 className="w-full rounded-lg overflow-hidden"
                 plugins={[Fade()]}
+                opts={{ loop: true }}
               >
                 <CarouselContent>
                   {features.map((feature) => (
@@ -195,42 +196,43 @@ const Service = () => {
                   ))}
                 </CarouselContent>
               </Carousel>
-              <div className=" flex shrink-0 items-center mt-6 md:mt-0 justify-end gap-2 md:row-start-2">
-                <Button
-                  size="icon"
-                  variant="outline"
-                  onClick={() => {
-                    api?.scrollPrev();
-                  }}
-                  disabled={!canScrollPrev}
-                  className="disabled:pointer-events-auto"
-                >
-                  <ArrowLeft className="size-5" />
-                </Button>
-                <Button
-                  size="icon"
-                  variant="outline"
-                  onClick={() => {
-                    api?.scrollNext();
-                  }}
-                  disabled={!canScrollNext}
-                  className="disabled:pointer-events-auto"
-                >
-                  <ArrowRight className="size-5" />
-                </Button>
-              </div>
+
               {features.map((feature) => (
                 <TabsContent key={feature.id} value={feature.id}>
                   <div className="flex flex-col justify-center min-h-full py-8 md:py-0 md:px-8 lg:px-10 ">
-                    <h3 className="mb-3 text-xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
+                    <h3 className="mb-3 text-2xl font-medium text-pretty md:mb-4 lg:text-4xl lg:mb-6">
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground text-base lg:text-lg">
+                    <p className="text-base lg:text-lg lg:max-w-xl">
                       {feature.description}
                     </p>
                   </div>
                 </TabsContent>
               ))}
+            </div>
+            <div className="hidden shrink-0 md:flex md:items-center md:mt-6 md:justify-start md:gap-2 ">
+              <Button
+                size="icon"
+                variant="outline"
+                onClick={() => {
+                  api?.scrollPrev();
+                }}
+                disabled={!canScrollPrev}
+                className="disabled:pointer-events-auto"
+              >
+                <ArrowLeft className="size-5" />
+              </Button>
+              <Button
+                size="icon"
+                variant="outline"
+                onClick={() => {
+                  api?.scrollNext();
+                }}
+                disabled={!canScrollNext}
+                className="disabled:pointer-events-auto"
+              >
+                <ArrowRight className="size-5" />
+              </Button>
             </div>
           </Tabs>
         </div>
