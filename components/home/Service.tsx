@@ -134,10 +134,10 @@ const Service = () => {
       <div className="flex flex-col gap-12 md:gap-16">
         <div className="container mx-auto px-4">
           <div className="lg:max-w-3xl">
-            <p className="text-xl/7 font-semibold text-coolGray-dark5">
+            <p className="text-xl/7 font-semibold bg-gradient-to-r from-primary-light4 to-primary-dark2 inline-block bg-clip-text text-transparent">
               What We Do
             </p>
-            <h2 className="mb-5 text-pretty text-3xl font-bold lg:text-5xl bg-gradient-to-r from-primary-light4 to-primary-dark2 inline-block bg-clip-text text-transparent">
+            <h2 className="mb-5 text-pretty text-3xl font-medium lg:text-5xl text-coolGray-dark5">
               Our Services
             </h2>
             <a

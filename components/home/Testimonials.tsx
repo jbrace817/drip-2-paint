@@ -104,10 +104,10 @@ const Testimonials = () => {
       <div className="container px-4 mx-auto flex flex-col lg:col-span-2 lg:mt-20 lg:grid lg:grid-cols-[1fr_2fr] md:gap-6 lg:gap-8 ">
         <div className="mb-8 flex items-end justify-between lg:flex-col lg:items-start lg:justify-between">
           <div>
-            <p className="text-xl/7 font-semibold text-coolGray-dark5">
+            <p className="text-xl/7 font-semibold bg-gradient-to-r from-primary-light4 to-primary-dark2 inline-block bg-clip-text text-transparent">
               Local Voices
             </p>
-            <h2 className="mb-5 text-pretty text-3xl font-bold lg:text-4xl xl:text-5xl bg-gradient-to-r from-primary-light4 to-primary-dark2 inline-block bg-clip-text text-transparent">
+            <h2 className="text-pretty text-3xl font-medium lg:text-5xl text-coolGray-dark5t">
               Shared Experiences
             </h2>
           </div>
