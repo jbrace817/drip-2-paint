@@ -20,6 +20,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
+import Image from 'next/image';
 
 const subMenuItemsOne = [
   {
@@ -86,118 +87,120 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <section className="py-6 bg-white">
+    <section className="py-6 bg-white sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
-              <img
-                src="https://shadcnblocks.com/images/block/block-1.svg"
+              <Image
+                src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1738206290/GradientDrip_wdbdky.svg"
                 className="w-8"
                 alt="logo"
+                width={32}
+                height={32}
               />
-              <span className="text-lg font-semibold">Shadcnblocks.com</span>
+              {/* <span className="text-lg font-semibold">Shadcnblocks.com</span> */}
             </div>
-            <div className="flex items-center">
-              <a
-                className={cn(
-                  'text-muted-foreground',
-                  navigationMenuTriggerStyle,
-                  buttonVariants({
-                    variant: 'ghost',
-                  })
-                )}
-                href="#"
-              >
-                Home
-              </a>
-              <NavigationMenu>
-                <NavigationMenuList>
-                  <NavigationMenuItem className="text-muted-foreground">
-                    <NavigationMenuTrigger>
-                      <span>Products</span>
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul className="w-80 p-3">
-                        {subMenuItemsOne.map((item, idx) => (
-                          <li key={idx}>
-                            <a
-                              className={cn(
-                                'flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
-                              )}
-                              href={item.link}
-                              //   onClick={handleDesktopNav}
-                            >
-                              {item.icon}
-                              <div>
-                                <div className="text-sm font-semibold">
-                                  {item.title}
-                                </div>
-                                <p className="text-sm leading-snug text-muted-foreground">
-                                  {item.description}
-                                </p>
+          </div>
+          <div className="flex items-center">
+            <a
+              className={cn(
+                'text-muted-foreground',
+                navigationMenuTriggerStyle,
+                buttonVariants({
+                  variant: 'ghost',
+                })
+              )}
+              href="#"
+            >
+              Home
+            </a>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem className="text-muted-foreground">
+                  <NavigationMenuTrigger>
+                    <span>Products</span>
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="w-80 p-3">
+                      {subMenuItemsOne.map((item, idx) => (
+                        <li key={idx}>
+                          <a
+                            className={cn(
+                              'flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
+                            )}
+                            href={item.link}
+                            //   onClick={handleDesktopNav}
+                          >
+                            {item.icon}
+                            <div>
+                              <div className="text-sm font-semibold">
+                                {item.title}
                               </div>
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem className="text-muted-foreground">
-                    <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul className="w-80 p-3">
-                        {subMenuItemsTwo.map((item, idx) => (
-                          <li key={idx}>
-                            <a
-                              className={cn(
-                                'flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
-                              )}
-                              href="#"
-                            >
-                              {item.icon}
-                              <div>
-                                <div className="text-sm font-semibold">
-                                  {item.title}
-                                </div>
-                                <p className="text-sm leading-snug text-muted-foreground">
-                                  {item.description}
-                                </p>
+                              <p className="text-sm leading-snug text-muted-foreground">
+                                {item.description}
+                              </p>
+                            </div>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem className="text-muted-foreground">
+                  <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="w-80 p-3">
+                      {subMenuItemsTwo.map((item, idx) => (
+                        <li key={idx}>
+                          <a
+                            className={cn(
+                              'flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
+                            )}
+                            href="#"
+                          >
+                            {item.icon}
+                            <div>
+                              <div className="text-sm font-semibold">
+                                {item.title}
                               </div>
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
+                              <p className="text-sm leading-snug text-muted-foreground">
+                                {item.description}
+                              </p>
+                            </div>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
 
-              <a
-                className={cn(
-                  'text-muted-foreground',
-                  navigationMenuTriggerStyle,
-                  buttonVariants({
-                    variant: 'ghost',
-                  })
-                )}
-                href="#"
-              >
-                Pricing
-              </a>
-              <a
-                className={cn(
-                  'text-muted-foreground',
-                  navigationMenuTriggerStyle,
-                  buttonVariants({
-                    variant: 'ghost',
-                  })
-                )}
-                href="#"
-              >
-                Blog
-              </a>
-            </div>
+            <a
+              className={cn(
+                'text-muted-foreground',
+                navigationMenuTriggerStyle,
+                buttonVariants({
+                  variant: 'ghost',
+                })
+              )}
+              href="#"
+            >
+              Pricing
+            </a>
+            <a
+              className={cn(
+                'text-muted-foreground',
+                navigationMenuTriggerStyle,
+                buttonVariants({
+                  variant: 'ghost',
+                })
+              )}
+              href="#"
+            >
+              Blog
+            </a>
           </div>
           <div className="flex gap-2">
             <Button variant="outline" size="sm">
@@ -209,12 +212,14 @@ const Navbar = () => {
         <div className="block lg:hidden">
           <div className="flex items-center justify-between relative">
             <div className="flex items-center gap-2">
-              <img
-                src="https://shadcnblocks.com/images/block/block-1.svg"
-                className="w-8"
+              <Image
+                src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1738206290/GradientDrip_wdbdky.svg"
+                className="w-6"
                 alt="logo"
+                width={32}
+                height={32}
               />
-              <span className="text-lg font-semibold">Shadcnblocks.com</span>
+              {/* <span className="text-lg font-semibold">Drip</span> */}
             </div>
             <div className="z-10 lg:hidden">
               <button
@@ -244,7 +249,22 @@ const Navbar = () => {
                 }
               )}
             >
-              <div className="w-3/4 h-3/4">
+              <div className="w-3/4 h-full flex flex-col justify-start py-6">
+                <div className="flex items-center gap-2 mb-16 ">
+                  <Image
+                    src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1738206290/GradientDrip_wdbdky.svg"
+                    className="w-6"
+                    alt="logo"
+                    width={32}
+                    height={32}
+                  />
+                  <div className="flex flex-col font-headings">
+                    <span className="text-2xl font-semibold">DRIP</span>
+                    <span className="text-xs font-semibold -mt-2 ">
+                      Paint Co.
+                    </span>
+                  </div>
+                </div>
                 <div className="mb-6 mt-6 flex flex-col gap-4 items-start text-coolGray-dark5">
                   <a href="#" className="font-semibold ">
                     Home
