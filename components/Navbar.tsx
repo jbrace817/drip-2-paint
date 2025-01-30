@@ -1,7 +1,7 @@
 'use client';
 import { Book, Sunset, Trees, Zap } from 'lucide-react';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { cn } from '@/lib/utils';
 import { Squash as Hamburger } from 'hamburger-react';
@@ -71,7 +71,10 @@ const subMenuItemsTwo = [
 ];
 
 const Navbar = () => {
+  //Navbar
   const [isOpen, setIsOpen] = useState(false);
+
+  //Accordion
   const [value, setValue] = useState(''); //Accordion state for closing when menu is closed
 
   function handleMobileNav() {
@@ -81,13 +84,8 @@ const Navbar = () => {
     }
   }
 
-  useEffect(() => {
-    // Disables scroll when mobile menu is open
-    document.body.style.overflow = `${isOpen ? 'hidden' : 'visible'}`;
-  }, [isOpen]);
-
   return (
-    <section className="py-6 bg-white sticky top-0 z-50">
+    <section className={`py-6 bg-white top-0 z-50`}>
       <div className="container mx-auto px-4">
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
@@ -108,7 +106,7 @@ const Navbar = () => {
                 'text-muted-foreground',
                 navigationMenuTriggerStyle,
                 buttonVariants({
-                  variant: 'ghost',
+                  variant: null,
                 })
               )}
               href="#"
@@ -118,7 +116,7 @@ const Navbar = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem className="text-muted-foreground">
-                  <NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="bg-transparent">
                     <span>Products</span>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -148,7 +146,9 @@ const Navbar = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem className="text-muted-foreground">
-                  <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="bg-transparent hover:text-primary">
+                    Resources
+                  </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="w-80 p-3">
                       {subMenuItemsTwo.map((item, idx) => (
@@ -182,7 +182,7 @@ const Navbar = () => {
                 'text-muted-foreground',
                 navigationMenuTriggerStyle,
                 buttonVariants({
-                  variant: 'ghost',
+                  variant: null,
                 })
               )}
               href="#"
@@ -194,7 +194,7 @@ const Navbar = () => {
                 'text-muted-foreground',
                 navigationMenuTriggerStyle,
                 buttonVariants({
-                  variant: 'ghost',
+                  variant: null,
                 })
               )}
               href="#"
@@ -239,10 +239,10 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="lg:hidden ">
+          <div className="lg:hidden">
             <div
               className={cn(
-                'fixed top-0 left-0 bottom-0 lg:hidden inset-y-0 h-full w-3/4 bg-white border-l z-10 flex items-center justify-center text-center shadow-lg transition-transform duration-300 ease-in-out sm:max-w-sm overflow-y-auto',
+                'fixed top-0 left-0 bottom-0 lg:hidden inset-y-0 h-full w-3/4 bg-white border-l z-[1000] flex items-center justify-center text-center shadow-lg transition-transform duration-300 ease-in-out sm:max-w-sm overflow-y-auto',
                 {
                   'translate-x-0': isOpen,
                   '-translate-x-full': !isOpen,
@@ -396,7 +396,7 @@ const Navbar = () => {
               </div>
             </div>
             <div
-              className={`fixed inset-0 z-[5] bg-black/80 transition-opacity duration-300 ease-in-out ${
+              className={`fixed inset-0 z-[99] bg-black/80 transition-opacity duration-300 ease-in-out ${
                 isOpen
                   ? 'opacity-100 pointer-events-auto'
                   : 'opacity-0 pointer-events-none'
