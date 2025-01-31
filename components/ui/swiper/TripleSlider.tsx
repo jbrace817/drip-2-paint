@@ -50,6 +50,7 @@ const TripleSlider = ({ slides }: SwiperCarouselProps) => {
               width={1920}
               height={1080}
               className="rounded-lg object-cover"
+              loading="eager"
             />
           </SwiperSlide>
         ))}
