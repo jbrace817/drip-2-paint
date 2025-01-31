@@ -32,10 +32,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${openSans.variable} ${lato.variable} antialiased`}>
-        <div
-          className="w-full bg-primary absolute left-0 h-1 origin-left animate-to-full-width transition-[width]"
-          id="announcement"
-        ></div>
         <Navbar />
         {children}
         <Footer />

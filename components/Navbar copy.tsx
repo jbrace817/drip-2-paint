@@ -1,7 +1,10 @@
 'use client';
-import { Book, Menu, Sunset, Trees, X, Zap } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Book, Sunset, Trees, Zap } from 'lucide-react';
 
+import { useState, useEffect } from 'react';
+
+import { cn } from '@/lib/utils';
+import { Squash as Hamburger } from 'hamburger-react';
 import {
   Accordion,
   AccordionContent,
@@ -13,20 +16,10 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet';
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 const subMenuItemsOne = [
@@ -34,6 +27,7 @@ const subMenuItemsOne = [
     title: 'Blog',
     description: 'The latest industry news, updates, and info',
     icon: <Book className="size-5 shrink-0" />,
+    link: '/blog',
   },
   {
     title: 'Compnay',
@@ -76,43 +70,35 @@ const subMenuItemsTwo = [
   },
 ];
 
-const Navbar1 = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [isTop, setIsTop] = useState(true); // Track if at the top of the screen
-  const [prevScroll, setPrevScroll] = useState(0);
-
+const Navbar = () => {
   //Navbar
   const [isOpen, setIsOpen] = useState(false);
 
+  //Accordion
+  const [value, setValue] = useState(''); //Accordion state for closing when menu is closed
+
   useEffect(() => {
-    const SCROLL_THRESHOLD = 10; // Adjust based on sensitivity
+    // Manage overflow based on mobile menu open state
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'; // Disable scroll when mobile menu is open
+    } else {
+      document.body.style.overflow = 'visible'; // Enable scroll when mobile menu is closed
+    }
+  }, [isOpen]);
 
-    const handleScroll = () => {
-      const currentScroll = Math.max(0, Math.round(window.scrollY));
+  function handleMobileNav() {
+    setIsOpen(!isOpen);
+    if (isOpen) {
+      setValue('');
+    }
+  }
 
-      // Check if at the top of the screen
-      setIsTop(currentScroll === 0);
-
-      // Toggle visibility only if the scroll difference exceeds the threshold
-      if (Math.abs(currentScroll - prevScroll) > SCROLL_THRESHOLD) {
-        setIsVisible(currentScroll < prevScroll || currentScroll === 0);
-        setPrevScroll(currentScroll);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [prevScroll]);
   return (
     <section
-      className={`py-6 sticky top-0 z-20  w-full transition duration-300 ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      } ${isTop ? 'bg-white' : 'bg-white/60 backdrop-blur-md'}`}
+      className={`py-6 sticky bg-white top-0 z-50 ${
+        isOpen ? 'bg-white' : 'bg-white/60 backdrop-blur-md'
+      }`}
     >
-      <div
-        className="absolute w-full bg-primary  top-0 z-[100] left-0 h-1 origin-left animate-to-full-width transition-[width]"
-        id="announcement"
-      ></div>
       <div className="container mx-auto px-4">
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
@@ -124,20 +110,27 @@ const Navbar1 = () => {
                 width={32}
                 height={32}
               />
+              {/* <span className="text-lg font-semibold">Shadcnblocks.com</span> */}
             </div>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center">
             <a
-              className="text-lg text-coolGray-dark4 font-medium font-headings"
+              className={cn(
+                'text-muted-foreground',
+                navigationMenuTriggerStyle,
+                buttonVariants({
+                  variant: null,
+                })
+              )}
               href="#"
             >
               Home
             </a>
             <NavigationMenu>
               <NavigationMenuList>
-                <NavigationMenuItem className="text-coolGray-dark4">
-                  <NavigationMenuTrigger className="text-lg font-medium font-headings bg-transparent">
-                    Products
+                <NavigationMenuItem className="text-muted-foreground">
+                  <NavigationMenuTrigger className="bg-transparent">
+                    <span>Products</span>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="w-80 p-3">
@@ -147,7 +140,8 @@ const Navbar1 = () => {
                             className={cn(
                               'flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
                             )}
-                            href="#"
+                            href={item.link}
+                            //   onClick={handleDesktopNav}
                           >
                             {item.icon}
                             <div>
@@ -164,8 +158,8 @@ const Navbar1 = () => {
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
-                <NavigationMenuItem className="text-coolGray-dark4">
-                  <NavigationMenuTrigger className="text-lg font-medium font-headings bg-transparent">
+                <NavigationMenuItem className="text-muted-foreground">
+                  <NavigationMenuTrigger className="bg-transparent hover:text-primary">
                     Resources
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -197,19 +191,30 @@ const Navbar1 = () => {
             </NavigationMenu>
 
             <a
-              className="text-lg text-coolGray-dark4 font-medium font-headings"
+              className={cn(
+                'text-muted-foreground',
+                navigationMenuTriggerStyle,
+                buttonVariants({
+                  variant: null,
+                })
+              )}
               href="#"
             >
               Pricing
             </a>
             <a
-              className="text-lg text-coolGray-dark4 font-medium font-headings"
+              className={cn(
+                'text-muted-foreground',
+                navigationMenuTriggerStyle,
+                buttonVariants({
+                  variant: null,
+                })
+              )}
               href="#"
             >
               Blog
             </a>
           </div>
-
           <div className="flex gap-2">
             <Button variant="outline" size="sm">
               Log in
@@ -218,7 +223,7 @@ const Navbar1 = () => {
           </div>
         </nav>
         <div className="block lg:hidden">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between relative">
             <div className="flex items-center gap-2">
               <Image
                 src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1738206290/GradientDrip_wdbdky.svg"
@@ -227,43 +232,67 @@ const Navbar1 = () => {
                 width={32}
                 height={32}
               />
+              {/* <span className="text-lg font-semibold">Drip</span> */}
             </div>
-            <Sheet>
-              <SheetTrigger asChild>
-                <Menu size={32} className="text-coolGray-dark5" />
-              </SheetTrigger>
-              <SheetContent className="overflow-y-auto" side={'right'}>
-                <SheetHeader>
-                  <SheetTitle>
-                    <div className="flex items-center  justify-between">
-                      <div className="flex items-center gap-2">
-                        <Image
-                          src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1738206290/GradientDrip_wdbdky.svg"
-                          className="w-6"
-                          alt="logo"
-                          width={32}
-                          height={32}
-                        />
-                        <div className="flex flex-col font-headings">
-                          <span className="text-2xl font-semibold">DRIP</span>
-                          <span className="text-xs font-semibold -mt-2 ">
-                            Paint Co.
-                          </span>
-                        </div>
-                      </div>
-                      <SheetClose>
-                        <X size={28} className="text-coolGray-dark5" />
-                      </SheetClose>
-                    </div>
-                  </SheetTitle>
-                </SheetHeader>
-                <div className="mb-6 mt-24 flex flex-col gap-4">
-                  <a href="#" className="font-semibold">
+            <div className="z-[100] lg:hidden">
+              <button
+                aria-expanded={isOpen}
+                aria-controls="mobile-navigation"
+                aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                onClick={handleMobileNav}
+                className={`absolute -bottom-2 right-0 z-20 flex flex-col items-center justify-center `}
+              >
+                <Hamburger
+                  color={isOpen ? '#ffffff90' : '#1f2933'}
+                  size={28}
+                  toggled={isOpen}
+                  toggle={setIsOpen}
+                />
+              </button>
+            </div>
+          </div>
+
+          <div className="lg:hidden">
+            <div
+              className={cn(
+                ' fixed top-0 left-0 bottom-0 lg:hidden inset-y-0 h-full w-3/4 bg-white border-l z-[1000] flex items-center justify-center text-center shadow-lg transition-transform duration-300 ease-in-out sm:max-w-sm overflow-y-auto',
+                {
+                  'translate-x-0': isOpen,
+                  '-translate-x-full ': !isOpen,
+                }
+              )}
+            >
+              <div className="w-3/4 h-full flex flex-col justify-start py-6">
+                <div className="flex items-center gap-2 mb-16 ">
+                  <Image
+                    src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1738206290/GradientDrip_wdbdky.svg"
+                    className="w-6"
+                    alt="logo"
+                    width={32}
+                    height={32}
+                  />
+                  <div className="flex flex-col font-headings">
+                    <span className="text-2xl font-semibold">DRIP</span>
+                    <span className="text-xs font-semibold -mt-2 ">
+                      Paint Co.
+                    </span>
+                  </div>
+                </div>
+                <div className="mb-6 mt-6 flex flex-col gap-4 items-start text-coolGray-dark5">
+                  <a href="#" className="font-semibold ">
                     Home
                   </a>
-                  <Accordion type="single" collapsible className="w-full">
-                    <AccordionItem value="products" className="border-b-0">
-                      <AccordionTrigger className="mb-4 py-0 font-semibold hover:no-underline">
+                  <Accordion
+                    type="single"
+                    value={value}
+                    onValueChange={setValue}
+                    collapsible
+                    className="w-full group"
+                  >
+                    <AccordionItem value="products" className={`border-b-0`}>
+                      <AccordionTrigger
+                        className={`mb-4 py-0 font-semibold hover:no-underline`}
+                      >
                         Products
                       </AccordionTrigger>
                       <AccordionContent className="mt-2">
@@ -273,10 +302,10 @@ const Navbar1 = () => {
                             className={cn(
                               'flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
                             )}
-                            href="#"
+                            href={item.link}
                           >
                             {item.icon}
-                            <div>
+                            <div className="text-left">
                               <div className="text-sm font-semibold">
                                 {item.title}
                               </div>
@@ -302,7 +331,7 @@ const Navbar1 = () => {
                             href="#"
                           >
                             {item.icon}
-                            <div>
+                            <div className="text-left">
                               <div className="text-sm font-semibold">
                                 {item.title}
                               </div>
@@ -321,74 +350,77 @@ const Navbar1 = () => {
                   <a href="#" className="font-semibold">
                     Blog
                   </a>
-                </div>
-                <div className="border-t py-4">
-                  <div className="grid grid-cols-2 justify-start">
-                    <a
-                      className={cn(
-                        buttonVariants({
-                          variant: 'ghost',
-                        }),
-                        'justify-start text-muted-foreground'
-                      )}
-                      href="#"
-                    >
-                      Press
-                    </a>
-                    <a
-                      className={cn(
-                        buttonVariants({
-                          variant: 'ghost',
-                        }),
-                        'justify-start text-muted-foreground'
-                      )}
-                      href="#"
-                    >
-                      Contact
-                    </a>
-                    <a
-                      className={cn(
-                        buttonVariants({
-                          variant: 'ghost',
-                        }),
-                        'justify-start text-muted-foreground'
-                      )}
-                      href="#"
-                    >
-                      Imprint
-                    </a>
-                    <a
-                      className={cn(
-                        buttonVariants({
-                          variant: 'ghost',
-                        }),
-                        'justify-start text-muted-foreground'
-                      )}
-                      href="#"
-                    >
-                      Sitemap
-                    </a>
+                  <div className="w-full">
+                    <div className="border-t py-4">
+                      <div className="grid grid-cols-2 justify-start">
+                        <a
+                          className={cn(
+                            buttonVariants({
+                              variant: 'ghost',
+                            }),
+                            'justify-center text-muted-foreground'
+                          )}
+                          href="#"
+                        >
+                          Press
+                        </a>
+                        <a
+                          className={cn(
+                            buttonVariants({
+                              variant: 'ghost',
+                            }),
+                            'justify-center text-muted-foreground'
+                          )}
+                          href="#"
+                        >
+                          Contact
+                        </a>
+                        <a
+                          className={cn(
+                            buttonVariants({
+                              variant: 'ghost',
+                            }),
+                            'justify-center text-muted-foreground'
+                          )}
+                          href="#"
+                        >
+                          Imprint
+                        </a>
+                        <a
+                          className={cn(
+                            buttonVariants({
+                              variant: 'ghost',
+                            }),
+                            'justify-center text-muted-foreground'
+                          )}
+                          href="#"
+                        >
+                          Sitemap
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-3 mb-8">
+                      <Button variant="outline">Log in</Button>
+                      <Button>Sign up</Button>
+                    </div>
                   </div>
                 </div>
-                <div className="flex flex-col gap-3">
-                  <Button variant="outline">Log in</Button>
-                  <Button>Sign up</Button>
-                </div>
-              </SheetContent>
-            </Sheet>
+              </div>
+            </div>
+            <div
+              className={`fixed inset-0 z-[99] bg-black/80 transition-opacity duration-300 ease-in-out ${
+                isOpen
+                  ? 'opacity-100 pointer-events-auto'
+                  : 'opacity-0 pointer-events-none'
+              }`}
+              onClick={handleMobileNav}
+            />
           </div>
         </div>
       </div>
-      {/* <Button
-        variant="outline"
-        size="icon"
-        className="absolute right-4 z-[9999]"
-        onClick={() => setIsOpen(true)}
-      >
-        <Menu className="size-4" />
-      </Button> */}
     </section>
   );
 };
 
-export default Navbar1;
+export default Navbar;
