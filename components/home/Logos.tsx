@@ -1,70 +1,68 @@
-// This template requires the Embla Auto Scroll plugin to be installed:
-//
-// npm install embla-carousel-auto-scroll
+"use client";
 
-'use client';
-
-import AutoScroll from 'embla-carousel-auto-scroll';
+import AutoScroll from "embla-carousel-auto-scroll";
 
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from '@/components/ui/carousel';
+} from "@/components/ui/carousel";
 
 const logos = [
   {
-    id: 'logo-1',
-    description: 'Logo 1',
-    image: 'https://shadcnblocks.com/images/block/logos/astro.svg',
+    id: "logo-1",
+    description: "Logo 1",
+    image:
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/v1738384495/valspar_ib5lyh.svg",
   },
   {
-    id: 'logo-2',
-    description: 'Logo 2',
-    image: 'https://shadcnblocks.com/images/block/logos/figma.svg',
+    id: "logo-2",
+    description: "Logo 2",
+    image:
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/v1738384410/benjamin-moore-paints-1_lybhn3.svg",
   },
   {
-    id: 'logo-3',
-    description: 'Logo 3',
-    image: 'https://shadcnblocks.com/images/block/logos/nextjs.svg',
+    id: "logo-3",
+    description: "Logo 3",
+    image:
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/v1738384411/DutchBoy_Logo_Fillable_wu2t2b.svg",
   },
   {
-    id: 'logo-4',
-    description: 'Logo 4',
-    image: 'https://shadcnblocks.com/images/block/logos/react.png',
+    id: "logo-4",
+    description: "Logo 4",
+    image:
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/v1738384410/behr_rpzmi2.svg",
   },
   {
-    id: 'logo-5',
-    description: 'Logo 5',
-    image: 'https://shadcnblocks.com/images/block/logos/shadcn-ui.svg',
+    id: "logo-5",
+    description: "Logo 5",
+    image:
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/v1738384409/sherwin-williams-2_tyk3ha.svg",
   },
   {
-    id: 'logo-6',
-    description: 'Logo 6',
-    image: 'https://shadcnblocks.com/images/block/logos/supabase.svg',
+    id: "logo-6",
+    description: "Logo 6",
+    image:
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/v1738384408/ppg-industries_pgfo0r.svg",
   },
   {
-    id: 'logo-7',
-    description: 'Logo 7',
-    image: 'https://shadcnblocks.com/images/block/logos/tailwind.svg',
-  },
-  {
-    id: 'logo-8',
-    description: 'Logo 8',
-    image: 'https://shadcnblocks.com/images/block/logos/vercel.svg',
+    id: "logo-7",
+    description: "Logo 7",
+    image:
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/v1738384407/kilz-logo_abq76d.svg",
   },
 ];
 
 const Logos = () => {
   return (
-    <section className="pt-5 pb-36 bg-white">
+    <section className="bg-white pb-36 pt-5">
       <div className="container mx-auto flex flex-col items-center text-center">
-        <h1 className="my-6 text-pretty text-2xl font-bold lg:text-4xl">
+        <h1 className="my-4 text-pretty text-2xl font-bold lg:text-4xl">
           Our Partnered Brands
         </h1>
       </div>
       <div className="pt-10 md:pt-16 lg:pt-20">
-        <div className="relative mx-auto flex items-center justify-center container overflow-hidden">
+        <div className="container pointer-events-none relative mx-auto flex items-center justify-center overflow-hidden">
           <Carousel
             opts={{ loop: true }}
             plugins={[
@@ -86,7 +84,7 @@ const Logos = () => {
                       <img
                         src={logo.image}
                         alt={logo.description}
-                        className="h-7 w-auto"
+                        className="h-28 w-36"
                       />
                     </div>
                   </div>
