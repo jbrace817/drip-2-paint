@@ -1,14 +1,14 @@
-'use client';
-import { Book, Menu, Sunset, Trees, X, Zap } from 'lucide-react';
-import { cn } from '@/lib/utils';
+"use client";
+import { Book, Menu, Sunset, Trees, X, Zap } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion';
-import { Button, buttonVariants } from '@/components/ui/button';
+} from "@/components/ui/accordion";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -17,7 +17,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
+} from "@/components/ui/navigation-menu";
 import {
   Sheet,
   SheetClose,
@@ -25,58 +25,58 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/components/ui/sheet';
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
+} from "@/components/ui/sheet";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const subMenuItemsOne = [
   {
-    title: 'Blog',
-    description: 'The latest industry news, updates, and info',
+    title: "Blog",
+    description: "The latest industry news, updates, and info",
     icon: <Book className="size-5 shrink-0" />,
   },
   {
-    title: 'Compnay',
-    description: 'Our mission is to innovate and empower the world',
+    title: "Compnay",
+    description: "Our mission is to innovate and empower the world",
     icon: <Trees className="size-5 shrink-0" />,
   },
   {
-    title: 'Careers',
-    description: 'Browse job listing and discover our workspace',
+    title: "Careers",
+    description: "Browse job listing and discover our workspace",
     icon: <Sunset className="size-5 shrink-0" />,
   },
   {
-    title: 'Support',
+    title: "Support",
     description:
-      'Get in touch with our support team or visit our community forums',
+      "Get in touch with our support team or visit our community forums",
     icon: <Zap className="size-5 shrink-0" />,
   },
 ];
 
 const subMenuItemsTwo = [
   {
-    title: 'Help Center',
-    description: 'Get all the answers you need right here',
+    title: "Help Center",
+    description: "Get all the answers you need right here",
     icon: <Zap className="size-5 shrink-0" />,
   },
   {
-    title: 'Contact Us',
-    description: 'We are here to help you with any questions you have',
+    title: "Contact Us",
+    description: "We are here to help you with any questions you have",
     icon: <Sunset className="size-5 shrink-0" />,
   },
   {
-    title: 'Status',
-    description: 'Check the current status of our services and APIs',
+    title: "Status",
+    description: "Check the current status of our services and APIs",
     icon: <Trees className="size-5 shrink-0" />,
   },
   {
-    title: 'Terms of Service',
-    description: 'Our terms and conditions for using our services',
+    title: "Terms of Service",
+    description: "Our terms and conditions for using our services",
     icon: <Book className="size-5 shrink-0" />,
   },
 ];
 
-const Navbar1 = () => {
+const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isTop, setIsTop] = useState(true); // Track if at the top of the screen
   const [prevScroll, setPrevScroll] = useState(0);
@@ -100,17 +100,17 @@ const Navbar1 = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScroll]);
   return (
     <section
-      className={`py-6 sticky top-0 z-20  w-full transition duration-300 ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      } ${isTop ? 'bg-white' : 'bg-white/60 backdrop-blur-md'}`}
+      className={`sticky top-0 z-20 w-full py-6 transition duration-300 ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      } ${isTop ? "bg-white" : "bg-white/60 backdrop-blur-md"}`}
     >
       <div
-        className="absolute w-full bg-primary  top-0 z-[100] left-0 h-1 origin-left animate-to-full-width transition-[width]"
+        className="animate-to-full-width absolute left-0 top-0 z-[100] h-1 w-full origin-left bg-primary transition-[width]"
         id="announcement"
       ></div>
       <div className="container mx-auto px-4">
@@ -128,7 +128,7 @@ const Navbar1 = () => {
           </div>
           <div className="flex items-center gap-6">
             <a
-              className="text-lg text-coolGray-dark4 font-medium font-headings"
+              className="font-headings text-lg font-medium text-coolGray-dark4"
               href="#"
             >
               Home
@@ -136,7 +136,7 @@ const Navbar1 = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem className="text-coolGray-dark4">
-                  <NavigationMenuTrigger className="text-lg font-medium font-headings bg-transparent">
+                  <NavigationMenuTrigger className="bg-transparent font-headings text-lg font-medium">
                     Products
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -145,7 +145,7 @@ const Navbar1 = () => {
                         <li key={idx}>
                           <a
                             className={cn(
-                              'flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
+                              "flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
                             )}
                             href="#"
                           >
@@ -165,7 +165,7 @@ const Navbar1 = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem className="text-coolGray-dark4">
-                  <NavigationMenuTrigger className="text-lg font-medium font-headings bg-transparent">
+                  <NavigationMenuTrigger className="bg-transparent font-headings text-lg font-medium">
                     Resources
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -174,7 +174,7 @@ const Navbar1 = () => {
                         <li key={idx}>
                           <a
                             className={cn(
-                              'flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
+                              "flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
                             )}
                             href="#"
                           >
@@ -197,13 +197,13 @@ const Navbar1 = () => {
             </NavigationMenu>
 
             <a
-              className="text-lg text-coolGray-dark4 font-medium font-headings"
+              className="font-headings text-lg font-medium text-coolGray-dark4"
               href="#"
             >
               Pricing
             </a>
             <a
-              className="text-lg text-coolGray-dark4 font-medium font-headings"
+              className="font-headings text-lg font-medium text-coolGray-dark4"
               href="#"
             >
               Blog
@@ -232,10 +232,10 @@ const Navbar1 = () => {
               <SheetTrigger asChild>
                 <Menu size={32} className="text-coolGray-dark5" />
               </SheetTrigger>
-              <SheetContent className="overflow-y-auto" side={'right'}>
+              <SheetContent className="overflow-y-auto" side={"right"}>
                 <SheetHeader>
                   <SheetTitle>
-                    <div className="flex items-center  justify-between">
+                    <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <Image
                           src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1738206290/GradientDrip_wdbdky.svg"
@@ -246,7 +246,7 @@ const Navbar1 = () => {
                         />
                         <div className="flex flex-col font-headings">
                           <span className="text-2xl font-semibold">DRIP</span>
-                          <span className="text-xs font-semibold -mt-2 ">
+                          <span className="-mt-2 text-xs font-semibold">
                             Paint Co.
                           </span>
                         </div>
@@ -271,7 +271,7 @@ const Navbar1 = () => {
                           <a
                             key={idx}
                             className={cn(
-                              'flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
+                              "flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
                             )}
                             href="#"
                           >
@@ -297,7 +297,7 @@ const Navbar1 = () => {
                           <a
                             key={idx}
                             className={cn(
-                              'flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
+                              "flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
                             )}
                             href="#"
                           >
@@ -327,9 +327,9 @@ const Navbar1 = () => {
                     <a
                       className={cn(
                         buttonVariants({
-                          variant: 'ghost',
+                          variant: "ghost",
                         }),
-                        'justify-start text-muted-foreground'
+                        "justify-start text-muted-foreground",
                       )}
                       href="#"
                     >
@@ -338,9 +338,9 @@ const Navbar1 = () => {
                     <a
                       className={cn(
                         buttonVariants({
-                          variant: 'ghost',
+                          variant: "ghost",
                         }),
-                        'justify-start text-muted-foreground'
+                        "justify-start text-muted-foreground",
                       )}
                       href="#"
                     >
@@ -349,9 +349,9 @@ const Navbar1 = () => {
                     <a
                       className={cn(
                         buttonVariants({
-                          variant: 'ghost',
+                          variant: "ghost",
                         }),
-                        'justify-start text-muted-foreground'
+                        "justify-start text-muted-foreground",
                       )}
                       href="#"
                     >
@@ -360,9 +360,9 @@ const Navbar1 = () => {
                     <a
                       className={cn(
                         buttonVariants({
-                          variant: 'ghost',
+                          variant: "ghost",
                         }),
-                        'justify-start text-muted-foreground'
+                        "justify-start text-muted-foreground",
                       )}
                       href="#"
                     >
@@ -391,4 +391,4 @@ const Navbar1 = () => {
   );
 };
 
-export default Navbar1;
+export default Navbar;
