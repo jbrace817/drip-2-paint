@@ -1,46 +1,56 @@
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import Image from "next/image";
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const sections = [
   {
-    title: 'Sitemap',
+    title: "Sitemap",
     links: [
-      { name: 'Home', href: '#' },
-      { name: 'Services', href: '#' },
-      { name: 'Projects', href: '#' },
+      { name: "Home", href: "#" },
+      { name: "Services", href: "#" },
+      { name: "Projects", href: "#" },
     ],
   },
   {
-    title: 'Company',
+    title: "Company",
     links: [
-      { name: 'About', href: '#' },
-      { name: 'Contact Us', href: '#' },
-      { name: 'Blog', href: '#' },
+      { name: "About", href: "#" },
+      { name: "Contact Us", href: "#" },
+      { name: "Blog", href: "#" },
     ],
   },
 ];
 
-const Footer7 = () => {
+const Footer = () => {
   return (
-    <section className="pt-32 pb-10 bg-coolGray-light2">
+    <section className="bg-coolGray-light2 pb-10 pt-32">
       <div className="container mx-auto px-4">
         <footer>
           <div className="flex flex-col items-center justify-between gap-10 text-center lg:flex-row lg:text-left">
             <div className="flex w-full max-w-96 shrink flex-col items-center justify-between gap-6 lg:items-start">
-              <div>
-                <span className="flex items-center justify-center gap-4 lg:justify-start">
-                  <img
-                    src="https://shadcnblocks.com/images/block/block-1.svg"
+              <div className="mb-4 flex flex-col items-center gap-2 lg:items-start">
+                <div className="flex items-center gap-2">
+                  <Image
+                    src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1738206290/GradientDrip_wdbdky.svg"
+                    className="w-8"
                     alt="logo"
-                    className="h-11"
+                    width={32}
+                    height={32}
                   />
-                  <p className="text-3xl font-semibold">Shadcnblocks</p>
-                </span>
-                <p className="mt-6 text-sm text-muted-foreground">
-                  A collection of 100+ responsive HTML templates for your
-                  startup business or side project.
+                  <div className="flex flex-col items-start font-headings">
+                    <span className="text-left text-3xl font-semibold text-coolGray-dark5">
+                      DRIP
+                    </span>
+                    <span className="-mt-2 pl-[0.125rem] text-sm font-semibold text-coolGray-dark5">
+                      Paint Co.
+                    </span>
+                  </div>
+                </div>
+                <p className="mt-6 text-sm text-coolGray-dark3">
+                  More than paint, we deliver expert remodels and lasting
+                  craftsmanship. Your neighbors love the results—you will too.
                 </p>
               </div>
-              <ul className="flex items-center space-x-6 text-muted-foreground">
+              <ul className="flex items-center space-x-6 text-coolGray-dark3">
                 <li className="font-medium hover:text-primary">
                   <a href="#">
                     <FaInstagram className="size-6" />
@@ -67,7 +77,7 @@ const Footer7 = () => {
               {sections.map((section, sectionIdx) => (
                 <div key={sectionIdx}>
                   <h3 className="mb-6 font-bold">{section.title}</h3>
-                  <ul className="space-y-4 text-sm text-muted-foreground">
+                  <ul className="space-y-4 font-headings text-sm text-coolGray-dark3">
                     {section.links.map((link, linkIdx) => (
                       <li
                         key={linkIdx}
@@ -81,9 +91,11 @@ const Footer7 = () => {
               ))}
             </div>
           </div>
-          <div className="mt-20 flex flex-col justify-between gap-4 border-t border-coolGray-light3 pt-8 text-center text-sm font-medium text-muted-foreground lg:flex-row lg:items-center lg:text-left">
-            <p>© 2024 Shadcnblocks. All rights reserved.</p>
-            <ul className="flex justify-center gap-4 lg:justify-start">
+          <div className="mt-20 flex flex-col justify-between gap-4 border-t border-coolGray-light3 pt-8 text-center text-sm font-medium text-coolGray-dark3 lg:flex-row lg:items-center lg:text-left">
+            <p className="text-coolGray-dark3">
+              © 2025 Drip Painting Company. All rights reserved.
+            </p>
+            <ul className="flex justify-center gap-4 font-body lg:justify-start">
               <li className="hover:text-primary">
                 <a href="#"> Terms and Conditions</a>
               </li>
@@ -98,4 +110,4 @@ const Footer7 = () => {
   );
 };
 
-export default Footer7;
+export default Footer;
