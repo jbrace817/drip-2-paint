@@ -1,10 +1,11 @@
-import Hero from '@/components/home/Hero';
-import Logos from '@/components/home/Logos';
-import Service from '@/components/home/Service';
-import Testimonials from '@/components/home/Testimonials';
+import CTA from "@/components/home/CTA";
+import Hero from "@/components/home/Hero";
+import Logos from "@/components/home/Logos";
+import Service from "@/components/home/Service";
+import Testimonials from "@/components/home/Testimonials";
 
-import Why from '@/components/home/Why';
-import { TailwindIndicator } from '@/components/tailwind-indicator';
+import Why from "@/components/home/Why";
+import { TailwindIndicator } from "@/components/tailwind-indicator";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Logos />
       <Why />
       <Service />
+      <CTA />
       <Testimonials />
       <TailwindIndicator />
     </div>

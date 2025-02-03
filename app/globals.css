@@ -99,10 +99,8 @@ body {
 }
 
 body {
-  background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
+  /* font-family: Helvetica Neue, Helvetica, Arial, sans-serif; */
+  @apply font-body;
   margin: 0;
   padding: 0;
 }
@@ -140,7 +138,8 @@ body {
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #f0703e !important ;
+  /* background-color: #f0703e !important ; */
+  @apply bg-coolGray-light2 !important;
 }
 
 p {
