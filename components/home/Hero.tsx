@@ -1,10 +1,9 @@
 import { Button } from "@/components/ui/button";
 
 import TypeWriter from "../common/TypeWriter";
-
 import { ArrowRight } from "lucide-react";
-import TripleSlider from "../ui/swiper/TripleSlider";
 import SwiperComponent from "../ui/swiper/SwiperComponent";
+import Link from "next/link";
 
 const slides = [
   {
@@ -44,9 +43,14 @@ const Hero = () => {
             consultation&nbsp;today!
           </p>
           <div>
-            <Button className="font-heading group bg-gradient-to-r from-primary-light4 to-primary-dark2 font-semibold text-primary-foreground">
-              SCHEDULE NOW
-              <ArrowRight className="ml-1 size-4 transition-transform group-hover:translate-x-1" />
+            <Button className="font-heading group bg-primary-light5 font-semibold transition-all duration-150 hover:-translate-y-[0.15rem]">
+              <Link
+                href="/contact"
+                className="flex items-center whitespace-nowrap"
+              >
+                SCHEDULE NOW
+                <ArrowRight className="ml-1 size-4 transition-transform group-hover:translate-x-1" />
+              </Link>
             </Button>
           </div>
         </div>
