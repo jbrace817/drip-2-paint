@@ -13,10 +13,8 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import {
   Sheet,
@@ -80,9 +78,6 @@ const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isTop, setIsTop] = useState(true); // Track if at the top of the screen
   const [prevScroll, setPrevScroll] = useState(0);
-
-  //Navbar
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const SCROLL_THRESHOLD = 10; // Adjust based on sensitivity
