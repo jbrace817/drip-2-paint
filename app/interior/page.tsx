@@ -1,18 +1,12 @@
 "use client";
-
-import {
-  AlignLeft,
-  GalleryVerticalEnd,
-  Lightbulb,
-  ListChecks,
-  RefreshCcw,
-} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-
+import { AlignLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
+
+//Tailwind Indicator for screensizes - can be removed in the future
+import { TailwindIndicator } from "@/components/tailwind-indicator";
 
 const Content1 = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -33,7 +27,7 @@ const Content1 = () => {
       observerCallback,
       {
         root: null,
-        rootMargin: "0px",
+        rootMargin: "-96px 0px 0px 0px",
         threshold: 1,
       },
     );
@@ -58,176 +52,146 @@ const Content1 = () => {
   };
 
   return (
-    <section className="py-32">
+    <section className="py-0 md:px-4">
+      <div className="rounded-lg bg-gradient-to-b from-coolGray-light2 from-80% to-white px-4 pb-14">
+        <h1 className="py-14 text-center text-4xl font-medium md:py-16 md:text-5xl">
+          Interior Painting Services
+        </h1>
+        {/* <div className="container relative mx-auto aspect-video max-w-screen-xl lg:aspect-[0] lg:py-44 xl:py-56"> */}
+        <div className="container relative mx-auto aspect-video max-w-screen-xl lg:aspect-[5/2]">
+          <Image
+            src="https://images.unsplash.com/photo-1631048501831-46856f9eaaf2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="placeholder"
+            fill
+            className="rounded-md object-cover"
+          />
+        </div>
+      </div>
       <div className="container mx-auto max-w-screen-xl">
-        <div className="relative grid-cols-3 gap-20 lg:grid">
+        <div className="relative grid-cols-3 gap-20 px-4 lg:grid">
           <div className="lg:col-span-2">
             <div>
-              <Badge variant="outline">Kingdom Tales</Badge>
-              <h1 className="mt-3 text-3xl font-extrabold">
-                The Great Joke Tax
+              <Badge
+                variant="outline"
+                className="border-support text-support lg:text-sm"
+              >
+                Transform, Refresh, Reimagine
+              </Badge>
+              <h1 className="mt-3 text-pretty text-3xl font-semibold tracking-tight sm:text-4xl">
+                Revitalize Your Home with Expert Painting
               </h1>
-              <p className="mt-2 text-lg text-muted-foreground">
-                In a kingdom far away, where laughter once flowed freely, a
-                peculiar tale unfolded about a king who decided to tax the very
-                essence of joy itself - jokes and jest.
+              <p className="mt-6 text-xl/8 text-coolGray-dark2">
+                A fresh coat of paint does more than change a room’s color—it
+                transforms your space, enhances its ambiance, and increases home
+                value. Whether you're looking to modernize, create a cozy
+                retreat, or just refresh aging walls, Drip Painting delivers
+                flawless results that bring your vision to life.
               </p>
-              <img
-                src="https://shadcnblocks.com/images/block/placeholder-1.svg"
-                alt="placeholder"
-                className="my-8 aspect-video w-full rounded-md object-cover"
-              />
             </div>
-            <section
-              id="section1"
-              ref={(ref) => addSectionRef("section1", ref)}
-              className="prose mb-8"
-            >
-              <h2>How the Tax System Works</h2>
-              <div className="ml-3.5">
-                <div className="relative flex items-start pb-2">
-                  <div className="absolute top-[2.75rem] h-[calc(100%-2.75rem)] w-px bg-border/70"></div>
-                  <div className="absolute ml-[-14px] py-2">
-                    <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-muted">
-                      <RefreshCcw className="h-3.5 w-3.5" />
-                    </div>
-                  </div>
-                  <div className="pl-12">
-                    <h3 className="mt-2 text-base font-semibold">
-                      Registering Your Jokes
-                    </h3>
-                    <p>
-                      All citizens must register their jokes at the Royal Jest
-                      Office. Each joke is carefully cataloged and assigned a
-                      tax bracket based on its humor level.
-                    </p>
-                  </div>
-                </div>
-                <div className="relative flex items-start pb-2">
-                  <div className="absolute top-[2.75rem] h-[calc(100%-2.75rem)] w-px bg-border/70"></div>
-                  <div className="absolute ml-[-14px] py-2">
-                    <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-muted">
-                      <GalleryVerticalEnd className="h-3.5 w-3.5" />
-                    </div>
-                  </div>
-                  <div className="pl-12">
-                    <h3 className="mt-2 text-base font-semibold">
-                      Classification Process
-                    </h3>
-                    <p>
-                      The Royal Jesters evaluate each joke based on wit,
-                      delivery, and audience reaction. Higher ratings mean
-                      higher taxes, making the finest jokes a luxury few can
-                      afford.
-                    </p>
-                  </div>
-                </div>
-                <div className="relative flex items-start pb-2">
-                  <div className="absolute top-[2.75rem] h-[calc(100%-2.75rem)] w-px bg-border/70"></div>
-                  <div className="absolute ml-[-14px] py-2">
-                    <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-muted">
-                      <ListChecks className="h-3.5 w-3.5" />
-                    </div>
-                  </div>
-                  <div className="pl-12">
-                    <h3 className="mt-2 text-base font-semibold">
-                      Tax Collection
-                    </h3>
-                    <p>
-                      Royal tax collectors roam the streets, listening for
-                      laughter. Anyone caught telling an unregistered joke faces
-                      steep fines or time in the kingdom&apos;s least amusing
-                      dungeon.
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <section>
+              <h2
+                id="section1"
+                ref={(ref) => addSectionRef("section1", ref)}
+                className="mt-16 scroll-m-24 text-pretty text-2xl font-semibold tracking-tight sm:text-3xl"
+              >
+                Bringing Your Vision to Life with Drip Painting
+              </h2>
+              <p className="mt-6">
+                At Drip Painting, we believe that every home tells a story, and
+                we are here to help you bring that story to life through color,
+                precision, and craftsmanship. Our team works closely with you to
+                understand your vision, ensuring that every brushstroke reflects
+                your personal style and enhances the beauty of your space.
+              </p>
+              <h3 className="mt-4 text-pretty text-xl font-semibold tracking-tight sm:text-2xl">
+                How We Do It
+              </h3>
+              <ol className="ml-2 mt-2 list-inside list-decimal space-y-4 text-coolGray-dark2">
+                <li>
+                  <span>Consultation & Color Selection</span>– We begin by
+                  listening to your ideas and offering expert guidance on
+                  colors, finishes, and textures that complement your space.
+                  Whether you have a specific vision or need inspiration, we
+                  provide samples and recommendations to help you choose the
+                  perfect look.
+                </li>
+                <li>
+                  <span>Detailed Planning & Preparation</span> – Our team
+                  meticulously prepares your home by protecting furniture,
+                  cleaning surfaces, and making necessary repairs to ensure a
+                  smooth, long-lasting finish.
+                </li>
+                <li>
+                  <span>Precision Painting</span> – Using high-quality paints
+                  and expert techniques, we apply each coat with care to ensure
+                  even coverage, crisp lines, and a flawless finish.
+                </li>
+                <li>
+                  <span>Final Walkthrough & Customer Satisfaction</span> – Once
+                  the painting is complete, we conduct a detailed inspection
+                  with you to ensure everything meets your expectations. We
+                  don’t consider the job done until you’re completely satisfied.
+                </li>
+              </ol>
             </section>
 
             <section
               id="section2"
               ref={(ref) => addSectionRef("section2", ref)}
-              className="prose mb-8"
+              className="scroll-m-24"
             >
-              <h2>The People&apos;s Rebellion</h2>
-              <p>
-                The people of the kingdom, feeling uplifted by the laughter,
-                started to tell jokes and puns again, and soon the entire
-                kingdom was in on the joke.
+              <h2 className="mt-16 text-pretty text-2xl font-semibold tracking-tight sm:text-3xl">
+                Setting the Safety Standard in Interior Painting
+              </h2>
+              <p className="mt-6">
+                Your family's safety is our top priority, which is why we
+                maintain EPA RRP Lead Safety certification. This federal
+                certification demonstrates our expertise in safely handling and
+                removing lead-based paint, which is particularly important in
+                older homes. Our team follows rigorous safety protocols and uses
+                specialized equipment to ensure that any lead-containing
+                materials are properly contained and disposed of, giving you
+                peace of mind during your home improvement project.
               </p>
-              <div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>King&apos;s Treasury</th>
-                      <th>People&apos;s happiness</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Empty</td>
-                      <td>Overflowing</td>
-                    </tr>
-                    <tr className="m-0 border-t p-0 even:bg-muted">
-                      <td>Modest</td>
-                      <td>Satisfied</td>
-                    </tr>
-                    <tr className="m-0 border-t p-0 even:bg-muted">
-                      <td>Full</td>
-                      <td>Ecstatic</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <p>
-                The king, seeing how much happier his subjects were, realized
-                the error of his ways and repealed the joke tax. Jokester was
-                declared a hero, and the kingdom lived happily ever after.
+              <p className="mt-8">
+                We understand that modern homeowners are increasingly concerned
+                about the environmental impact of home improvement projects and
+                the air quality within their homes. That's why we're proud to
+                hold Green Seal certification, a prestigious recognition that
+                validates our commitment to environmental stewardship. This
+                certification ensures that our painting services and products
+                meet stringent environmental and health criteria, backed by
+                rigorous scientific standards. When you choose Drip Painting,
+                you're not just getting a beautiful interior – you're making a
+                choice that's better for your family's health and the planet.
               </p>
-              <Alert>
-                <Lightbulb className="h-4 w-4" />
-                <AlertTitle>Royal Decree!</AlertTitle>
-                <AlertDescription>
-                  Remember, all jokes must be registered at the Royal Jest
-                  Office before telling them
-                </AlertDescription>
-              </Alert>
             </section>
 
             <section
               id="section3"
               ref={(ref) => addSectionRef("section3", ref)}
-              className="prose mb-8"
+              className="mb-32"
             >
-              <h2>The King&apos;s Plan</h2>
-              <p>
-                The king thought long and hard, and finally came up with{" "}
-                <a href="#">a brilliant plan</a>: he would tax the jokes in the
-                kingdom.
-              </p>
-              <blockquote>
-                &ldquo;After all,&rdquo; he said, &ldquo;everyone enjoys a good
-                joke, so it&apos;s only fair that they should pay for the
-                privilege.&rdquo;
-              </blockquote>
-              <p>
-                The king&apos;s subjects were not amused. They grumbled and
-                complained, but the king was firm:
-              </p>
-              <ul>
-                <li>1st level of puns: 5 gold coins</li>
-                <li>2nd level of jokes: 10 gold coins</li>
-                <li>3rd level of one-liners : 20 gold coins</li>
-              </ul>
-              <p>
-                As a result, people stopped telling jokes, and the kingdom fell
-                into a gloom. But there was one person who refused to let the
-                king&apos;s foolishness get him down: a court jester named
-                Jokester.
+              <h2 className="mt-16 text-pretty text-2xl font-semibold tracking-tight sm:text-3xl">
+                Your Premier Choice for Interior Painting
+              </h2>
+              <p className="mt-6">
+                When you choose Drip Painting, you're choosing peace of mind.
+                Our proven track record of excellence, commitment to safety, and
+                dedication to customer satisfaction have made us the trusted
+                choice for interior painting in the area. We understand that
+                inviting painters into your home requires trust, and we honor
+                that trust by treating every project—and every home—with the
+                utmost care and respect. Ready to transform your space? Contact
+                us today for a free consultation and discover the difference
+                professional painting can make in your home. Our dedicated team
+                is ready to bring your vision to life while ensuring your
+                complete satisfaction from start to finish.
               </p>
             </section>
+            <style jsx>{``}</style>
           </div>
-          <div className="sticky top-8 hidden h-fit lg:block">
+          <div className="sticky top-24 hidden h-fit lg:block">
             <span className="flex items-center gap-2 text-sm">
               <AlignLeft className="h-4 w-4" />
               On this page
@@ -237,6 +201,13 @@ const Content1 = () => {
                 <li>
                   <a
                     href="#section1"
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent default anchor behavior
+                      document.getElementById("section1")?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }}
                     className={cn(
                       "block py-1 transition-colors duration-200",
                       activeSection === "section1"
@@ -244,12 +215,19 @@ const Content1 = () => {
                         : "text-muted-foreground hover:text-primary",
                     )}
                   >
-                    How the Tax System Works
+                    Bringing Your Vision to Life
                   </a>
                 </li>
                 <li>
                   <a
                     href="#section2"
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent default anchor behavior
+                      document.getElementById("section2")?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }}
                     className={cn(
                       "block py-1 transition-colors duration-200",
                       activeSection === "section2"
@@ -257,12 +235,19 @@ const Content1 = () => {
                         : "text-muted-foreground hover:text-primary",
                     )}
                   >
-                    The People&apos;s Rebellion
+                    Setting the Safety Standard
                   </a>
                 </li>
                 <li>
                   <a
                     href="#section3"
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent default anchor behavior
+                      document.getElementById("section3")?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }}
                     className={cn(
                       "block py-1 transition-colors duration-200",
                       activeSection === "section3"
@@ -270,7 +255,7 @@ const Content1 = () => {
                         : "text-muted-foreground hover:text-primary",
                     )}
                   >
-                    The King&apos;s Plan
+                    Your Premier Choice
                   </a>
                 </li>
               </ul>
@@ -278,6 +263,7 @@ const Content1 = () => {
           </div>
         </div>
       </div>
+      <TailwindIndicator />
     </section>
   );
 };
