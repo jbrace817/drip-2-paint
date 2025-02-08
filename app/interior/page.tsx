@@ -81,11 +81,12 @@ const Content1 = () => {
                 Revitalize Your Home with Expert Painting
               </h1>
               <p className="mt-6 text-xl/8 text-coolGray-dark2">
-                A fresh coat of paint does more than change a room’s color—it
-                transforms your space, enhances its ambiance, and increases home
-                value. Whether you're looking to modernize, create a cozy
-                retreat, or just refresh aging walls, Drip Painting delivers
-                flawless results that bring your vision to life.
+                A fresh coat of paint does more than change a room&apos;s
+                color—it transforms your space, enhances its ambiance, and
+                increases home value. Whether you&apos;re looking to modernize,
+                create a cozy retreat, or just refresh aging walls, Drip
+                Painting delivers flawless results that bring your vision to
+                life.
               </p>
             </div>
             <section>
@@ -108,7 +109,7 @@ const Content1 = () => {
               </h3>
               <ol className="ml-2 mt-2 list-inside list-decimal space-y-4 text-coolGray-dark2">
                 <li>
-                  <span>Consultation & Color Selection</span>– We begin by
+                  <span>Consultation & Color Selection</span> – We begin by
                   listening to your ideas and offering expert guidance on
                   colors, finishes, and textures that complement your space.
                   Whether you have a specific vision or need inspiration, we
@@ -144,7 +145,7 @@ const Content1 = () => {
                 Setting the Safety Standard in Interior Painting
               </h2>
               <p className="mt-6">
-                Your family's safety is our top priority, which is why we
+                Your family&apos;s safety is our top priority, which is why we
                 maintain EPA RRP Lead Safety certification. This federal
                 certification demonstrates our expertise in safely handling and
                 removing lead-based paint, which is particularly important in
@@ -156,14 +157,15 @@ const Content1 = () => {
               <p className="mt-8">
                 We understand that modern homeowners are increasingly concerned
                 about the environmental impact of home improvement projects and
-                the air quality within their homes. That's why we're proud to
-                hold Green Seal certification, a prestigious recognition that
-                validates our commitment to environmental stewardship. This
-                certification ensures that our painting services and products
-                meet stringent environmental and health criteria, backed by
-                rigorous scientific standards. When you choose Drip Painting,
-                you're not just getting a beautiful interior – you're making a
-                choice that's better for your family's health and the planet.
+                the air quality within their homes. That&apos;s why we&apos;re
+                proud to hold Green Seal certification, a prestigious
+                recognition that validates our commitment to environmental
+                stewardship. This certification ensures that our painting
+                services and products meet stringent environmental and health
+                criteria, backed by rigorous scientific standards. When you
+                choose Drip Painting, you&apos;re not just getting a beautiful
+                interior – you&apos;re making a choice that&apos;s better for
+                your family&apos;s health and the planet.
               </p>
             </section>
 
@@ -176,17 +178,17 @@ const Content1 = () => {
                 Your Premier Choice for Interior Painting
               </h2>
               <p className="mt-6">
-                When you choose Drip Painting, you're choosing peace of mind.
-                Our proven track record of excellence, commitment to safety, and
-                dedication to customer satisfaction have made us the trusted
-                choice for interior painting in the area. We understand that
-                inviting painters into your home requires trust, and we honor
-                that trust by treating every project—and every home—with the
-                utmost care and respect. Ready to transform your space? Contact
-                us today for a free consultation and discover the difference
-                professional painting can make in your home. Our dedicated team
-                is ready to bring your vision to life while ensuring your
-                complete satisfaction from start to finish.
+                When you choose Drip Painting, you&apos;re choosing peace of
+                mind. Our proven track record of excellence, commitment to
+                safety, and dedication to customer satisfaction have made us the
+                trusted choice for interior painting in the area. We understand
+                that inviting painters into your home requires trust, and we
+                honor that trust by treating every project—and every home—with
+                the utmost care and respect. Ready to transform your space?
+                Contact us today for a free consultation and discover the
+                difference professional painting can make in your home. Our
+                dedicated team is ready to bring your vision to life while
+                ensuring your complete satisfaction from start to finish.
               </p>
             </section>
             <style jsx>{``}</style>
