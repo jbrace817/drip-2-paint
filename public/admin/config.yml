@@ -7,15 +7,84 @@ media_folder: "public/uploads" # Where images are stored
 public_folder: "/uploads"
 
 collections:
+  # Interior Pages
   - name: "pages"
     label: "Pages"
     folder: "content/pages"
     create: true
+    format: "frontmatter"
     slug: "{{slug}}"
     fields:
-      - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
-      # - { label: "Rating (scale of 1-5)", name: "rating", widget: "number" }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  # Blog Posts (Linked to Authors Collection)
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    format: "frontmatter"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - label: "Author"
+        name: "author"
+        widget: "relation"
+        collection: "authors"
+        value_field: "{{slug}}"
+        search_fields: ["name"]
+        display_fields: ["name"]
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # Authors Collection (Dynamically Manageable)
+  - name: "authors"
+    label: "Authors"
+    folder: "content/authors"
+    create: true
+    format: "frontmatter"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Bio", name: "bio", widget: "text", required: false }
+      - {
+          label: "Profile Picture",
+          name: "image",
+          widget: "image",
+          required: false,
+        }
+      - label: "Social Links"
+        name: "social"
+        widget: "list"
+        fields:
+          - { label: "Platform", name: "platform", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+
+  # Widgets Collection (For Banners and Modals)
+  - name: "widgets"
+    label: "Widgets"
+    files:
+      - name: "banner"
+        label: "Banner Widget"
+        file: "content/widgets/banner.json"
+        fields:
+          - { label: "Text", name: "text", widget: "string" }
+          - {
+              label: "Active",
+              name: "active",
+              widget: "boolean",
+              default: false,
+            }
+      - name: "modal"
+        label: "Modal Widget"
+        file: "content/widgets/modal.json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Content", name: "content", widget: "text" }
+          - {
+              label: "Active",
+              name: "active",
+              widget: "boolean",
+              default: false,
+            }
