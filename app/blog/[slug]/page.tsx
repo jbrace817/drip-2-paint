@@ -1,6 +1,5 @@
-// /app/blog/[slug]/page.tsx
-
 import { getFileBySlug, getAllFiles } from "@/utils/markdown";
+import ReactMarkdown from "react-markdown";
 
 // Define the type for blog post metadata
 interface BlogPost {
@@ -28,11 +27,17 @@ export default async function BlogPostPage({
   // Fetch the individual blog post by slug
   const post = getFileBySlug("blog", params.slug) as BlogPost;
 
+  // Format the date for display
+  const formattedDate = post.frontmatter.date
+    ? new Date(post.frontmatter.date).toLocaleDateString()
+    : "No date provided";
+
   return (
     <div>
       <h1>{post.frontmatter.title}</h1>
-      <p>{post.frontmatter.date}</p>
-      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      <p>{formattedDate}</p>
+      {/* Use react-markdown to safely render Markdown content */}
+      <ReactMarkdown>{post.content}</ReactMarkdown>
     </div>
   );
 }
