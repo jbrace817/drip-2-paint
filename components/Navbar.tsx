@@ -1,6 +1,7 @@
 "use client";
 import { Book, Menu, Sunset, Trees, X, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 import {
   Accordion,
@@ -78,6 +79,7 @@ const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isTop, setIsTop] = useState(true); // Track if at the top of the screen
   const [prevScroll, setPrevScroll] = useState(0);
+  const pathname = usePathname();
 
   useEffect(() => {
     const SCROLL_THRESHOLD = 10; // Adjust based on sensitivity
@@ -98,6 +100,12 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScroll]);
+
+  //verify url path using next navigation. If usin /admin do not render it
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
+
   return (
     <section
       className={`sticky top-0 z-20 w-full py-6 transition duration-300 ${
