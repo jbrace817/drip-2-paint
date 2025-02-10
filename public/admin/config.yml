@@ -2,6 +2,9 @@ backend:
   name: github
   repo: jbrace817/drip-2-paint # Replace with your repo
   branch: main # Or your default branch
+  auth_scope: "repo"
+  base_url: https://api.netlify.com
+  auth_endpoint: /auth
 
 media_folder: "public/uploads" # Where images are stored
 public_folder: "/uploads"
