@@ -2,10 +2,9 @@
 title: Exterior Painting Services
 image: https://images.unsplash.com/photo-1560026315-6640b67f281d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
-
-
-
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id condimentum nulla. Proin in leo scelerisque lacus lacinia volutpat. Pellentesque bibendum porta dolor, non viverra magna hendrerit sed. Mauris vulputate rutrum tortor, non interdum nulla suscipit ac. Curabitur rhoncus metus non lorem finibus dapibus. Vestibulum nec justo suscipit, ornare ligula non, convallis turpis. Fusce eros quam, luctus sit amet leo id, aliquam rhoncus neque. Nullam quam massa, sollicitudin ut nunc nec, pulvinar commodo quam. Donec eget porta ex. Fusce consequat tempus magna in auctor. Fusce in justo egestas, varius dui ut, laoreet nisi. Cras id maximus diam, ut vehicula nibh.
+
+
 
 Nulla ornare sodales tellus. Sed mollis tempus semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Nam dapibus lacinia nulla. Curabitur nunc dui, cursus sed feugiat id, viverra eget ipsum. Quisque convallis ac ipsum sit amet vehicula. Aliquam pretium ligula sapien, vitae consequat odio fermentum ut. Etiam nec elit sed arcu dictum finibus. Nullam finibus metus urna, sit amet aliquam turpis fringilla a. Fusce eleifend dui aliquam dui consequat posuere. In dui quam, vulputate nec risus vitae, ultricies scelerisque libero. Fusce a odio nibh. Curabitur consequat ex lacus, et posuere justo suscipit eget. Phasellus sed neque enim.
 
