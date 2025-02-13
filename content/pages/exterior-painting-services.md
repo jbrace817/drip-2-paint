@@ -2,14 +2,52 @@
 title: Exterior Painting Services
 image: https://images.unsplash.com/photo-1560026315-6640b67f281d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id condimentum nulla. Proin in leo scelerisque lacus lacinia volutpat. Pellentesque bibendum porta dolor, non viverra magna hendrerit sed. Mauris vulputate rutrum tortor, non interdum nulla suscipit ac. Curabitur rhoncus metus non lorem finibus dapibus. Vestibulum nec justo suscipit, ornare ligula non, convallis turpis. Fusce eros quam, luctus sit amet leo id, aliquam rhoncus neque. Nullam quam massa, sollicitudin ut nunc nec, pulvinar commodo quam. Donec eget porta ex. Fusce consequat tempus magna in auctor. Fusce in justo egestas, varius dui ut, laoreet nisi. Cras id maximus diam, ut vehicula nibh.
+## **Transform Your Home's Exterior with Expert Painting**
 
 
+Your home's exterior isn't just about curb appeal—it's your property's first line of defense against harsh Northeast weather. At Drip Painting, we combine premium materials with expert craftsmanship to deliver stunning, long-lasting results that protect and beautify your home.
 
-Nulla ornare sodales tellus. Sed mollis tempus semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Nam dapibus lacinia nulla. Curabitur nunc dui, cursus sed feugiat id, viverra eget ipsum. Quisque convallis ac ipsum sit amet vehicula. Aliquam pretium ligula sapien, vitae consequat odio fermentum ut. Etiam nec elit sed arcu dictum finibus. Nullam finibus metus urna, sit amet aliquam turpis fringilla a. Fusce eleifend dui aliquam dui consequat posuere. In dui quam, vulputate nec risus vitae, ultricies scelerisque libero. Fusce a odio nibh. Curabitur consequat ex lacus, et posuere justo suscipit eget. Phasellus sed neque enim.
+### **Comprehensive Exterior Solutions**
 
-Vivamus non blandit felis. Morbi blandit varius metus, eget cursus dui vehicula ac. Phasellus eu pellentesque neque. Sed id laoreet ante. Nulla facilisi. Sed molestie eros et purus scelerisque, eget rhoncus risus aliquam. In mollis massa sit amet ex tristique, a suscipit nunc fermentum. Etiam sed ante vehicula, rhoncus arcu eu, auctor quam. Proin euismod odio ut malesuada rutrum. Quisque dictum lorem ut magna tincidunt, ut mollis nunc mattis. Sed sed enim porttitor, cursus ante eu, luctus libero.
 
-Donec sed orci vel lorem ornare dapibus ut vel nunc. Phasellus eu eros nec lorem faucibus imperdiet sit amet sed orci. Nunc sed tempor quam. Duis luctus quis nunc eu pellentesque. Aenean vel elementum purus. Nam eu nibh fringilla, rhoncus neque quis, gravida orci. Etiam dignissim mauris a massa sagittis, in posuere felis suscipit. Fusce mollis, tellus eget porta fermentum, purus mauris posuere tortor, eget suscipit leo mi nec nisi. Etiam nibh enim, pellentesque in volutpat ac, congue eget erat. Nunc non euismod mi. Nam porta ante risus, sed mollis sem varius a.
+Our exterior painting services go beyond just walls. We expertly handle every exterior surface of your home, including trim, shutters, doors, decks, and architectural details. Working with top paint brands like Sherwin-Williams, Benjamin Moore, and PPE, we help you select the perfect products to ensure maximum durability and protection against New England's challenging weather conditions.
 
-Donec ut libero vel mauris ullamcorper dapibus. Morbi porttitor pharetra euismod. Vestibulum luctus interdum enim non ultrices. Aliquam pellentesque efficitur augue, sit amet rhoncus justo molestie dapibus. Etiam pretium, sapien eget eleifend condimentum, lorem velit feugiat mauris, quis convallis tellus nisi eu nulla. Vestibulum sodales ex nibh, eget sollicitudin purus finibus id. Vivamus posuere laoreet imperdiet. Aliquam eu rhoncus purus. Donec eget viverra urna. Vestibulum rhoncus sapien ac erat feugiat facilisis. Suspendisse a turpis non elit porta mattis et id risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+### **Our Premium Preparation Process**
+
+
+We believe exceptional results start with thorough preparation. Our comprehensive process includes:
+
+1. Complete exterior inspection and documentation of any damage
+2. High-pressure washing to remove dirt, mildew, and loose paint
+3. Expert wood repair and replacement of any rotted sections
+4. Thorough scraping and sanding of loose paint
+5. Caulking of all gaps and seams to prevent moisture penetration
+6. Premium primer application on bare wood and problem areas
+7. Protection of all landscaping, windows, and non-painted surfaces
+
+### **Northeast Weather Protection**
+
+
+Living in the Northeast means your home faces unique challenges—from freezing winters to humid summers. Our expertise in handling regional weather-related issues includes:
+
+* Prevention of moisture damage and wood rot
+* Solutions for paint peeling caused by extreme temperature fluctuations
+* Protection against UV damage and color fading
+* Specialized treatments for ice and snow damage
+* Mildew and algae prevention in shaded areas
+
+### **Industry-Leading Warranty**
+
+
+We stand behind our work with confidence. While most companies offer a 5-year warranty, we provide a 6-year guarantee on all our exterior painting projects. This extended protection gives you peace of mind, knowing your investment is secured by our commitment to quality.
+
+### **Professional Color Consultation**
+
+
+Choosing the right exterior colors can be overwhelming. Our color specialists help you:
+
+* Select colors that complement your home's architectural style
+* Consider neighborhood aesthetics and HOA requirements
+* Choose color combinations for trim, shutters, and architectural details
+* Test colors with large samples to ensure satisfaction
+* Understand how colors will appear in different lighting conditions
