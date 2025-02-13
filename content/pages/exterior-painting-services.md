@@ -12,7 +12,7 @@ Your home's exterior isn't just about curb appeal—it's your property's first l
 
 Our exterior painting services go beyond just walls. We expertly handle every exterior surface of your home, including trim, shutters, doors, decks, and architectural details. Working with top paint brands like Sherwin-Williams, Benjamin Moore, and PPE, we help you select the perfect products to ensure maximum durability and protection against the Northeast's challenging weather conditions.
 
-### Our Premium Preparation Process
+#### Our Premium Preparation Process
 
 
 We believe exceptional results start with thorough preparation. Our comprehensive process includes:
