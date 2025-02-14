@@ -25,7 +25,7 @@ export default async function BlogPostPage({
   params: { slug: string };
 }) {
   // Fetch the individual blog post by slug
-  const post = getFileBySlug("blog", params.slug) as BlogPost;
+  const post = (await getFileBySlug("blog", params.slug)) as BlogPost;
 
   // Format the date for display
   const formattedDate = post.frontmatter.date

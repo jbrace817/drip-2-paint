@@ -1,7 +1,5 @@
 import { notFound } from "next/navigation";
 import { getFileBySlug, getAllFiles } from "@/utils/markdown";
-import ReactMarkdown from "react-markdown";
-import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import PageNav from "@/components/PageNav";
 import ContentRenderer from "@/components/ContentRenderer";

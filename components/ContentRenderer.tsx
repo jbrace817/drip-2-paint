@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import { Badge } from "@/components/ui/badge";
 
@@ -15,7 +15,6 @@ export default function ContentRenderer({
   firstHeading,
   firstParagraph,
   restOfContent,
-  allH3Headings,
 }: ContentRendererProps) {
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
