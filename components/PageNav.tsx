@@ -24,14 +24,16 @@ function PageNav({ sections }: PageNavProps) {
 
     const observer = new IntersectionObserver(observerCallback, {
       root: null,
-      rootMargin: "-96px 0px 0px 0px",
-      threshold: 1,
+      rootMargin: "-40% 0px -40% 0px",
+      threshold: 0.5,
     });
 
     sections.forEach((sectionId) => {
-      const element = sectionRefs.current[sectionId];
+      const normalizedId = sectionId.toLowerCase().replace(/\s+/g, "-");
+      const element = document.getElementById(normalizedId);
       if (element) {
         observer.observe(element);
+        sectionRefs.current[normalizedId] = element;
       }
     });
 
@@ -39,12 +41,6 @@ function PageNav({ sections }: PageNavProps) {
       observer.disconnect();
     };
   }, [sections]);
-
-  const addSectionRef = (id: string, ref: HTMLElement | null) => {
-    if (ref) {
-      sectionRefs.current[id] = ref;
-    }
-  };
 
   return (
     <div className="sticky top-24 hidden h-fit lg:block">
@@ -60,14 +56,16 @@ function PageNav({ sections }: PageNavProps) {
                 href={`#${section}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  document.getElementById(section)?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  });
+                  document
+                    .getElementById(section.toLowerCase().replace(/\s+/g, "-"))
+                    ?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
                 }}
                 className={cn(
                   "block py-1 transition-colors duration-200",
-                  activeSection === section
+                  activeSection === section.toLowerCase().replace(/\s+/g, "-")
                     ? "font-medium text-primary"
                     : "text-muted-foreground hover:text-primary",
                 )}

@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import PageNav from "@/components/PageNav";
+import ContentRenderer from "@/components/ContentRenderer";
 
 // import remarkGfm from "remark-gfm"; // For GitHub-flavored markdown
 
@@ -47,9 +48,9 @@ function extractFirstElements(content: string) {
 
 export default async function Page({ params }: PageProps) {
   const { slug } = params;
-  const page = getFileBySlug("pages", slug); // Fetch page content
+  const page = await getFileBySlug("pages", slug); // ✅ Await the async function
 
-  if (!page) return notFound(); // Show 404 if page doesn't exist
+  if (!page) return notFound();
 
   const { firstParagraph, restOfContent, firstHeading, allH3Headings } =
     extractFirstElements(page.content);
@@ -72,55 +73,12 @@ export default async function Page({ params }: PageProps) {
       <section className="container mx-auto max-w-screen-xl">
         <div className="relative grid-cols-3 gap-20 px-4 lg:grid">
           <div className="lg:col-span-2">
-            <div>
-              <Badge
-                variant="outline"
-                className="border-support text-support lg:text-sm"
-              >
-                Protect, Enhance, Impress
-              </Badge>
-              {firstHeading && (
-                <ReactMarkdown className="mt-3 text-pretty text-3xl font-semibold tracking-tight sm:text-4xl">
-                  {firstHeading}
-                </ReactMarkdown>
-              )}
-              {firstParagraph && (
-                <p className="mt-6 text-xl/8 text-coolGray-dark2">
-                  {firstParagraph}
-                </p>
-              )}
-            </div>
-
-            <ReactMarkdown
-              // remarkPlugins={[remarkGfm]}
-              className="prose prose-lg max-w-none"
-              components={{
-                h3: ({ children }) => (
-                  <h3 className="mt-16 scroll-m-24 text-pretty text-2xl font-semibold tracking-tight sm:text-3xl">
-                    {children}
-                  </h3>
-                ),
-                h4: ({ children }) => (
-                  <h4 className="mt-4 text-pretty text-xl font-semibold tracking-tight sm:text-2xl">
-                    {children}
-                  </h4>
-                ),
-                ol: ({ children }) => (
-                  <ol className="ml-2 mt-2 list-inside list-decimal space-y-4 text-coolGray-dark2">
-                    {children}
-                  </ol>
-                ),
-                ul: ({ children }) => (
-                  <ul className="ml-2 mt-2 list-inside list-disc space-y-2 text-coolGray-dark2">
-                    {children}
-                  </ul>
-                ),
-                p: ({ children }) => <p className="mt-6">{children}</p>,
-              }}
-            >
-              {restOfContent}
-              {/* {page.content} */}
-            </ReactMarkdown>
+            <ContentRenderer
+              firstHeading={firstHeading}
+              firstParagraph={firstParagraph}
+              restOfContent={restOfContent}
+              allH3Headings={allH3Headings}
+            />
           </div>
           <PageNav sections={allH3Headings} />
         </div>

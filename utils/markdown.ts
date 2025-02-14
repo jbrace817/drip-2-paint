@@ -28,7 +28,7 @@ export function getAllFiles(collection: string) {
 }
 
 // Fetch a single blog post by slug
-export function getFileBySlug(collection: string, slug: string) {
+export async function getFileBySlug(collection: string, slug: string) {
   const filePath = path.join(
     process.cwd(),
     "content",
@@ -42,7 +42,7 @@ export function getFileBySlug(collection: string, slug: string) {
     return null;
   }
 
-  const fileContents = fs.readFileSync(filePath, "utf8");
+  const fileContents = await fs.promises.readFile(filePath, "utf8");
   const { data, content } = matter(fileContents); // No conversion to HTML
 
   return {
