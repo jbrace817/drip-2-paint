@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { getFileBySlug, getAllFiles } from "@/utils/markdown";
 import Image from "next/image";
-import PageNav from "@/components/PageNav";
-import ContentRenderer from "@/components/ContentRenderer";
+import PageNav from "@/components/services/PageNav";
+import ContentRenderer from "@/components/services/ContentRenderer";
 
 // import remarkGfm from "remark-gfm"; // For GitHub-flavored markdown
 
