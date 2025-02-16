@@ -99,6 +99,7 @@ collections:
             widget: "list"
             fields:
               - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
               - { label: "Slug (Page Path)", name: "slug", widget: "string" }
               - {
                   label: "Active",
