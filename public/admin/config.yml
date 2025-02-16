@@ -90,3 +90,29 @@ collections:
               widget: "boolean",
               default: false,
             }
+      - name: "cta"
+        label: "Call-to-Action Widgets"
+        file: "content/widgets/cta.json"
+        fields:
+          - label: "CTAs"
+            name: "ctas"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Slug (Page Path)", name: "slug", widget: "string" }
+              - {
+                  label: "Active",
+                  name: "active",
+                  widget: "boolean",
+                  default: true,
+                }
+              - label: "Benefits"
+                name: "benefits"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - {
+                      label: "Description",
+                      name: "description",
+                      widget: "text",
+                    }
