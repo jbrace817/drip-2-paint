@@ -1,0 +1,36 @@
+{
+  "ctas": [
+    {
+      "active": true,
+      "title": "Transform Your Interior Space",
+      "description": "Experience the Drip Painting difference with our premium interior painting services",
+      "slug": "/services/exterior-painting-Services",
+      "benefits": [
+        {
+          "title": "Expert Color Consultation",
+          "description": "Professional guidance to choose the perfect colors for your space"
+        },
+        {
+          "title": "EPA RRP Lead Safety Certified",
+          "description": "Your family's safety is guaranteed with our certified safety protocols"
+        },
+        {
+          "title": "Green Seal Certified",
+          "description": "Eco-friendly products and practices for a healthier home"
+        },
+        {
+          "title": "Premium Materials",
+          "description": "High-quality paints and materials for a lasting finish"
+        },
+        {
+          "title": "Comprehensive Preparation",
+          "description": "Thorough surface preparation for flawless results"
+        },
+        {
+          "title": "6 Year Warranty",
+          "description": "Industry-leading protection exceeding standard guarantees"
+        }
+      ]
+    }
+  ]
+}
