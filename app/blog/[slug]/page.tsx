@@ -1,4 +1,4 @@
-import { getFileBySlug, getAllFiles } from "@/utils/markdown";
+import { getFileBySlug, getAllFiles } from "@/lib/markdown";
 import ReactMarkdown from "react-markdown";
 
 // Define the type for blog post metadata

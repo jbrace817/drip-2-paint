@@ -1,6 +1,6 @@
 // /app/blog/page.tsx
 
-import { getAllFiles } from "@/utils/markdown";
+import { getAllFiles } from "@/lib/markdown";
 import Link from "next/link";
 
 // Define the type for the blog post metadata
