@@ -43,7 +43,7 @@ const ServiceCTA = () => {
     fetchCTAData();
   }, [pathname]);
 
-  //   if (!cta) return null;
+  if (!cta) return null;
 
   return (
     <section className="py-32">
@@ -81,11 +81,10 @@ const ServiceCTA = () => {
           </div>
           <div className="relative mb-12 w-full 2xl:mb-0">
             <h3 className="mb-6 text-center text-2xl font-semibold text-coolGray-dark5 md:mb-6 md:text-4xl lg:mb-6">
-              Transform Your Interior Space
+              {cta?.title}
             </h3>
             <p className="mb-12 text-center text-lg text-coolGray-dark4">
-              Experience the Drip Painting difference with our premium interior
-              painting services
+              {cta?.description}
             </p>
             <ul className="mb-14 grid justify-center gap-x-8 gap-y-4 text-muted-foreground md:grid-cols-2">
               {cta?.benefits.map((benefit) => (
