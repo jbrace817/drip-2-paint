@@ -63,6 +63,38 @@
           "description": "Professional assistance with color selection and sample testing"
         }
       ]
+    },
+    {
+      "active": true,
+      "slug": "/services/custom-bathroom-remodels",
+      "title": "Design Your Perfect Sanctuary",
+      "description": "Experience the perfect blend of luxury and functionality with our custom bathroom remodeling services",
+      "benefits": [
+        {
+          "title": "Premium Brand Selection",
+          "description": "Access to top manufacturers like LIPKA, Ruhe, Kohler, Delta, and Grohe"
+        },
+        {
+          "title": "Expert Design Services",
+          "description": "Professional guidance from concept to completion"
+        },
+        {
+          "title": "Comprehensive Project Management",
+          "description": "Single point of contact for all aspects of your remodel"
+        },
+        {
+          "title": "Customized Solutions",
+          "description": "Tailored designs to match your lifestyle and preferences"
+        },
+        {
+          "title": "Advanced Features",
+          "description": "Integration of heated floors, smart technology, and spa amenities"
+        },
+        {
+          "title": "Aging-in-Place Options",
+          "description": "Thoughtful design for long-term accessibility and comfort"
+        }
+      ]
     }
   ]
 }
