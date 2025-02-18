@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
-import { getFileBySlug, getAllFiles } from "@/utils/markdown";
+import { getFileBySlug, getAllFiles } from "@/lib/markdown";
 import Image from "next/image";
 import PageNav from "@/components/services/PageNav";
 import ContentRenderer from "@/components/services/ContentRenderer";
+import ServiceCTA from "@/components/services/CTA/ServiceCTA";
 
 // import remarkGfm from "remark-gfm"; // For GitHub-flavored markdown
 
@@ -65,6 +66,7 @@ export default async function Page({ params }: PageProps) {
             alt="placeholder"
             fill
             className="rounded-md object-cover"
+            priority
           />
         </div>
       </div>
@@ -81,6 +83,7 @@ export default async function Page({ params }: PageProps) {
           <PageNav sections={allH3Headings} />
         </div>
       </section>
+      <ServiceCTA />
     </main>
   );
 }
