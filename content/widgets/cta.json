@@ -63,6 +63,38 @@
           "description": "Thoughtful design for long-term accessibility and comfort"
         }
       ]
+    },
+    {
+      "active": true,
+      "title": "Elevate Your Home's Curb Appeal",
+      "description": "Experience lasting protection and stunning curb appeal with our premium exterior painting services",
+      "slug": "/services/exterior-painting-Services",
+      "benefits": [
+        {
+          "title": "Weather-Resistant Solutions",
+          "description": "Specialized coatings that withstand Northeast weather conditions"
+        },
+        {
+          "title": "Premium Surface Preparation",
+          "description": "Thorough cleaning, repair, and priming for maximum durability"
+        },
+        {
+          "title": "Complete Exterior Coverage",
+          "description": "Expert painting of all surfaces including trim, doors, and shutters"
+        },
+        {
+          "title": "6-Year Warranty",
+          "description": "Industry-leading protection exceeding standard guarantees"
+        },
+        {
+          "title": "Property Protection",
+          "description": "Comprehensive coverage of landscaping and non-painted surfaces"
+        },
+        {
+          "title": "Color Visualization",
+          "description": "Professional assistance with color selection and sample testing"
+        }
+      ]
     }
   ]
 }
