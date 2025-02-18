@@ -95,6 +95,38 @@
           "description": "Professional assistance with color selection and sample testing"
         }
       ]
+    },
+    {
+      "active": true,
+      "title": "Create Your Dream Kitchen",
+      "description": "Experience luxury craftsmanship and innovative design with our premium kitchen remodeling services",
+      "slug": "/services/custom-kitchen-remodels",
+      "benefits": [
+        {
+          "title": "Full-Service Design Team",
+          "description": "Expert guidance through every design decision and material selection"
+        },
+        {
+          "title": "Premium Materials",
+          "description": "Partnerships with top three U.S. cabinet manufacturers"
+        },
+        {
+          "title": "Comprehensive Project Management",
+          "description": "Seamless coordination of all trades and deliveries"
+        },
+        {
+          "title": "Custom Solutions",
+          "description": "Tailored designs for your cooking and entertaining style"
+        },
+        {
+          "title": "Efficient Timeline",
+          "description": "Most projects completed within 4-8 weeks"
+        },
+        {
+          "title": "Luxury Features",
+          "description": "Integration of high-end appliances and custom features"
+        }
+      ]
     }
   ]
 }
