@@ -1,5 +1,6 @@
 ---
 title: Exterior Painting Services
+badge: Protect, Enhance, Impress
 image: https://images.unsplash.com/photo-1560026315-6640b67f281d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
 ## Transform Your Home's Exterior with Expert Painting
