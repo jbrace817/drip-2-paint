@@ -78,6 +78,7 @@ export default async function Page({ params }: PageProps) {
               firstParagraph={firstParagraph}
               restOfContent={restOfContent}
               allH3Headings={allH3Headings}
+              badge={page.frontmatter.badge}
             />
           </div>
           <PageNav sections={allH3Headings} />

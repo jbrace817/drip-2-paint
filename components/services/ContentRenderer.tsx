@@ -9,12 +9,14 @@ interface ContentRendererProps {
   firstParagraph: string;
   restOfContent: string;
   allH3Headings: string[];
+  badge: string;
 }
 
 export default function ContentRenderer({
   firstHeading,
   firstParagraph,
   restOfContent,
+  badge,
 }: ContentRendererProps) {
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
@@ -30,7 +32,7 @@ export default function ContentRenderer({
         variant="outline"
         className="border-support text-support lg:text-sm"
       >
-        Protect, Enhance, Impress
+        {badge}
       </Badge>
 
       {firstHeading && (
