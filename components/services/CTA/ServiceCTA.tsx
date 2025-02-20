@@ -24,13 +24,15 @@ type DecorativeImgProps = {
 
 function DecorativeImg({ twClass }: DecorativeImgProps) {
   return (
-    <Image
-      src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1739853730/83039045_Paints_lin7ml.svg"
-      alt=""
-      width={284} //og - 404
-      height={384} //og - 384
-      className={twClass}
-    />
+    <div aria-hidden="true" className="absolute inset-0">
+      <Image
+        src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1739853730/83039045_Paints_lin7ml.svg"
+        alt=""
+        width={284} //og - 404
+        height={384} //og - 384
+        className={twClass}
+      />
+    </div>
   );
 }
 
@@ -66,20 +68,18 @@ const ServiceCTA = () => {
     <section className="my-24 md:my-32">
       <div className="container mx-auto">
         <div className="relative px-6 py-8 2xl:grid 2xl:px-14 2xl:py-10">
-          <div aria-hidden="true" className="absolute inset-0">
-            <DecorativeImg
-              twClass={
-                "absolute right-10  bottom-0 rotate-[180deg] opacity-80 2xl:right-32"
-              }
-            />
-          </div>
-          <div aria-hidden="true" className="absolute inset-0">
-            <DecorativeImg
-              twClass={
-                "absolute left-0 -top-16 rotate-[90deg] opacity-80 w-52 xl:left-32 xl:w-72 "
-              }
-            />
-          </div>
+          <DecorativeImg
+            twClass={
+              "absolute right-10  bottom-0 rotate-[180deg] opacity-80 2xl:right-32"
+            }
+          />
+
+          <DecorativeImg
+            twClass={
+              "absolute left-0 -top-16 rotate-[90deg] opacity-80 w-52 xl:left-32 xl:w-72 "
+            }
+          />
+
           <div className="relative mb-12 w-full 2xl:mb-0">
             <h3 className="mb-6 text-center text-2xl font-semibold text-coolGray-dark5 md:mb-6 md:text-4xl lg:mb-6">
               {cta?.title}
@@ -96,7 +96,7 @@ const ServiceCTA = () => {
                     </span>
 
                     <div>
-                      <h3>{benefit.title}</h3>
+                      <h3 className="text-lg font-medium">{benefit.title}</h3>
                       <p>{benefit.description}</p>
                     </div>
                   </div>
