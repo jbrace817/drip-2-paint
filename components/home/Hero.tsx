@@ -26,7 +26,7 @@ const slides = [
 
 const Hero = () => {
   return (
-    <section className="bg-white pt-0 md:px-4">
+    <section className="bg-white pt-0 md:px-4 xl:px-6">
       <div className="rounded-lg bg-gradient-to-b from-coolGray-light2 from-80% to-white px-4 pb-5">
         {/*review px-4 later*/}
         <div className="container mx-auto flex flex-col items-center py-12 text-center lg:py-32">
@@ -55,7 +55,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="container mx-auto">
-          <div className="">
+          <div>
             {/*[mask-image:linear-gradient(#000_80%,transparent_100%)]*/}
             {/* <TripleSlider slides={slides} /> */}
             <SwiperComponent slides={slides} />
