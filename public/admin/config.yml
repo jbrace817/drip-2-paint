@@ -24,10 +24,6 @@ collections:
         name: "gallery"
         widget: "list"
         fields:
-          - label: "Image URL"
-            name: "image_url"
-            widget: "string"
-            required: false
           - label: "Upload Image"
             name: "image_upload"
             widget: "image"
