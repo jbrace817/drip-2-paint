@@ -20,6 +20,18 @@ collections:
       - { label: "Badge", name: "badge", widget: "string" }
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        fields:
+          - label: "Image URL"
+            name: "image_url"
+            widget: "string"
+            required: false
+          - label: "Upload Image"
+            name: "image_upload"
+            widget: "image"
+            required: false
 
   # Blog Posts (Linked to Authors Collection)
   - name: "blog"
