@@ -145,6 +145,7 @@ body {
 p {
   @apply font-body;
   @apply text-coolGray-dark2;
+  @apply text-lg;
 }
 
 h1,
