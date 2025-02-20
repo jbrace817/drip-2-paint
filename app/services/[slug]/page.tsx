@@ -4,6 +4,7 @@ import Image from "next/image";
 import PageNav from "@/components/services/PageNav";
 import ContentRenderer from "@/components/services/ContentRenderer";
 import ServiceCTA from "@/components/services/CTA/ServiceCTA";
+import ServicesGallery from "@/components/services/Gallery/ServicesGallery";
 
 // import remarkGfm from "remark-gfm"; // For GitHub-flavored markdown
 
@@ -85,6 +86,7 @@ export default async function Page({ params }: PageProps) {
         </div>
       </section>
       <ServiceCTA />
+      <ServicesGallery gallery={page.frontmatter.gallery} />
     </main>
   );
 }
