@@ -42,7 +42,7 @@ export default function SwiperComponent({ slides }: SliderComponentProps) {
               alt={slide.alt}
               width={1920}
               height={1080}
-              className="aspect-video rounded-lg object-cover"
+              className="aspect-video rounded-lg object-cover xl:aspect-[5/2]"
             />
           </SwiperSlide>
         ))}
