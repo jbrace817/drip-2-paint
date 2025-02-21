@@ -1,13 +1,20 @@
 "use client";
-
+import { useState } from "react";
 import Image from "next/image";
 import { CircleArrowRight } from "lucide-react";
+
+//lightbox
+import Lightbox from "yet-another-react-lightbox";
+
+import "yet-another-react-lightbox/styles.css";
 
 type GalleryProps = {
   gallery: { image_upload: string }[];
 };
 
 function ServicesGallery({ gallery }: GalleryProps) {
+  const [open, setOpen] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
   if (!gallery) return null;
   return (
     <section className="my-24 md:my-32">
@@ -31,6 +38,10 @@ function ServicesGallery({ gallery }: GalleryProps) {
               } h-full w-full overflow-hidden rounded-lg`}
             >
               <Image
+                onClick={() => {
+                  setImageIndex(index);
+                  setOpen(true);
+                }}
                 src={image.image_upload}
                 alt={`Gallery image ${index + 1}`}
                 fill
@@ -51,6 +62,12 @@ function ServicesGallery({ gallery }: GalleryProps) {
           ))}
         </div>
       </div>
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        index={imageIndex}
+        slides={gallery.map((item) => ({ src: item.image_upload }))}
+      />
     </section>
   );
 }
