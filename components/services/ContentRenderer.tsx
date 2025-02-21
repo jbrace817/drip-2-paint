@@ -68,12 +68,12 @@ export default function ContentRenderer({
             </h4>
           ),
           ol: ({ children }) => (
-            <ol className="ml-2 mt-2 list-inside list-decimal space-y-4 text-coolGray-dark2">
+            <ol className="ml-2 mt-2 list-inside list-decimal space-y-4 text-lg text-coolGray-dark2">
               {children}
             </ol>
           ),
           ul: ({ children }) => (
-            <ul className="ml-2 mt-2 list-inside list-disc space-y-2 text-coolGray-dark2">
+            <ul className="ml-2 mt-2 list-inside list-disc space-y-2 text-lg text-coolGray-dark2">
               {children}
             </ul>
           ),
