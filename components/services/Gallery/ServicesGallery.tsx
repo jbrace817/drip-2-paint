@@ -7,6 +7,7 @@ import { CircleArrowRight } from "lucide-react";
 import Lightbox from "yet-another-react-lightbox";
 
 import "yet-another-react-lightbox/styles.css";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
 type GalleryProps = {
   gallery: { image_upload: string }[];
@@ -67,6 +68,7 @@ function ServicesGallery({ gallery }: GalleryProps) {
         close={() => setOpen(false)}
         index={imageIndex}
         slides={gallery.map((item) => ({ src: item.image_upload }))}
+        plugins={[Zoom]}
       />
     </section>
   );
