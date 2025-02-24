@@ -73,25 +73,27 @@ function Gallery() {
   }
   return (
     <main className="py-0 md:px-4 xl:px-6">
-      <h1 className="py-14 text-center text-4xl font-medium md:py-16 md:text-5xl">
-        Gallery
-      </h1>
-      <div className="pb-32">
-        <MasonryPhotoAlbum
-          photos={photos}
-          render={{ image: renderNextImage }}
-          defaultContainerWidth={1200}
-          onClick={({ index }) => setIndex(index)}
+      <div className="rounded-lg bg-gradient-to-b from-coolGray-light2 from-80% to-white px-4 pb-14">
+        <h1 className="py-14 text-center text-4xl font-medium md:py-16 md:text-5xl">
+          Gallery
+        </h1>
+        <div className="pb-32">
+          <MasonryPhotoAlbum
+            photos={photos}
+            render={{ image: renderNextImage }}
+            defaultContainerWidth={1200}
+            onClick={({ index }) => setIndex(index)}
+          />
+        </div>
+        <Lightbox
+          slides={photos}
+          open={index >= 0}
+          close={() => setIndex(-1)}
+          index={index}
+          plugins={[Zoom]}
+          controller={{ closeOnBackdropClick: true }}
         />
       </div>
-      <Lightbox
-        slides={photos}
-        open={index >= 0}
-        close={() => setIndex(-1)}
-        index={index}
-        plugins={[Zoom]}
-        controller={{ closeOnBackdropClick: true }}
-      />
     </main>
   );
 }
