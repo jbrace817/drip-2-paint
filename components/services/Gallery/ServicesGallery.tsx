@@ -69,6 +69,7 @@ function ServicesGallery({ gallery }: GalleryProps) {
         index={imageIndex}
         slides={gallery.map((item) => ({ src: item.image_upload }))}
         plugins={[Zoom]}
+        controller={{ closeOnBackdropClick: true }}
       />
     </section>
   );
