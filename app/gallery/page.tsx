@@ -25,7 +25,7 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
 function renderNextImage(
   { alt = "", title }: RenderImageProps,
-  { photo, width, height }: RenderImageContext,
+  { photo, width, height, index }: RenderImageContext,
 ) {
   return (
     <div
@@ -36,12 +36,17 @@ function renderNextImage(
       }}
     >
       <Image
+        priority={index < 4}
         fill
         src={photo}
         alt={alt}
         title={title}
         placeholder={"blurDataURL" in photo ? "blur" : undefined}
         className="object-cover"
+        sizes="(max-width: 640px) 100vw, 
+               (max-width: 768px) 50vw,
+               (max-width: 1024px) 33vw,
+               25vw"
       />
     </div>
   );
