@@ -41,12 +41,16 @@ function renderNextImage(
         src={photo}
         alt={alt}
         title={title}
-        placeholder={"blurDataURL" in photo ? "blur" : undefined}
-        className="object-cover"
-        sizes="(max-width: 640px) 100vw, 
-               (max-width: 768px) 50vw,
-               (max-width: 1024px) 33vw,
-               25vw"
+        placeholder="blur"
+        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx0cHBwcHx0cHBwcHB4cHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBz/2wBDAR0XFxodGh0YGBodHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR3/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+        className="object-cover transition-opacity duration-300"
+        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+        style={{
+          opacity: 0,
+        }}
+        onLoadingComplete={(image) => {
+          image.style.opacity = "1";
+        }}
       />
     </div>
   );
@@ -73,8 +77,28 @@ function Gallery() {
     fetchGallery();
   }, []);
 
+  //   if (loading) {
+  //     return <div>Loading gallery...</div>;
+  //   }
   if (loading) {
-    return <div>Loading gallery...</div>;
+    return (
+      <main className="py-0 md:px-4 xl:px-6">
+        <div className="rounded-lg bg-gradient-to-b from-coolGray-light2 from-80% to-white px-4 pb-14">
+          <h1 className="py-14 text-center text-4xl font-medium md:py-16 md:text-5xl">
+            Gallery
+          </h1>
+          <div className="grid grid-cols-1 gap-4 pb-32 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {[...Array(12)].map((_, i) => (
+              <div
+                key={i}
+                className="relative w-full bg-gray-100"
+                style={{ aspectRatio: "1" }}
+              />
+            ))}
+          </div>
+        </div>
+      </main>
+    );
   }
   return (
     <main className="py-0 md:px-4 xl:px-6">
@@ -88,6 +112,12 @@ function Gallery() {
             render={{ image: renderNextImage }}
             defaultContainerWidth={1200}
             onClick={({ index }) => setIndex(index)}
+            columns={(containerWidth): number => {
+              if (containerWidth < 640) return 1;
+              if (containerWidth < 768) return 2;
+              if (containerWidth < 1024) return 3;
+              return 4;
+            }}
           />
         </div>
         <Lightbox
