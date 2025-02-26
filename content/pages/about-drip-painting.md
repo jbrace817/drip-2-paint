@@ -2,9 +2,6 @@
 title: About Drip Painting
 badge: Behind the Drips
 ---
-
-
-
 ### Our Story
 
 Drip Painting began with a simple act of neighborly kindness. In 2010, founder Floyd Miles helped a neighbor refresh their living room with a new coat of paint. Seeing their joy and amazement at how a fresh palette transformed their space ignited something in Floyd – a realization that his skill could bring genuine happiness to others.
@@ -19,16 +16,13 @@ At Drip Painting, our mission is to transform ordinary spaces into extraordinary
 
 #### Uncompromising Quality
 
-
 We never cut corners. From thorough preparation to flawless finishing, we approach each project with precision and care. Our EPA RRP Lead Safety certification and Green Seal certification reflect our commitment to maintaining the highest standards in both safety and environmental responsibility.
 
-#### **Customer-First Approach**
-
+#### Customer-First Approach
 
 We listen. Your vision, preferences, and concerns guide every decision we make. We provide clear communication, detailed estimates, and regular updates throughout your project. Our job isn't complete until you're absolutely thrilled with the results.
 
-#### **Comprehensive Expertise**
-
+#### Comprehensive Expertise
 
 From color selection to the final walkthrough, we handle every aspect of your project with professional expertise. Our team includes specialists in interior and exterior painting, kitchen design, bathroom remodeling, and custom finishes – all working together to create seamless results.
 
