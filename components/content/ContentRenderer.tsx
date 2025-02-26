@@ -8,8 +8,8 @@ interface ContentRendererProps {
   firstHeading: string;
   firstParagraph?: string;
   restOfContent: string;
-  allH3Headings: string[];
-  badge: string;
+  allH3Headings?: string[];
+  badge?: string;
 }
 
 export default function ContentRenderer({
