@@ -1,12 +1,14 @@
 import { notFound } from "next/navigation";
 import { getFileBySlug, getAllFiles } from "@/lib/markdown";
 import Image from "next/image";
-import PageNav from "@/components/services/PageNav";
-import ContentRenderer from "@/components/services/ContentRenderer";
+import PageNav from "@/components/content/PageNav";
+import ContentRenderer from "@/components/content/ContentRenderer";
 import ServiceCTA from "@/components/services/CTA/ServiceCTA";
 import ServicesGallery from "@/components/services/Gallery/ServicesGallery";
-
-// import remarkGfm from "remark-gfm"; // For GitHub-flavored markdown
+import {
+  ExtractedContent,
+  extractFirstElements,
+} from "@/components/content/extractMarkdownSections";
 
 interface PageProps {
   params: { slug: string };
@@ -17,43 +19,16 @@ export async function generateStaticParams() {
   return pages.map((page) => ({ slug: page.slug }));
 }
 
-// Extract the first paragraph
-function extractFirstElements(content: string) {
-  const paragraphs = content.split(/\n\s*\n/); // Split by double newline
-  let firstHeading = "";
-  let firstParagraph = "";
-  const allH3Headings: string[] = [];
-  let restOfContent = content;
-
-  for (let i = 0; i < paragraphs.length; i++) {
-    const trimmed = paragraphs[i].trim();
-
-    if (!firstHeading && trimmed.startsWith("#")) {
-      firstHeading = trimmed; // Capture first heading
-      continue;
-    }
-
-    if (!firstParagraph && trimmed !== "" && !trimmed.startsWith("-")) {
-      firstParagraph = trimmed; // Capture first paragraph
-      restOfContent = paragraphs.slice(i + 1).join("\n\n"); // Remaining content
-    }
-
-    if (/^###\s(?!#)/.test(trimmed)) {
-      allH3Headings.push(trimmed.replace(/^###\s*/, "")); // Strip '###' and space
-    }
-  }
-
-  return { firstHeading, firstParagraph, restOfContent, allH3Headings };
-}
-
 export default async function Page({ params }: PageProps) {
   const { slug } = params;
   const page = await getFileBySlug("pages", slug); // ✅ Await the async function
 
   if (!page) return notFound();
 
+  const extractedContent: ExtractedContent = extractFirstElements(page.content);
+
   const { firstParagraph, restOfContent, firstHeading, allH3Headings } =
-    extractFirstElements(page.content);
+    extractedContent;
 
   return (
     <main className="py-0 md:px-4 xl:px-6">
