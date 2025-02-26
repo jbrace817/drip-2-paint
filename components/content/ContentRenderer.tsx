@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 
 interface ContentRendererProps {
   firstHeading: string;
-  firstParagraph: string;
+  firstParagraph?: string;
   restOfContent: string;
   allH3Headings: string[];
   badge: string;
