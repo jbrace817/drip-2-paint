@@ -48,8 +48,9 @@ function renderNextImage(
         style={{
           opacity: 0,
         }}
-        onLoadingComplete={(image) => {
-          image.style.opacity = "1";
+        onLoad={(e) => {
+          const img = e.target as HTMLImageElement;
+          img.style.opacity = "1";
         }}
       />
     </div>
