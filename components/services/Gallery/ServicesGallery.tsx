@@ -8,6 +8,7 @@ import Lightbox from "yet-another-react-lightbox";
 
 import "yet-another-react-lightbox/styles.css";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import Link from "next/link";
 
 type GalleryProps = {
   gallery: { image_upload: string }[];
@@ -46,18 +47,25 @@ function ServicesGallery({ gallery }: GalleryProps) {
                 src={image.image_upload}
                 alt={`Gallery image ${index + 1}`}
                 fill
-                className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                sizes={
+                  index === 0
+                    ? "(max-width: 768px) 100vw, 60vw" // First image
+                    : "(max-width: 768px) 50vw, 20vw" // Other images
+                }
+                className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
               />
               {/* Overlay for last image */}
               {index === gallery.length - 1 && (
-                <div className="absolute inset-0 z-10 rounded-lg bg-black/50 group-hover:cursor-pointer">
-                  <div className="z-20 flex h-full w-full flex-col items-center justify-center">
-                    <p className="text-xl text-coolGray-light1 lg:text-2xl">
-                      View More
-                    </p>
-                    <CircleArrowRight className="mt-4 h-8 w-8 text-coolGray-light1 transition-all duration-300 group-hover:scale-105 lg:h-12 lg:w-12" />
+                <Link href={"/gallery"}>
+                  <div className="absolute inset-0 z-10 rounded-lg bg-black/50 group-hover:cursor-pointer">
+                    <div className="z-20 flex h-full w-full flex-col items-center justify-center">
+                      <p className="text-xl text-coolGray-light1 lg:text-2xl">
+                        View More
+                      </p>
+                      <CircleArrowRight className="mt-4 h-8 w-8 text-coolGray-light1 transition-all duration-300 group-hover:scale-105 lg:h-12 lg:w-12" />
+                    </div>
                   </div>
-                </div>
+                </Link>
               )}
             </div>
           ))}
