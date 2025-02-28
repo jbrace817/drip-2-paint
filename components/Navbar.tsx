@@ -108,7 +108,7 @@ const Navbar = () => {
 
   return (
     <section
-      className={`sticky top-0 z-20 w-full transition duration-300 ${
+      className={`sticky top-0 z-[100] w-full transition duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       } ${isTop ? "bg-white" : "bg-white/60 backdrop-blur-md"}`}
     >
