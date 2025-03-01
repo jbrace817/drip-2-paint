@@ -1,43 +1,61 @@
 import Image from "next/image";
-
 import {
   ShieldCheckIcon,
   UserGroupIcon,
   WrenchScrewdriverIcon,
   HeartIcon,
 } from "@heroicons/react/24/outline";
+import Splatter from "../ui/decorative/Splatter";
 
 export default function SetsUsApart() {
   return (
     <section className="py-16 md:py-24">
       <div className="container mx-auto flex flex-wrap items-center">
-        <div className="order-2 w-full px-4 md:order-none lg:w-1/2">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div className="col-span-1 sm:col-span-2">
-              <div className="relative aspect-[3/2] w-full overflow-hidden rounded-lg sm:aspect-[2/1]">
+        <div className="relative order-2 mt-[50px] w-full max-w-full px-4 md:order-none lg:w-1/2 xl:px-[35px]">
+          {/* Decorative paint splatter */}
+          <Splatter twClass="absolute left-0 -top-[5%] md:-top-[20%] -z-10 rotate-[90deg] md:rotate-[60deg]" />
+
+          {/* Image Grid */}
+          <div className="mt-[-25px] flex flex-wrap">
+            {/* Left Column */}
+            <div className="mt-[25px] w-full max-w-full px-[12.5px] md:w-6/12">
+              <div className="relative mt-10 aspect-[4/5] overflow-hidden rounded-lg">
                 <Image
-                  src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1733885002/samples/imagecon-group.jpg"
-                  alt="Drip 2 Paint Team"
+                  src="https://img.freepik.com/premium-photo/three-men-white-work-clothes-are-standing-ladder_1035771-18808.jpg?w=740"
+                  alt="Our Work"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
             </div>
-            <div className="relative aspect-[3/2] h-auto overflow-hidden rounded-lg sm:aspect-[4/3]">
-              <Image
-                src="https://images.unsplash.com/photo-1711856714985-c2b10006dc18?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Our Work"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative aspect-[3/2] w-full overflow-hidden rounded-lg">
-              <Image
-                src="https://img.freepik.com/premium-photo/painter-professionally-painting-house-exterior-white-balancing-ladder-against-window-with-blue_985815-4175.jpg?w=1060"
-                alt="Our Work"
-                fill
-                className="object-cover"
-              />
+
+            {/* Right Column */}
+            <div className="mt-[25px] w-full max-w-full px-[12.5px] md:w-6/12">
+              <div className="mt-[-25px] flex flex-wrap">
+                {/* Top Image */}
+                <div className="order-2 mt-[25px] w-full max-w-full px-[12.5px]">
+                  <div className="relative aspect-[3/2] overflow-hidden rounded-lg">
+                    <Image
+                      src="https://images.unsplash.com/photo-1711856714985-c2b10006dc18?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      alt="Our Work"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Bottom Image */}
+                <div className="mt-[25px] w-full max-w-full px-[12.5px] md:w-10/12">
+                  <div className="relative aspect-square overflow-hidden rounded-lg">
+                    <Image
+                      src="https://img.freepik.com/premium-photo/man-with-glasses-hat-is-holding-paint-brush-front-painting-man-with-red-pai_1177960-37507.jpg?w=1060"
+                      alt="Our Work"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -47,8 +65,7 @@ export default function SetsUsApart() {
             What Sets Us Apart
           </h2>
           <h3 className="mb-8 text-3xl font-semibold text-coolGray-dark5 md:mb-6 md:text-left md:text-4xl lg:mb-8">
-            We create <span className="apart">finishes</span> that transform
-            your home.
+            We create finishes that transform your home.
           </h3>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
