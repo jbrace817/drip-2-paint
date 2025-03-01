@@ -9,16 +9,16 @@ import Splatter from "../ui/decorative/Splatter";
 
 export default function SetsUsApart() {
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-14 md:py-16">
       <div className="container mx-auto flex flex-wrap items-center">
-        <div className="relative order-2 mt-[50px] w-full max-w-full px-4 md:order-none lg:w-1/2 xl:px-[35px]">
+        <div className="relative order-2 mb-14 w-full max-w-full px-4 md:mb-16 lg:order-none lg:w-1/2 xl:pr-[35px]">
           {/* Decorative paint splatter */}
           <Splatter twClass="absolute left-0 -top-[5%] md:-top-[20%] -z-10 rotate-[90deg] md:rotate-[60deg]" />
 
           {/* Image Grid */}
           <div className="mt-[-25px] flex flex-wrap">
             {/* Left Column */}
-            <div className="mt-[25px] w-full max-w-full px-[12.5px] md:w-6/12">
+            <div className="mt-[25px] w-full max-w-full md:w-6/12 md:px-[12.5px]">
               <div className="relative mt-10 aspect-[4/5] overflow-hidden rounded-lg">
                 <Image
                   src="https://img.freepik.com/premium-photo/three-men-white-work-clothes-are-standing-ladder_1035771-18808.jpg?w=740"
@@ -30,10 +30,10 @@ export default function SetsUsApart() {
             </div>
 
             {/* Right Column */}
-            <div className="mt-[25px] w-full max-w-full px-[12.5px] md:w-6/12">
+            <div className="mt-[25px] w-full max-w-full md:w-6/12 md:px-[12.5px]">
               <div className="mt-[-25px] flex flex-wrap">
                 {/* Top Image */}
-                <div className="order-2 mt-[25px] w-full max-w-full px-[12.5px]">
+                <div className="order-2 mt-[25px] w-full max-w-full md:px-[12.5px]">
                   <div className="relative aspect-[3/2] overflow-hidden rounded-lg">
                     <Image
                       src="https://images.unsplash.com/photo-1711856714985-c2b10006dc18?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -45,7 +45,7 @@ export default function SetsUsApart() {
                 </div>
 
                 {/* Bottom Image */}
-                <div className="mt-[25px] w-full max-w-full px-[12.5px] md:w-10/12">
+                <div className="mt-[25px] w-full max-w-full md:w-10/12 md:px-[12.5px]">
                   <div className="relative aspect-square overflow-hidden rounded-lg">
                     <Image
                       src="https://img.freepik.com/premium-photo/man-with-glasses-hat-is-holding-paint-brush-front-painting-man-with-red-pai_1177960-37507.jpg?w=1060"
