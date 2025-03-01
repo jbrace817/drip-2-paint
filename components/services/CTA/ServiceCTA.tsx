@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import Splatter from "@/components/ui/decorative/Splatter";
 
 interface Benefit {
   title: string;
@@ -16,24 +16,6 @@ interface CTAData {
   slug: string;
   active: boolean;
   benefits: Benefit[];
-}
-
-type DecorativeImgProps = {
-  twClass: string;
-};
-
-function DecorativeImg({ twClass }: DecorativeImgProps) {
-  return (
-    <div aria-hidden="true" className="absolute inset-0">
-      <Image
-        src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1739853730/83039045_Paints_lin7ml.svg"
-        alt=""
-        width={284} //og - 404
-        height={384} //og - 384
-        className={twClass}
-      />
-    </div>
-  );
 }
 
 const ServiceCTA = () => {
@@ -68,18 +50,17 @@ const ServiceCTA = () => {
     <section className="my-24 md:my-32">
       <div className="container mx-auto">
         <div className="relative px-6 py-8 2xl:grid 2xl:px-14 2xl:py-10">
-          <DecorativeImg
+          <Splatter
             twClass={
-              "absolute right-10  bottom-0 rotate-[180deg] opacity-80 2xl:right-32"
+              "absolute right-0 bottom-0 rotate-[180deg] opacity-80 w-40 xl:w-52 2xl:right-[8%]"
             }
           />
 
-          <DecorativeImg
+          <Splatter
             twClass={
-              "absolute left-0 -top-16 rotate-[90deg] opacity-80 w-52 xl:left-32 xl:w-72 "
+              "absolute left-0 top-[-8%] rotate-[60deg] opacity-80 w-40 xl:left-24 xl:w-52"
             }
           />
-
           <div className="relative mb-12 w-full 2xl:mb-0">
             <h3 className="mb-6 text-center text-2xl font-semibold text-coolGray-dark5 md:mb-6 md:text-4xl lg:mb-6">
               {cta?.title}
