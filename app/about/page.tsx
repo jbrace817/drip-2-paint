@@ -1,6 +1,7 @@
 import Image from "next/image";
 import WhoWeAre from "@/components/about/WhoWeAre";
 import SetsUsApart from "@/components/about/SetsUsApart";
+import { Testimonial } from "@/components/testimonials/Testimonial";
 
 async function AboutPage() {
   return (
@@ -21,6 +22,7 @@ async function AboutPage() {
       </div>
       <WhoWeAre />
       <SetsUsApart />
+      <Testimonial />
     </main>
   );
 }
