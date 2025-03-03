@@ -19,7 +19,7 @@ export default function SetsUsApart() {
           <div className="mt-[-25px] flex flex-wrap">
             {/* Left Column */}
             <div className="mt-[25px] w-full max-w-full md:w-6/12 md:px-[12.5px]">
-              <div className="relative mt-10 aspect-[4/5] overflow-hidden rounded-lg">
+              <div className="relative mt-10 aspect-[4/5] overflow-hidden rounded-lg shadow-lg">
                 <Image
                   src="https://img.freepik.com/premium-photo/three-men-white-work-clothes-are-standing-ladder_1035771-18808.jpg?w=740"
                   alt="Our Work"
@@ -33,8 +33,8 @@ export default function SetsUsApart() {
             <div className="mt-[25px] w-full max-w-full md:w-6/12 md:px-[12.5px]">
               <div className="mt-[-25px] flex flex-wrap">
                 {/* Top Image */}
-                <div className="order-2 mt-[25px] w-full max-w-full md:px-[12.5px]">
-                  <div className="relative aspect-[3/2] overflow-hidden rounded-lg">
+                <div className="relative order-2 mt-[25px] w-full max-w-full md:px-[12.5px]">
+                  <div className="relative aspect-[3/2] overflow-hidden rounded-lg shadow-lg">
                     <Image
                       src="https://images.unsplash.com/photo-1711856714985-c2b10006dc18?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       alt="Our Work"
@@ -42,11 +42,12 @@ export default function SetsUsApart() {
                       className="object-cover"
                     />
                   </div>
+                  <Splatter twClass="absolute right-0 -bottom-[50%] -z-10 rotate-[90deg] md:rotate-[60deg]" />
                 </div>
 
                 {/* Bottom Image */}
                 <div className="mt-[25px] w-full max-w-full md:w-10/12 md:px-[12.5px]">
-                  <div className="relative aspect-square overflow-hidden rounded-lg">
+                  <div className="relative aspect-square overflow-hidden rounded-lg shadow-lg">
                     <Image
                       src="https://img.freepik.com/premium-photo/man-with-glasses-hat-is-holding-paint-brush-front-painting-man-with-red-pai_1177960-37507.jpg?w=1060"
                       alt="Our Work"
@@ -61,13 +62,9 @@ export default function SetsUsApart() {
         </div>
 
         <div className="mb-14 w-full px-4 md:my-16 lg:mt-0 lg:w-1/2">
-          <h2 className="bg-gradient-to-r from-primary-light4 to-primary-dark2 bg-clip-text text-lg/7 font-semibold text-transparent md:text-left">
+          <h3 className="mb-8 text-pretty text-2xl font-semibold tracking-tight sm:text-4xl">
             What Sets Us Apart
-          </h2>
-          <h3 className="mb-8 text-3xl font-semibold text-coolGray-dark5 md:mb-6 md:text-left md:text-4xl lg:mb-8">
-            We create finishes that transform your home.
           </h3>
-
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {[
               {
