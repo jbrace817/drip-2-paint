@@ -10,7 +10,8 @@ export default function WhoWeAre() {
           <div className="relative order-2 w-full px-4 lg:order-2 lg:w-1/2">
             {/* Decorative paint splatter */}
 
-            <Splatter twClass="z[-1] absolute left-[50%] rotate-[90deg] top-[60%] hidden w-[80%] -translate-x-1/2 -translate-y-1/2 md:block " />
+            <Splatter twClass="z[-1] absolute left-[50%] rotate-[90deg] top-[26%] md:top-[60%]  w-[80%] -translate-x-1/2 -translate-y-1/2 md:block " />
+            <Splatter twClass="z[-1] absolute left-[50%] rotate-[90deg] bottom-[-50%] md:hidden w-[80%] -translate-x-1/2 -translate-y-1/2 md:block " />
 
             {/* Images */}
             <div className="relative mt-[15%] flex flex-col gap-4 md:flex-none">
@@ -39,7 +40,7 @@ export default function WhoWeAre() {
 
           {/* Content */}
           <div className="w-full px-4 lg:w-1/2">
-            <h3 className="scroll-m-24 text-pretty text-2xl font-semibold tracking-tight sm:text-3xl">
+            <h3 className="text-pretty text-2xl font-semibold tracking-tight sm:text-4xl">
               Our Story
             </h3>
             <p className="mt-6 text-lg text-coolGray-dark2">
@@ -51,7 +52,7 @@ export default function WhoWeAre() {
               bathroom remodeling throughout the region.
             </p>
 
-            <h3 className="mt-16 scroll-m-24 text-pretty text-2xl font-semibold tracking-tight sm:text-3xl">
+            <h3 className="mt-16 text-pretty text-2xl font-semibold tracking-tight sm:text-4xl">
               Our Mission
             </h3>
             <p className="mt-6 text-lg text-coolGray-dark2">
