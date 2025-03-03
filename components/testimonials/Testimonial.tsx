@@ -3,7 +3,7 @@
 import AutoScroll from "embla-carousel-auto-scroll";
 import { useRef } from "react";
 
-// import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -11,6 +11,8 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { FaStar } from "react-icons/fa";
+import Splatter from "../ui/decorative/Splatter";
 
 const testimonials1 = [
   {
@@ -106,6 +108,7 @@ const Testimonial = () => {
     AutoScroll({
       startDelay: 500,
       speed: 0.7,
+      stopOnInteraction: false,
     }),
   );
 
@@ -114,21 +117,23 @@ const Testimonial = () => {
       startDelay: 500,
       speed: 0.7,
       direction: "backward",
+      stopOnInteraction: false,
     }),
   );
   return (
-    <section className="py-32">
-      <div className="container mx-auto flex flex-col items-center gap-6">
-        <h2 className="mb-2 text-center text-3xl font-semibold lg:text-5xl">
+    <section className="relative px-4 py-32">
+      <div className="container relative mx-auto flex flex-col items-center gap-6">
+        <h2 className="mb-2 text-center text-3xl font-semibold tracking-tight lg:text-5xl">
           Ready to Transform Your Space?
         </h2>
-        <p className="text-muted-foreground lg:text-lg">
-          Join hundreds of delighted homeowners who&apos;ve watched their vision
-          become reality.
+        <p className="text-center text-muted-foreground lg:text-lg">
+          Join the many happy homeowners who have seen their vision come to
+          life.
         </p>
         <Button className="mt-6">Schedule a Consultation</Button>
       </div>
-      <div className="mx-auto lg:container">
+      <div className="relative mx-auto lg:container">
+        <Splatter twClass="z-[-1] absolute left-0 rotate-[90deg] -top-[20%] lg:-top-[40%] w-[50%] md:w-[25%] xl:w-[18%]" />
         <div className="mt-16 space-y-4">
           <Carousel
             opts={{
@@ -142,18 +147,18 @@ const Testimonial = () => {
                 <CarouselItem key={index} className="basis-auto">
                   <Card className="max-w-96 select-none p-6">
                     <div className="mb-4 flex gap-4">
-                      {/* <Avatar className="size-9 rounded-full ring-1 ring-input">
+                      <Avatar className="size-9 rounded-full ring-1 ring-input">
                         <AvatarImage
-                          src={testimonial.avatar}
+                          src={`https://i.pravatar.cc/150?img=${index + 1}`}
                           alt={testimonial.name}
                         />
                       </Avatar>
                       <div className="text-sm">
                         <p className="font-medium">{testimonial.name}</p>
-                        <p className="text-muted-foreground">
-                          {testimonial.role}
-                        </p>
-                      </div> */}
+                        <div className="flex">
+                          {Array(5).fill(<FaStar fill="gold" />)}
+                        </div>
+                      </div>
                     </div>
                     <q>{testimonial.content}</q>
                   </Card>
@@ -161,6 +166,7 @@ const Testimonial = () => {
               ))}
             </CarouselContent>
           </Carousel>
+
           <Carousel
             opts={{
               loop: true,
@@ -172,19 +178,19 @@ const Testimonial = () => {
               {testimonials2.map((testimonial, index) => (
                 <CarouselItem key={index} className="basis-auto">
                   <Card className="max-w-96 select-none p-6">
-                    <div className="mb-4 flex gap-4">
-                      {/* <Avatar className="size-9 rounded-full ring-1 ring-input">
+                    <div className="mb-4 flex gap-4 overflow-hidden">
+                      <Avatar className="size-9 rounded-full ring-1 ring-input">
                         <AvatarImage
-                          src={testimonial.avatar}
+                          src={`https://i.pravatar.cc/150?img=${index + 10}`}
                           alt={testimonial.name}
                         />
                       </Avatar>
                       <div className="text-sm">
                         <p className="font-medium">{testimonial.name}</p>
-                        <p className="text-muted-foreground">
-                          {testimonial.role}
-                        </p>
-                      </div> */}
+                        <div className="flex">
+                          {Array(5).fill(<FaStar fill="gold" />)}
+                        </div>
+                      </div>
                     </div>
                     <q>{testimonial.content}</q>
                   </Card>
@@ -193,6 +199,9 @@ const Testimonial = () => {
             </CarouselContent>
           </Carousel>
         </div>
+        <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-background to-transparent"></div>
+        <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-background to-transparent"></div>
+        <Splatter twClass="z-[-1] absolute right-0 rotate-[90deg] -bottom-[20%] w-[50%] md:w-[25%] lg:-bottom-[30%] xl:w-[18%]" />
       </div>
     </section>
   );
