@@ -156,7 +156,11 @@ const Testimonial = () => {
                       <div className="text-sm">
                         <p className="font-medium">{testimonial.name}</p>
                         <div className="flex">
-                          {Array(5).fill(<FaStar fill="gold" />)}
+                          <FaStar fill="gold" />
+                          <FaStar fill="gold" />
+                          <FaStar fill="gold" />
+                          <FaStar fill="gold" />
+                          <FaStar fill="gold" />
                         </div>
                       </div>
                     </div>
@@ -188,7 +192,11 @@ const Testimonial = () => {
                       <div className="text-sm">
                         <p className="font-medium">{testimonial.name}</p>
                         <div className="flex">
-                          {Array(5).fill(<FaStar fill="gold" />)}
+                          <FaStar fill="gold" />
+                          <FaStar fill="gold" />
+                          <FaStar fill="gold" />
+                          <FaStar fill="gold" />
+                          <FaStar fill="gold" />
                         </div>
                       </div>
                     </div>
