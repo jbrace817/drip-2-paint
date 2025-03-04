@@ -43,11 +43,27 @@ collections:
         name: "author"
         widget: "relation"
         collection: "authors"
-        value_field: "{{slug}}"
+        value_field: "name"
         search_fields: ["name"]
         display_fields: ["name"]
       - { label: "Featured Image", name: "image", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Summary"
+        name: "summary"
+        widget: "string"
+        required: false
+        pattern: ["^.{0,200}$", "Summaries should be under 200 characters."]
+        hint: "Auto-generated from the first 200 characters of the post."
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Projects"
+          - "Inspiration"
+          - "Tips & Techniques"
+          - "Insights"
+          - "Company"
+          - "Community"
 
   # Authors Collection (Dynamically Manageable)
   - name: "authors"
