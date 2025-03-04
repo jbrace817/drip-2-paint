@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 // /app/blog/page.tsx
-import BlogCard from "@/components/blog/BlogCard";
+import BlogCards from "@/components/blog/BlogCards";
 
 export default function BlogList() {
   return (
@@ -20,7 +20,7 @@ export default function BlogList() {
           </div>
           <p>Duis sem sem, gravida vel porttitor eu, volutpat ut arcu</p>
         </div>
-        <BlogCard />
+        <BlogCards />
       </div>
     </main>
   );
