@@ -1,33 +1,27 @@
+import { Button } from "@/components/ui/button";
 // /app/blog/page.tsx
+import BlogCard from "@/components/blog/BlogCard";
 
-import { getAllFiles } from "@/lib/markdown";
-import Link from "next/link";
-
-// Define the type for the blog post metadata
-interface BlogPost {
-  slug: string;
-  title: string;
-  date?: string;
-}
-
-export default async function BlogPage() {
-  // Fetch all blog posts
-  const posts = getAllFiles("blog") as BlogPost[];
-
+export default function BlogList() {
   return (
-    <div>
-      <h1>Blog</h1>
-      <ul>
-        {posts.length > 0 ? (
-          posts.map((post) => (
-            <li key={post.slug}>
-              <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-            </li>
-          ))
-        ) : (
-          <li>No posts available.</li>
-        )}
-      </ul>
-    </div>
+    <main className="py-14 md:py-16">
+      <div className="container mx-auto px-4">
+        <div className="mb-8 md:mb-14 lg:mb-16">
+          <div className="flex items-start justify-between gap-8">
+            <div>
+              <p className="text-wider mb-4 text-sm font-medium text-muted-foreground">
+                Eyebrow
+              </p>
+              <h2 className="mb-4 w-full text-4xl font-medium md:mb-5 md:text-5xl lg:mb-6 lg:text-6xl">
+                Blog
+              </h2>
+            </div>
+            <Button className="hidden md:block">View all posts</Button>
+          </div>
+          <p>Duis sem sem, gravida vel porttitor eu, volutpat ut arcu</p>
+        </div>
+        <BlogCard />
+      </div>
+    </main>
   );
 }
