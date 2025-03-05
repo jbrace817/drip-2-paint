@@ -1,98 +1,57 @@
-import { getAllFiles, getFileBySlug } from "@/lib/markdown";
+"use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "../ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
+import { BlogFilters } from "./BlogFilters";
+import { BlogPost } from "@/types/blog";
 
-// Define the type for the blog post metadata
-interface BlogList {
-  slug: string;
-  title: string;
-  date?: Date;
-  author: string;
-  image: string;
-  category: string;
-  content: string;
-  frontmatter: {
-    title: string;
-    date: string;
-    author: string;
-    image: string;
-    category: string;
-  };
-}
+export default function BlogCards({
+  initialPosts,
+}: {
+  initialPosts: BlogPost[];
+}) {
+  const [filteredPosts, setFilteredPosts] = useState(initialPosts);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [sortOption, setSortOption] = useState("newest");
 
-// Helper function to extract the first 200 words
-const extractFirstWords = (
-  content: string,
-  wordCount: number = 200,
-): string => {
-  if (!content) return "";
+  // Extract unique categories
+  const categories = Array.from(
+    new Set(initialPosts.map((post) => post.category)),
+  );
 
-  // Step 1: First remove all heading lines completely
-  let cleanContent = content
-    .split("\n")
-    .filter((line) => !line.trim().match(/^#{1,6}\s+/))
-    .join("\n");
+  // Apply filters and sort
+  useEffect(() => {
+    let result = [...initialPosts];
 
-  // Step 2: Further clean the content
-  cleanContent = cleanContent
-    .replace(/!\[.*?\]\(.*?\)/g, "") // Remove images
-    .replace(/\[.*?\]\(.*?\)/g, "") // Remove links
-    .replace(/<.*?>/g, "") // Remove HTML tags
-    .replace(/[*_`]/g, "") // Remove markdown formatting characters
-    .replace(/\s+/g, " ") // Normalize whitespace
-    .trim();
+    // Apply category filter
+    if (activeCategory) {
+      result = result.filter((post) => post.category === activeCategory);
+    }
 
-  // Split into words and take first 200
-  const words = cleanContent.split(/\s+/);
-  const truncated = words.slice(0, wordCount).join(" ");
+    // Apply sort
+    result = result.sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
 
-  return words.length > wordCount ? `${truncated}...` : truncated;
-};
+      return sortOption === "newest"
+        ? dateB.getTime() - dateA.getTime()
+        : dateA.getTime() - dateB.getTime();
+    });
 
-export default async function BlogCards() {
-  // Fetch all blog posts
-  const posts = (await Promise.all(
-    getAllFiles("blog").map(async ({ slug }) => {
-      const fullPost = await getFileBySlug("blog", slug);
-      if (!fullPost) {
-        return {
-          slug,
-          content: "",
-          title: "Untitled",
-          date: undefined,
-          author: "Unknown",
-          image: "",
-          category: "Uncategorized",
-          frontmatter: {
-            title: "",
-            date: "",
-            author: "",
-            image: "",
-            category: "",
-          },
-        };
-      }
-      return {
-        slug,
-        content: extractFirstWords(fullPost.content),
-        title: fullPost.frontmatter.title,
-        date: fullPost.frontmatter.date
-          ? new Date(fullPost.frontmatter.date)
-          : undefined,
-        author: fullPost.frontmatter.author,
-        image: fullPost.frontmatter.image,
-        category: fullPost.frontmatter.category,
-        frontmatter: fullPost.frontmatter,
-      };
-    }),
-  )) as BlogList[];
+    setFilteredPosts(result);
+  }, [initialPosts, activeCategory, sortOption]);
 
   return (
     <section>
+      <BlogFilters
+        categories={categories}
+        onCategoryChange={setActiveCategory}
+        onSortChange={setSortOption}
+      />
       <div className="grid gap-x-4 gap-y-8 md:grid-cols-2 lg:gap-x-6 lg:gap-y-12 2xl:grid-cols-3">
-        {posts.map((post, index) => (
+        {filteredPosts.map((post, index) => (
           <Link
             key={index}
             href={`/blog/${post.slug}`}

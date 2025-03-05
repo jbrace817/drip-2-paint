@@ -1,8 +1,31 @@
 import { Button } from "@/components/ui/button";
 // /app/blog/page.tsx
 import BlogCards from "@/components/blog/BlogCards";
+import { extractFirstWords } from "@/lib/utils";
+import { getAllFiles, getFileBySlug } from "@/lib/markdown";
+import { BlogPost } from "@/types/blog";
 
-export default function BlogList() {
+export default async function BlogList() {
+  const posts = await Promise.all(
+    getAllFiles("blog").map(async ({ slug }) => {
+      const post = await getFileBySlug("blog", slug);
+      if (!post) return null;
+
+      return {
+        slug,
+        title: post.frontmatter.title,
+        date: post.frontmatter.date,
+        author: post.frontmatter.author,
+        image: post.frontmatter.image,
+        category: post.frontmatter.category,
+        content: extractFirstWords(post.content),
+      };
+    }),
+  );
+
+  // Filter out any null values and explicitly type the array
+  const validPosts = posts.filter((post): post is BlogPost => post !== null);
+
   return (
     <main className="py-14 md:py-16">
       <div className="container mx-auto px-4">
@@ -20,7 +43,7 @@ export default function BlogList() {
           </div>
           <p>Duis sem sem, gravida vel porttitor eu, volutpat ut arcu</p>
         </div>
-        <BlogCards />
+        <BlogCards initialPosts={validPosts} />
       </div>
     </main>
   );
