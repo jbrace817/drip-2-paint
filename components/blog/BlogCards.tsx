@@ -49,6 +49,7 @@ export default function BlogCards({
         categories={categories}
         onCategoryChange={setActiveCategory}
         onSortChange={setSortOption}
+        activeCategory={activeCategory}
       />
       <div className="grid gap-x-4 gap-y-8 md:grid-cols-2 lg:gap-x-6 lg:gap-y-12 2xl:grid-cols-3">
         {filteredPosts.map((post, index) => (

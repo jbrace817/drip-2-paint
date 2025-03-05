@@ -13,19 +13,21 @@ interface BlogFiltersProps {
   categories: string[];
   onCategoryChange: (category: string | null) => void;
   onSortChange: (sortOption: string) => void;
+  activeCategory: string | null;
 }
 
 export function BlogFilters({
   categories,
   onCategoryChange,
   onSortChange,
+  activeCategory,
 }: BlogFiltersProps) {
   return (
     <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
       <div className="flex flex-wrap gap-2">
         <Badge
           variant="outline"
-          className="cursor-pointer hover:bg-accent"
+          className={`cursor-pointer hover:border-primary hover:bg-primary-light1 ${activeCategory === null && "border-primary bg-primary-light1"}`}
           onClick={() => onCategoryChange(null)}
         >
           All
@@ -34,7 +36,7 @@ export function BlogFilters({
           <Badge
             key={category}
             variant="outline"
-            className="cursor-pointer hover:bg-accent"
+            className={`cursor-pointer hover:border-primary hover:bg-primary-light1 ${activeCategory === category && "border-primary bg-primary-light1"}`}
             onClick={() => onCategoryChange(category)}
           >
             {category}
