@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-// /app/blog/page.tsx
 import BlogCards from "@/components/blog/BlogCards";
 import { extractFirstWords } from "@/lib/utils";
 import { getAllFiles, getFileBySlug } from "@/lib/markdown";
@@ -39,7 +37,6 @@ export default async function BlogList() {
                 Blog
               </h2>
             </div>
-            <Button className="hidden md:block">View all posts</Button>
           </div>
           <p>Duis sem sem, gravida vel porttitor eu, volutpat ut arcu</p>
         </div>
