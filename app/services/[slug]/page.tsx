@@ -9,17 +9,14 @@ import {
   ExtractedContent,
   extractFirstElements,
 } from "@/components/content/extractMarkdownSections";
-
-interface PageProps {
-  params: { slug: string };
-}
+import { ContentProps } from "@/types/content";
 
 export async function generateStaticParams() {
   const pages = getAllFiles("pages"); // Get all pages from Decap
   return pages.map((page) => ({ slug: page.slug }));
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params }: ContentProps) {
   const { slug } = params;
   const page = await getFileBySlug("pages", slug); // ✅ Await the async function
 
