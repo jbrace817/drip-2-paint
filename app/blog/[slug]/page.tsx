@@ -1,6 +1,6 @@
 import { getFileBySlug, getAllFiles } from "@/lib/markdown";
 import { Button } from "@/components/ui/button";
-import { Facebook, Linkedin, Twitter } from "lucide-react";
+import { Cat, Facebook, Linkedin, Twitter } from "lucide-react";
 import { BlogPost as BaseBlogPost } from "@/types/blog";
 import Image from "next/image";
 import { ContentProps } from "@/types/content";
@@ -11,6 +11,8 @@ import {
 import ContentRenderer from "@/components/content/ContentRenderer";
 import PageNav from "@/components/content/PageNav";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Testimonial } from "@/components/testimonials/Testimonial";
+import CTA from "@/components/home/CTA";
 
 // Define the type for blog post metadata
 // interface BlogPost {
@@ -141,6 +143,7 @@ export default async function BlogPostPage({ params }: ContentProps) {
           <PageNav sections={allH3Headings} />
         </div>
       </section>
+      <Testimonial />
     </main>
   );
 }
