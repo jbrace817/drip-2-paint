@@ -104,7 +104,7 @@ export default function BlogCards({
       />
       <div className="grid gap-x-4 gap-y-8 md:grid-cols-2 lg:gap-x-6 lg:gap-y-12 2xl:grid-cols-3">
         {paginatedPosts.map((post, index) => (
-          <BlogCard index={index} post={post} />
+          <BlogCard key={index} index={index} post={post} />
         ))}
       </div>
       {totalPages > 1 && (
