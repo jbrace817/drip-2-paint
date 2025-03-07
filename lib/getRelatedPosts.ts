@@ -38,7 +38,7 @@ export async function getRelatedPosts(
     console.log("Posts before filtering:", posts.length);
 
     // Filter out null values and optionally the current post
-    let validPosts = posts.filter(
+    const validPosts = posts.filter(
       (post): post is BlogPost =>
         post !== null && (currentSlug ? post.slug !== currentSlug : true),
     );
