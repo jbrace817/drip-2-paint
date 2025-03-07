@@ -1,6 +1,6 @@
 import { getFileBySlug, getAllFiles } from "@/lib/markdown";
 import { Button } from "@/components/ui/button";
-import { Cat, Facebook, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Linkedin, Twitter } from "lucide-react";
 import { BlogPost as BaseBlogPost } from "@/types/blog";
 import Image from "next/image";
 import { ContentProps } from "@/types/content";
@@ -12,17 +12,9 @@ import ContentRenderer from "@/components/content/ContentRenderer";
 import PageNav from "@/components/content/PageNav";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Testimonial } from "@/components/testimonials/Testimonial";
-import CTA from "@/components/home/CTA";
+import { getRelatedPosts } from "@/lib/getRelatedPosts";
+import BlogCarousel from "@/components/blog/BlogCarousel";
 
-// Define the type for blog post metadata
-// interface BlogPost {
-//   slug: string;
-//   frontmatter: {
-//     title: string;
-//     date?: string;
-//   };
-//   content: string;
-// }
 interface BlogPost extends BaseBlogPost {
   frontmatter: {
     title: string;
@@ -59,6 +51,13 @@ export default async function BlogPostPage({ params }: ContentProps) {
 
   const { firstParagraph, restOfContent, firstHeading, allH3Headings } =
     extractedContent;
+
+  // Get related posts based on category
+  const relatedPosts = await getRelatedPosts(
+    params.slug,
+    post.frontmatter.category,
+    5,
+  );
 
   return (
     <main className="py-0 md:px-4 xl:px-6">
@@ -144,6 +143,7 @@ export default async function BlogPostPage({ params }: ContentProps) {
         </div>
       </section>
       <Testimonial />
+      {relatedPosts.length >= 3 && <BlogCarousel initialPosts={relatedPosts} />}
     </main>
   );
 }
