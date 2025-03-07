@@ -1,28 +1,8 @@
 import BlogCards from "@/components/blog/BlogCards";
-import { extractFirstWords } from "@/lib/utils";
-import { getAllFiles, getFileBySlug } from "@/lib/markdown";
-import { BlogPost } from "@/types/blog";
+import { getRelatedPosts } from "@/lib/getRelatedPosts";
 
 export default async function BlogList() {
-  const posts = await Promise.all(
-    getAllFiles("blog").map(async ({ slug }) => {
-      const post = await getFileBySlug("blog", slug);
-      if (!post) return null;
-
-      return {
-        slug,
-        title: post.frontmatter.title,
-        date: post.frontmatter.date,
-        author: post.frontmatter.author,
-        image: post.frontmatter.image,
-        category: post.frontmatter.category,
-        content: extractFirstWords(post.content),
-      };
-    }),
-  );
-
-  // Filter out any null values and explicitly type the array
-  const validPosts = posts.filter((post): post is BlogPost => post !== null);
+  const validPosts = await getRelatedPosts("", "", Infinity);
 
   return (
     <main className="py-14 md:py-16">
