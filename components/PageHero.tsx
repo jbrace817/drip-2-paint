@@ -2,7 +2,7 @@ import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 interface PageHeroProps {
-  title: string;
+  title?: string | React.ReactNode;
   imageSrc?: string | StaticImport;
   children?: React.ReactNode;
 }
@@ -10,9 +10,7 @@ interface PageHeroProps {
 export default function PageHero({ title, imageSrc, children }: PageHeroProps) {
   return (
     <section className="rounded-lg bg-gradient-to-b from-coolGray-light2 from-80% to-white px-4 pb-14">
-      <h1 className="mx-auto text-pretty py-14 text-center text-4xl font-medium md:py-16 md:text-5xl xl:max-w-4xl">
-        {title}
-      </h1>
+      {title}
       {!imageSrc ? (
         children
       ) : (

@@ -82,19 +82,10 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="py-32">
+    <section className="py-14 md:py-16">
       <div className="container mx-auto">
         <div className="mx-auto flex max-w-screen-xl flex-col justify-between gap-10 lg:flex-row lg:gap-20">
           <div className="mx-auto flex max-w-sm flex-col justify-between gap-10">
-            <div className="text-center lg:text-left">
-              <h1 className="mb-2 text-5xl font-semibold lg:mb-1 lg:text-6xl">
-                Contact Us
-              </h1>
-              <p className="text-muted-foreground">
-                We are available for questions, feedback, or collaboration
-                opportunities. Let us know how we can help!
-              </p>
-            </div>
             <div className="mx-auto w-fit lg:mx-0">
               <h3 className="mb-6 text-center text-2xl font-semibold lg:text-left">
                 Contact Details
@@ -113,122 +104,123 @@ const ContactForm = () => {
               </ul>
             </div>
           </div>
-
-          {/* Form using shadcn/ui Form component */}
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="mx-auto flex max-w-screen-md flex-col gap-6 rounded-lg border p-10"
-            >
-              {/* First and last name in a flex row */}
-              <div className="flex gap-4">
-                <FormField
-                  control={form.control}
-                  name="firstName"
-                  render={({ field }) => (
-                    <FormItem className="relative grid w-full">
-                      <FormLabel>First Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="First Name" {...field} />
-                      </FormControl>
-                      <div
-                        className={
-                          form.formState.errors.firstName ||
-                          form.formState.errors.lastName
-                            ? "h-8"
-                            : "h-0"
-                        }
-                      >
-                        {/* Fixed height container */}
-                        <FormMessage className="absolute text-xs" />
-                      </div>
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="lastName"
-                  render={({ field }) => (
-                    <FormItem className="relative grid w-full">
-                      <FormLabel>Last Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Last Name" {...field} />
-                      </FormControl>
-                      <div
-                        className={
-                          form.formState.errors.lastName ||
-                          form.formState.errors.firstName
-                            ? "h-8"
-                            : "h-0"
-                        }
-                      >
-                        {/* Fixed height container */}
-                        <FormMessage className="absolute text-xs" />
-                      </div>
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              {/* Email field */}
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input type="email" placeholder="Email" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              {/* Subject field */}
-              <FormField
-                control={form.control}
-                name="subject"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Subject</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Subject" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              {/* Message field */}
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Message</FormLabel>
-                    <FormControl>
-                      <Textarea
-                        placeholder="Type your message here."
-                        className="min-h-[120px]"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              {/* Submit button */}
-              <Button
-                type="submit"
-                className="w-full"
-                disabled={form.formState.isSubmitting}
+          <div className="mx-auto px-4 py-14 md:py-16 lg:px-0">
+            {/* Form using shadcn/ui Form component */}
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="mx-auto flex max-w-screen-md flex-col gap-6 rounded-lg border p-10"
               >
-                {form.formState.isSubmitting ? "Sending..." : "Send Message"}
-              </Button>
-            </form>
-          </Form>
+                {/* First and last name in a flex row */}
+                <div className="flex gap-4">
+                  <FormField
+                    control={form.control}
+                    name="firstName"
+                    render={({ field }) => (
+                      <FormItem className="relative grid w-full">
+                        <FormLabel>First Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="First Name" {...field} />
+                        </FormControl>
+                        <div
+                          className={
+                            form.formState.errors.firstName ||
+                            form.formState.errors.lastName
+                              ? "h-8"
+                              : "h-0"
+                          }
+                        >
+                          {/* Fixed height container */}
+                          <FormMessage className="absolute text-xs" />
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="lastName"
+                    render={({ field }) => (
+                      <FormItem className="relative grid w-full">
+                        <FormLabel>Last Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Last Name" {...field} />
+                        </FormControl>
+                        <div
+                          className={
+                            form.formState.errors.lastName ||
+                            form.formState.errors.firstName
+                              ? "h-8"
+                              : "h-0"
+                          }
+                        >
+                          {/* Fixed height container */}
+                          <FormMessage className="absolute text-xs" />
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                {/* Email field */}
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input type="email" placeholder="Email" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {/* Subject field */}
+                <FormField
+                  control={form.control}
+                  name="subject"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Subject</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Subject" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {/* Message field */}
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Message</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Type your message here."
+                          className="min-h-[120px]"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {/* Submit button */}
+                <Button
+                  type="submit"
+                  className="w-full"
+                  disabled={form.formState.isSubmitting}
+                >
+                  {form.formState.isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
+              </form>
+            </Form>
+          </div>
         </div>
       </div>
     </section>
