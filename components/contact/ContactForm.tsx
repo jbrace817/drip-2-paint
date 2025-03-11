@@ -5,6 +5,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { toast } from "sonner";
 import {
   Form,
   FormControl,
@@ -54,6 +56,8 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 const ContactForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   // Initialize form with react-hook-form and shadcn/ui Form
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -68,16 +72,48 @@ const ContactForm = () => {
 
   const onSubmit = async (data: FormValues) => {
     try {
-      // Add your form submission logic here
-      console.log("Form submitted:", data);
+      setIsSubmitting(true);
+      console.log("Attempting to submit form...");
+
+      const fullName = `${data.firstName} ${data.lastName}`;
+
+      const submitData = {
+        name: fullName,
+        email: data.email,
+        subject: data.subject,
+        message: data.message,
+      };
+
+      console.log("Submitting data:", submitData);
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(submitData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message");
+      }
+
+      console.log("Message submitted successfully:", result);
+      toast.success("Message sent successfully!");
 
       // Reset the form after successful submission
       form.reset();
-
-      // Show success message (you can implement this)
-      alert("Message sent successfully!");
     } catch (error) {
       console.error("Error submitting form:", error);
+      if (error instanceof Error) {
+        toast.error(`Error: ${error.message}`);
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -214,9 +250,9 @@ const ContactForm = () => {
                 <Button
                   type="submit"
                   className="w-full"
-                  disabled={form.formState.isSubmitting}
+                  disabled={isSubmitting}
                 >
-                  {form.formState.isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </Form>
