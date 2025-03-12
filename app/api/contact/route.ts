@@ -18,16 +18,41 @@ export async function POST(request: Request) {
     const body = await request.json();
     console.log("Received form data:", body);
 
+    // Validate client ID
+    if (!body.client_id) {
+      console.error("Missing client ID in request body");
+      throw new Error("Client ID is required");
+    }
+
+    console.log(
+      "Attempting database insertion with client_id:",
+      body.client_id,
+    );
+
     // Save to database
-    const { error: dbError } = await supabase
+    const { data, error: dbError } = await supabase
       .from("contact_messages")
-      .insert([body])
+      .insert([
+        {
+          name: body.name,
+          email: body.email,
+          subject: body.subject,
+          message: body.message,
+          client_id: body.client_id,
+        },
+      ])
       .select();
 
     if (dbError) {
-      console.error("Database error:", dbError);
+      console.error("Database error details:", {
+        code: dbError.code,
+        message: dbError.message,
+        details: dbError.details,
+      });
       throw dbError;
     }
+
+    console.log("Database insertion successful:", data);
 
     console.log("Attempting to send customer confirmation email...");
     try {

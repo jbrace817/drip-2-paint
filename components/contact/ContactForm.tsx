@@ -77,11 +77,17 @@ const ContactForm = () => {
 
       const fullName = `${data.firstName} ${data.lastName}`;
 
+      // Debug log for client ID
+      console.log("Client ID from env:", process.env.NEXT_PUBLIC_CLIENT_ID);
+
       const submitData = {
         name: fullName,
         email: data.email,
         subject: data.subject,
         message: data.message,
+        client_id:
+          process.env.NEXT_PUBLIC_CLIENT_ID ||
+          "550e8400-e29b-41d4-a716-446655440000", // Fallback to test ID
       };
 
       console.log("Submitting data:", submitData);
