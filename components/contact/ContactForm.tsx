@@ -16,6 +16,14 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
+import {
+  SelectContent,
+  Select,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+
 // Define your form schema with Zod
 const formSchema = z.object({
   firstName: z
@@ -41,6 +49,12 @@ const formSchema = z.object({
     .min(1, "Email is required")
     .email("Please enter a valid email address"),
 
+  address: z
+    .string()
+    .max(100, "Address cannot exceed 100 characters")
+    .optional(),
+  zipCode: z.string().max(10, "Zipcode cannot exceed 10 characters").optional(),
+
   subject: z
     .string()
     .min(1, "Subject is required")
@@ -50,6 +64,22 @@ const formSchema = z.object({
     .string()
     .min(10, "Message must be at least 10 characters")
     .max(1000, "Message cannot exceed 1000 characters"),
+  phone: z
+    .string()
+    .transform((str) => (str === "" ? undefined : str))
+    .optional()
+    .superRefine((val, ctx) => {
+      if (val && !/^[0-9\s\-]+$/.test(val)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Phone can only contain numbers, spaces, and hyphens",
+        });
+      }
+    }),
+  heardFrom: z.enum(["Google", "Social Media", "Friend", "Other"]).optional(),
+  timeline: z
+    .enum(["ASAP", "1-3 months", "3-6 months", "6+ months", "Just Exploring"])
+    .optional(),
 });
 
 // Infer the type from the schema
@@ -57,6 +87,7 @@ type FormValues = z.infer<typeof formSchema>;
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formKey, setFormKey] = useState(0);
 
   // Initialize form with react-hook-form and shadcn/ui Form
   const form = useForm<FormValues>({
@@ -67,6 +98,11 @@ const ContactForm = () => {
       email: "",
       subject: "",
       message: "",
+      phone: "",
+      zipCode: "",
+      address: "",
+      heardFrom: undefined,
+      timeline: undefined,
     },
   });
 
@@ -88,6 +124,11 @@ const ContactForm = () => {
         client_id:
           process.env.NEXT_PUBLIC_CLIENT_ID ||
           "550e8400-e29b-41d4-a716-446655440000", // Fallback to test ID
+        phone: data.phone,
+        address: data.address,
+        zipCode: data.zipCode,
+        heardFrom: data.heardFrom || null,
+        timeline: data.timeline || null,
       };
 
       console.log("Submitting data:", submitData);
@@ -109,8 +150,25 @@ const ContactForm = () => {
       console.log("Message submitted successfully:", result);
       toast.success("Message sent successfully!");
 
-      // Reset the form after successful submission
-      form.reset();
+      // Reset the form and increment key to force re-render
+      form.reset(
+        {
+          firstName: "",
+          lastName: "",
+          email: "",
+          subject: "",
+          message: "",
+          phone: "",
+          zipCode: "",
+          address: "",
+          heardFrom: undefined,
+          timeline: undefined,
+        },
+        {
+          keepDefaultValues: true,
+        },
+      );
+      setFormKey((prev) => prev + 1);
     } catch (error) {
       console.error("Error submitting form:", error);
       if (error instanceof Error) {
@@ -146,12 +204,13 @@ const ContactForm = () => {
               </ul>
             </div>
           </div>
-          <div className="mx-auto px-4 py-14 md:py-16 lg:px-0">
+          <div className="mx-auto w-full max-w-screen-sm px-4 py-14 md:py-16 lg:px-0">
             {/* Form using shadcn/ui Form component */}
             <Form {...form}>
               <form
+                key={formKey}
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="mx-auto flex max-w-screen-md flex-col gap-6 rounded-lg border p-10"
+                className="mx-auto flex max-w-screen-lg flex-col gap-6 rounded-lg border p-10"
               >
                 {/* First and last name in a flex row */}
                 <div className="flex gap-4">
@@ -203,20 +262,67 @@ const ContactForm = () => {
                   />
                 </div>
 
-                {/* Email field */}
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
-                      <FormControl>
-                        <Input type="email" placeholder="Email" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                {/* Address and phone number */}
+                <div className="flex flex-col gap-4 md:flex-row">
+                  <FormField
+                    control={form.control}
+                    name="address"
+                    render={({ field }) => (
+                      <FormItem className="relative grid w-full">
+                        <FormLabel>Address</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Address" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="zipCode"
+                    render={({ field }) => (
+                      <FormItem className="relative grid w-full md:w-1/3">
+                        <FormLabel>Zip Code</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Zip Code" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <div className="flex flex-col gap-4 md:flex-row">
+                  {/* Phone field */}
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem className="relative grid w-full">
+                        <FormLabel>Phone</FormLabel>
+                        <FormControl>
+                          <Input type="tel" placeholder="Phone" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  {/* Email field */}
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem className="relative grid w-full">
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input type="email" placeholder="Email" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
 
                 {/* Subject field */}
                 <FormField
@@ -251,6 +357,69 @@ const ContactForm = () => {
                     </FormItem>
                   )}
                 />
+                <div className="flex flex-col gap-4 md:flex-row">
+                  <FormField
+                    control={form.control}
+                    name="heardFrom"
+                    render={({ field }) => (
+                      <FormItem className="relative grid w-full">
+                        <FormLabel>How did you hear about us?</FormLabel>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select how you heard about us" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="Google">Google</SelectItem>
+                            <SelectItem value="Social Media">
+                              Social Media
+                            </SelectItem>
+                            <SelectItem value="Friend">Friend</SelectItem>
+                            <SelectItem value="Other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="timeline"
+                    render={({ field }) => (
+                      <FormItem className="relative grid w-full">
+                        <FormLabel>Preferred Timeline</FormLabel>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select your timeline" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="ASAP">ASAP</SelectItem>
+                            <SelectItem value="1-3 months">
+                              1-3 months
+                            </SelectItem>
+                            <SelectItem value="3-6 months">
+                              3-6 months
+                            </SelectItem>
+                            <SelectItem value="6+ months">6+ months</SelectItem>
+                            <SelectItem value="Just Exploring">
+                              Just Exploring
+                            </SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
 
                 {/* Submit button */}
                 <Button

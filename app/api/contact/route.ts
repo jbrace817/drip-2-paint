@@ -16,7 +16,10 @@ const supabase = createClient(
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    console.log("Received form data:", body);
+    console.log("Received complete form data:", {
+      ...body,
+      client_id: body.client_id, // Log client_id separately to verify it's present
+    });
 
     // Validate client ID
     if (!body.client_id) {
@@ -24,10 +27,18 @@ export async function POST(request: Request) {
       throw new Error("Client ID is required");
     }
 
-    console.log(
-      "Attempting database insertion with client_id:",
-      body.client_id,
-    );
+    console.log("Attempting database insertion with data:", {
+      name: body.name,
+      email: body.email,
+      subject: body.subject,
+      message: body.message,
+      client_id: body.client_id,
+      phone: body.phone,
+      address: body.address,
+      zip_code: body.zipCode,
+      heard_from: body.heardFrom,
+      timeline: body.timeline,
+    });
 
     // Save to database
     const { data, error: dbError } = await supabase
@@ -39,6 +50,13 @@ export async function POST(request: Request) {
           subject: body.subject,
           message: body.message,
           client_id: body.client_id,
+          phone: body.phone,
+          address: body.address,
+          zip_code: body.zipCode,
+          heard_from: body.heardFrom,
+          timeline: body.timeline,
+          status: "new",
+          source: "web_form",
         },
       ])
       .select();
