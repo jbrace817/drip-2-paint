@@ -1,5 +1,7 @@
-import { APIProvider, Map, useMap } from "@vis.gl/react-google-maps";
-import { useEffect } from "react";
+import { GoogleMap, LoadScript, Polygon } from "@react-google-maps/api";
+import { useMemo } from "react";
+
+const CENTER = { lat: 40.1166, lng: -75.2166 }; // Chalfont, PA approximate center
 
 // Function to generate circle coordinates
 const generateCircleCoordinates = (
@@ -28,54 +30,52 @@ const generateCircleCoordinates = (
   return points;
 };
 
-const CENTER = { lat: 40.1166, lng: -75.2166 }; // Chalfont, PA approximate center
+const mapContainerStyle = {
+  width: "100%",
+  height: "400px",
+};
 
-const coverageAreas = [
-  {
-    path: generateCircleCoordinates(CENTER, 12),
-    name: "50 Mile Coverage Area",
-  },
-];
+const options = {
+  disableDefaultUI: true,
+  gestureHandling: "cooperative" as const,
+  styles: [
+    {
+      featureType: "all",
+      elementType: "labels",
+      stylers: [{ visibility: "off" }],
+    },
+  ],
+};
 
-const CoverageOverlay = () => {
-  const map = useMap();
-
-  useEffect(() => {
-    if (!map) return;
-
-    const polygon = new google.maps.Polygon({
-      paths: coverageAreas[0].path,
-      strokeColor: "#810FCB",
-      strokeOpacity: 1.0,
-      strokeWeight: 2,
-      fillColor: "#810FCB",
-      fillOpacity: 0.3,
-    });
-
-    polygon.setMap(map);
-
-    return () => {
-      polygon.setMap(null);
-    };
-  }, [map]);
-
-  return null;
+const polygonOptions = {
+  fillColor: "#810FCB",
+  fillOpacity: 0.3,
+  strokeColor: "#810FCB",
+  strokeWeight: 2,
+  clickable: false,
+  draggable: false,
+  editable: false,
+  geodesic: false,
+  zIndex: 1,
 };
 
 const CoverageMap = () => {
+  // Memoize the coverage area to prevent unnecessary recalculations
+  const coverageArea = useMemo(() => generateCircleCoordinates(CENTER, 12), []);
+
   return (
-    <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}>
-      <div style={{ width: "100%", height: "400px" }}>
-        <Map
-          defaultCenter={CENTER}
-          defaultZoom={9.8} // Reduced zoom to show the larger coverage area
-          gestureHandling={"cooperative"}
-          disableDefaultUI={true}
-        >
-          <CoverageOverlay />
-        </Map>
-      </div>
-    </APIProvider>
+    <LoadScript
+      googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}
+    >
+      <GoogleMap
+        mapContainerStyle={mapContainerStyle}
+        center={CENTER}
+        zoom={9.8}
+        options={options}
+      >
+        <Polygon paths={coverageArea} options={polygonOptions} />
+      </GoogleMap>
+    </LoadScript>
   );
 };
 
