@@ -23,6 +23,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import { Mail, PhoneCall } from "lucide-react";
+import CoverageMap from "./EmbeddedMap";
+import { debugLog } from "@/utils/debugLog";
 
 // Define your form schema with Zod
 const formSchema = z.object({
@@ -85,6 +88,15 @@ const formSchema = z.object({
 // Infer the type from the schema
 type FormValues = z.infer<typeof formSchema>;
 
+const CoverageSection = () => (
+  <>
+    <h3 className="mb-6 text-center text-2xl font-semibold lg:text-left">
+      Our Coverage Area
+    </h3>
+    <CoverageMap />
+  </>
+);
+
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formKey, setFormKey] = useState(0);
@@ -109,12 +121,12 @@ const ContactForm = () => {
   const onSubmit = async (data: FormValues) => {
     try {
       setIsSubmitting(true);
-      console.log("Attempting to submit form...");
+      debugLog("Attempting to submit form...");
 
       const fullName = `${data.firstName} ${data.lastName}`;
 
       // Debug log for client ID
-      console.log("Client ID from env:", process.env.NEXT_PUBLIC_CLIENT_ID);
+      debugLog("Client ID from env:", process.env.NEXT_PUBLIC_CLIENT_ID);
 
       const submitData = {
         name: fullName,
@@ -131,7 +143,7 @@ const ContactForm = () => {
         timeline: data.timeline || null,
       };
 
-      console.log("Submitting data:", submitData);
+      debugLog("Submitting data: " + JSON.stringify(submitData, null, 2));
 
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -147,7 +159,7 @@ const ContactForm = () => {
         throw new Error(result.error || "Failed to send message");
       }
 
-      console.log("Message submitted successfully:", result);
+      debugLog("Message submitted successfully:", result);
       toast.success("Message sent successfully!");
 
       // Reset the form and increment key to force re-render
@@ -170,7 +182,7 @@ const ContactForm = () => {
       );
       setFormKey((prev) => prev + 1);
     } catch (error) {
-      console.error("Error submitting form:", error);
+      debugLog("Error submitting form:", error);
       if (error instanceof Error) {
         toast.error(`Error: ${error.message}`);
       } else {
@@ -184,27 +196,42 @@ const ContactForm = () => {
   return (
     <section className="py-14 md:py-16">
       <div className="container mx-auto">
-        <div className="mx-auto flex max-w-screen-xl flex-col justify-between gap-10 lg:flex-row lg:gap-20">
-          <div className="mx-auto flex max-w-sm flex-col justify-between gap-10">
-            <div className="mx-auto w-fit lg:mx-0">
-              <h3 className="mb-6 text-center text-2xl font-semibold lg:text-left">
-                Contact Details
-              </h3>
-              <ul className="ml-4 list-disc">
-                <li>
-                  <span className="font-bold">Phone: </span>
-                  (123) 34567890
-                </li>
-                <li>
-                  <span className="font-bold">Email: </span>
-                  <a href="mailto:your-email@example.com" className="underline">
-                    your-email@example.com
-                  </a>
-                </li>
-              </ul>
+        <div className="mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-10 lg:flex-row lg:gap-20">
+          <div className="flex w-full max-w-sm flex-col justify-between gap-10">
+            <div className="flex flex-col justify-evenly gap-10">
+              <div className="mx-auto w-fit lg:mx-0">
+                <h3 className="mb-6 text-center text-2xl font-semibold lg:text-left">
+                  Contact Details
+                </h3>
+                <ul className="space-y-6">
+                  <li>
+                    <a href="tel:+12334567890" className="flex items-center">
+                      <PhoneCall className="mr-4 text-primary" />
+                      <span className="font-bold">Phone:&nbsp; </span>
+                      <span className="underline">(123) 34567890</span>
+                    </a>
+                  </li>
+                  <li className="flex items-center">
+                    <Mail className="mr-4 text-primary" />
+                    <span className="font-bold">Email:&nbsp; </span>
+                    <a
+                      href="mailto:your-email@example.com"
+                      className="underline"
+                    >
+                      your-email@example.com
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="mt-10 hidden lg:block">
+              <CoverageSection />
             </div>
           </div>
-          <div className="mx-auto w-full max-w-screen-sm px-4 py-14 md:py-16 lg:px-0">
+          <div className="max-w-screen order-3 block w-full lg:hidden">
+            <CoverageSection />
+          </div>
+          <div className="w-full max-w-screen-sm px-4 py-14 md:py-16 lg:px-0">
             {/* Form using shadcn/ui Form component */}
             <Form {...form}>
               <form
@@ -269,7 +296,7 @@ const ContactForm = () => {
                     name="address"
                     render={({ field }) => (
                       <FormItem className="relative grid w-full">
-                        <FormLabel>Address</FormLabel>
+                        <FormLabel>Street Address</FormLabel>
                         <FormControl>
                           <Input placeholder="Address" {...field} />
                         </FormControl>
@@ -427,7 +454,9 @@ const ContactForm = () => {
                   className="w-full"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting
+                    ? "Sending..."
+                    : "Schedule your free consultation"}
                 </Button>
               </form>
             </Form>
