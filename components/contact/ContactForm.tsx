@@ -23,9 +23,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { Mail, PhoneCall } from "lucide-react";
+
 import CoverageMap from "./EmbeddedMap";
 import { debugLog } from "@/utils/debugLog";
+import { ContactInfo } from "./ContactInfo";
 
 // Define your form schema with Zod
 const formSchema = z.object({
@@ -203,25 +204,7 @@ const ContactForm = () => {
                 <h3 className="mb-6 text-center text-2xl font-semibold lg:text-left">
                   Contact Details
                 </h3>
-                <ul className="space-y-6">
-                  <li>
-                    <a href="tel:+12334567890" className="flex items-center">
-                      <PhoneCall className="mr-4 text-primary" />
-                      <span className="font-bold">Phone:&nbsp; </span>
-                      <span className="underline">(123) 34567890</span>
-                    </a>
-                  </li>
-                  <li className="flex items-center">
-                    <Mail className="mr-4 text-primary" />
-                    <span className="font-bold">Email:&nbsp; </span>
-                    <a
-                      href="mailto:your-email@example.com"
-                      className="underline"
-                    >
-                      your-email@example.com
-                    </a>
-                  </li>
-                </ul>
+                <ContactInfo />
               </div>
             </div>
             <div className="mt-10 hidden lg:block">

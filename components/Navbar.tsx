@@ -2,6 +2,7 @@
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 import {
   Accordion,
@@ -28,6 +29,7 @@ import {
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ContactInfo } from "./contact/ContactInfo";
 
 const subMenuItemsOne = [
   {
@@ -120,80 +122,86 @@ const Navbar = () => {
                 </div>
               </Link>
             </div>
-            <div className="flex items-center gap-6">
-              <Link
-                href="/"
-                className="font-headings text-lg font-medium text-coolGray-dark4"
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                className="font-headings text-lg font-medium text-coolGray-dark4"
-              >
-                About Us
-              </Link>
-              <NavigationMenu>
-                <NavigationMenuList>
-                  <NavigationMenuItem className="text-coolGray-dark4">
-                    <NavigationMenuTrigger className="bg-transparent font-headings text-lg font-medium">
-                      Services
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul className="w-80 p-3">
-                        {subMenuItemsOne.map((item, idx) => (
-                          <li key={idx}>
-                            <a
-                              className={cn(
-                                "flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-                              )}
-                              href={item.link}
-                            >
-                              <Image
-                                src={item.icon}
-                                className="size-8 shrink-0"
-                                alt={item.alt}
-                                width={32}
-                                height={32}
-                                priority
-                              />
-                              <div>
-                                <div className="text-sm font-semibold">
-                                  {item.title}
+            <div className="flex items-center justify-between lg:w-3/4 xl:w-2/3">
+              <div className="flex items-center gap-6">
+                <Link
+                  href="/"
+                  className="font-headings text-lg font-medium text-coolGray-dark4"
+                >
+                  Home
+                </Link>
+                <Link
+                  href="/about"
+                  className="font-headings text-lg font-medium text-coolGray-dark4"
+                >
+                  About Us
+                </Link>
+                <NavigationMenu>
+                  <NavigationMenuList>
+                    <NavigationMenuItem className="text-coolGray-dark4">
+                      <NavigationMenuTrigger className="bg-transparent font-headings text-lg font-medium">
+                        Services
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="w-80 p-3">
+                          {subMenuItemsOne.map((item, idx) => (
+                            <li key={idx}>
+                              <Link
+                                className={cn(
+                                  "flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                                )}
+                                href={item.link}
+                              >
+                                <Image
+                                  src={item.icon}
+                                  className="size-8 shrink-0"
+                                  alt={item.alt}
+                                  width={32}
+                                  height={32}
+                                  priority
+                                />
+                                <div>
+                                  <div className="text-sm font-semibold">
+                                    {item.title}
+                                  </div>
+                                  <p className="text-sm leading-snug text-muted-foreground">
+                                    {item.description}
+                                  </p>
                                 </div>
-                                <p className="text-sm leading-snug text-muted-foreground">
-                                  {item.description}
-                                </p>
-                              </div>
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  </NavigationMenuList>
+                </NavigationMenu>
 
-              <Link
-                href="/gallery"
-                className="font-headings text-lg font-medium text-coolGray-dark4"
-              >
-                Gallery
-              </Link>
-              <Link
-                className="font-headings text-lg font-medium text-coolGray-dark4"
-                href="/blog"
-              >
-                Blog
-              </Link>
-            </div>
+                <Link
+                  href="/gallery"
+                  className="font-headings text-lg font-medium text-coolGray-dark4"
+                >
+                  Gallery
+                </Link>
+                <Link
+                  className="font-headings text-lg font-medium text-coolGray-dark4"
+                  href="/blog"
+                >
+                  Blog
+                </Link>
+              </div>
 
-            <div className="flex gap-2">
-              <Link href="/contact">
+              <div className="flex gap-2">
+                {/* <Link href="/contact">
                 <Button size="sm">Contact Us</Button>
-              </Link>
+              </Link> */}
+                <div className="hidden lg:block">
+                  <ContactInfo variant="navbar" />
+                </div>
+              </div>
             </div>
           </nav>
+          {/* Mobile Navbar */}
           <div className="block lg:hidden">
             <div className="flex items-center justify-between">
               <Link href="/">
@@ -296,12 +304,53 @@ const Navbar = () => {
                     </SheetClose>
                   </div>
                   <div className="border-t py-4"></div>
-                  <div className="flex justify-center">
-                    <SheetClose asChild>
-                      <Link className="w-full" href="/contact">
-                        <Button className="w-full">Contact Us</Button>
-                      </Link>
-                    </SheetClose>
+                  <div className="flex h-1/2 flex-col justify-between">
+                    <div className="mb-6">
+                      <SheetClose asChild>
+                        <ContactInfo variant="navbar" />
+                      </SheetClose>
+                    </div>
+                    <div>
+                      <div className="mb-6 flex justify-center">
+                        <SheetClose asChild>
+                          <Link className="w-full" href="/contact">
+                            <Button className="w-full">Contact Us</Button>
+                          </Link>
+                        </SheetClose>
+                      </div>
+                      <div className="flex justify-center">
+                        <ul className="flex items-center space-x-6 text-coolGray-dark3">
+                          <li className="font-medium hover:text-primary">
+                            <SheetClose asChild>
+                              <Link href="#">
+                                <FaInstagram className="size-6" />
+                              </Link>
+                            </SheetClose>
+                          </li>
+                          <li className="font-medium hover:text-primary">
+                            <SheetClose asChild>
+                              <Link href="#">
+                                <FaFacebook className="size-6" />
+                              </Link>
+                            </SheetClose>
+                          </li>
+                          <li className="font-medium hover:text-primary">
+                            <SheetClose asChild>
+                              <Link href="#">
+                                <FaTwitter className="size-6" />
+                              </Link>
+                            </SheetClose>
+                          </li>
+                          <li className="font-medium hover:text-primary">
+                            <SheetClose asChild>
+                              <Link href="#">
+                                <FaLinkedin className="size-6" />
+                              </Link>
+                            </SheetClose>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </SheetContent>
               </Sheet>
