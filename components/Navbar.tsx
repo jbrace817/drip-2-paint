@@ -324,7 +324,7 @@ const Navbar = () => {
                       </Link>
                     </SheetClose>
                     <div className="flex justify-center">
-                      <ul className="flex items-center space-x-6 text-coolGray-dark3">
+                      <ul className="flex items-center space-x-6 text-coolGray-dark4">
                         <li className="font-medium hover:text-primary">
                           <SheetClose asChild>
                             <Link href="#">
