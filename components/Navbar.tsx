@@ -220,10 +220,10 @@ const Navbar = () => {
                   <Menu size={32} className="text-coolGray-dark5" />
                 </SheetTrigger>
                 <SheetContent
-                  className="flex min-h-screen flex-col justify-between overflow-y-auto"
+                  className="pb-safe flex min-h-[100dvh] flex-col justify-between overflow-y-auto"
                   side={"right"}
                 >
-                  <div>
+                  <div className="flex-1">
                     <SheetHeader>
                       <SheetTitle>
                         <div className="flex items-center justify-between">
@@ -317,7 +317,7 @@ const Navbar = () => {
                   </div>
 
                   {/* Footer content that sticks to bottom */}
-                  <div className="mt-auto space-y-6 pb-8">
+                  <div className="safe-area-bottom mt-auto space-y-6 pb-8 pt-4">
                     <SheetClose asChild>
                       <Link className="block w-full" href="/contact">
                         <Button className="w-full">Contact Us</Button>
