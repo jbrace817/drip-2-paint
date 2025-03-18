@@ -52,8 +52,8 @@ export default function HeroCarousel({ slides }: CarouselProps) {
                   width={1536}
                   height={768}
                   className="aspect-video rounded-lg object-cover xl:aspect-[5/2]"
-                  priority={index <= 2}
-                  sizes="(min-width: 1560px) 1536px, (min-width: 1300px) 1280px, (min-width: 1060px) 1024px, (min-width: 800px) 768px, (min-width: 720px) 640px, 100vw"
+                  priority={index < 2}
+                  sizes="(min-width: 1540px) calc(5.21vw + 1380px), (min-width: 1280px) calc(33.33vw + 773px), (min-width: 1060px) calc(14vw + 848px), (min-width: 1020px) calc(1040vw - 9840px), (min-width: 780px) calc(23.64vw + 532px), (min-width: 720px) 640px, 93vw"
                   quality={85}
                   placeholder="blur"
                   blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
