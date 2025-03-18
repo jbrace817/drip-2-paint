@@ -5,21 +5,28 @@ import { ArrowRight } from "lucide-react";
 import SwiperComponent from "../ui/swiper/SwiperComponent";
 import Link from "next/link";
 
+/*images from unsplash
+https://images.unsplash.com/photo-1593696140826-c58b021acf8b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+https://images.unsplash.com/photo-1638799869566-b17fa794c4de?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+https://images.unsplash.com/photo-1602028617950-0ed35e50e460?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D  
+*/
+
 const slides = [
   {
-    src: "https://images.unsplash.com/photo-1593696140826-c58b021acf8b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "https://res.cloudinary.com/dsjx8ner3/image/upload/v1742267151/livingRoom_tres2j.webp",
     alt: "Beautiful Living Area",
   },
   {
-    src: "https://images.unsplash.com/photo-1638799869566-b17fa794c4de?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "https://res.cloudinary.com/dsjx8ner3/image/upload/v1742267150/bathroomRemodel_yoqe8n.webp",
     alt: "Beautiful Bathroom remodel",
   },
   {
-    src: "https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "https://res.cloudinary.com/dsjx8ner3/image/upload/v1742267152/patioEntrance_irwcjg.webp",
     alt: "Beautiful Patio Entrance",
   },
   {
-    src: "https://images.unsplash.com/photo-1602028617950-0ed35e50e460?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "https://res.cloudinary.com/dsjx8ner3/image/upload/v1742267151/kitchenRemodel_cg8a04.webp",
     alt: "Beautiful Kitchen Remodel",
   },
 ];
