@@ -4,7 +4,7 @@ import AutoScroll from "embla-carousel-auto-scroll";
 
 //Logos
 import valspar from "@/public/images/marquee/valspar.svg";
-import benjaminMoore from "@/public/images/marquee/Benjamin-Moore.svg";
+import benjaminMoore from "@/public/images/marquee/benjamin-moore.svg";
 import dutchBoy from "@/public/images/marquee/DutchBoy.svg";
 import behr from "@/public/images/marquee/behr.svg";
 import sherwinWilliams from "@/public/images/marquee/sherwin.svg";
