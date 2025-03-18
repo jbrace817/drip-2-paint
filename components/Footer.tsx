@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-import companyLogo from "@/public/images/dripLogo/gradientDrip.svg";
+import companyLogo from "@/public/images/dripLogo/dripLogo.svg";
 
 const sections = [
   {

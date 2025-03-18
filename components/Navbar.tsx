@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
-import companyLogo from "@/public/images/dripLogo/gradientDrip.svg";
+import companyLogo from "@/public/images/dripLogo/dripLogo.svg";
 
 import {
   Accordion,
