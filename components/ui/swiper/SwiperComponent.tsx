@@ -40,9 +40,11 @@ export default function SwiperComponent({ slides }: SliderComponentProps) {
             <Image
               src={slide.src}
               alt={slide.alt}
-              width={1920}
-              height={1080}
+              width={1536}
+              height={768}
               className="aspect-video rounded-lg object-cover xl:aspect-[5/2]"
+              priority
+              sizes="(min-width: 1560px) 1536px, (min-width: 1300px) 1280px, (min-width: 1060px) 1024px, (min-width: 800px) 768px, (min-width: 720px) 640px, 100vw"
             />
           </SwiperSlide>
         ))}
