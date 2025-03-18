@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 import TypeWriter from "../common/TypeWriter";
 import { ArrowRight } from "lucide-react";
-import SwiperComponent from "../ui/swiper/SwiperComponent";
+import HeroCarousel from "./HeroCarousel";
 import Link from "next/link";
 
 /*images from unsplash
@@ -65,7 +65,7 @@ const Hero = () => {
           <div>
             {/*[mask-image:linear-gradient(#000_80%,transparent_100%)]*/}
             {/* <TripleSlider slides={slides} /> */}
-            <SwiperComponent slides={slides} />
+            <HeroCarousel slides={slides} />
           </div>
         </div>
       </div>

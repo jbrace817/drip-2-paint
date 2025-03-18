@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import companyLogo from "@/public/images/dripLogo/gradientDrip.svg";
 
 const sections = [
   {
@@ -30,7 +31,7 @@ const Footer = () => {
               <div className="mb-4 flex flex-col items-center gap-2 lg:items-start">
                 <div className="flex items-center gap-2">
                   <Image
-                    src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1738206290/GradientDrip_wdbdky.svg"
+                    src={companyLogo}
                     className="w-8"
                     alt="logo"
                     width={32}

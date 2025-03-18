@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import companyLogo from "@/public/images/dripLogo/gradientDrip.svg";
 
 import {
   Accordion,
@@ -113,7 +114,7 @@ const Navbar = () => {
               <Link href="/">
                 <div className="flex items-center gap-2">
                   <Image
-                    src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1738206290/GradientDrip_wdbdky.svg"
+                    src={companyLogo}
                     className="w-8"
                     alt="logo"
                     width={32}
@@ -207,7 +208,7 @@ const Navbar = () => {
               <Link href="/">
                 <div className="flex items-center gap-2">
                   <Image
-                    src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1738206290/GradientDrip_wdbdky.svg"
+                    src={companyLogo}
                     className="w-6"
                     alt="logo"
                     width={32}
@@ -229,7 +230,7 @@ const Navbar = () => {
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
                             <Image
-                              src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1738206290/GradientDrip_wdbdky.svg"
+                              src={companyLogo}
                               className="w-6"
                               alt="logo"
                               width={32}
