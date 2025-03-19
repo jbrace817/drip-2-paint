@@ -45,16 +45,16 @@ export default function HeroCarousel({ slides }: CarouselProps) {
         <div className="flex touch-pan-y">
           {slides.map((slide, index) => (
             <div className="relative flex-[0_0_100%]" key={index}>
-              <div className="relative w-full">
+              <div className="relative mx-auto w-full xl:w-10/12">
                 <Image
                   src={slide.src}
                   alt={slide.alt}
-                  width={1536}
-                  height={614}
-                  className="aspect-video rounded-lg object-cover xl:aspect-[5/2]"
+                  width={1920}
+                  height={1080}
+                  className="rounded-lg"
                   priority={index < 2}
                   quality={85}
-                  sizes="(min-width: 1540px) calc(5.07vw + 1384px), (min-width: 1280px) calc(33.33vw + 775px), (min-width: 1040px) calc(30.45vw + 1059px), (min-width: 780px) calc(30vw + 777px), (min-width: 720px) 904px, 130.75vw"
+                  sizes="(min-width: 1540px) calc(4.32vw + 1151px), (min-width: 1060px) calc(15.43vw + 832px), (min-width: 1020px) calc(1040vw - 9840px), (min-width: 780px) calc(23.64vw + 532px), (min-width: 720px) 640px, 93vw"
                 />
               </div>
             </div>

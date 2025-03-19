@@ -14,22 +14,40 @@ https://images.unsplash.com/photo-1602028617950-0ed35e50e460?q=80&w=2070&auto=fo
 
 const slides = [
   {
-    src: "https://res.cloudinary.com/dsjx8ner3/image/upload/c_fill,w_1536,h_614,g_auto/v1742349310/livingRoom_tres2j.webp",
+    src: "https://res.cloudinary.com/dsjx8ner3/image/upload/c_crop,ar_16:9/v1742349310/livingRoom_tres2j.webp",
     alt: "Beautiful Living Area",
   },
   {
-    src: "https://res.cloudinary.com/dsjx8ner3/image/upload/c_fill,w_1536,h_614,g_auto/v1742349333/bathroomRemodel_yoqe8n.webp",
+    src: "https://res.cloudinary.com/dsjx8ner3/image/upload/c_crop,ar_16:9/v1742349333/bathroomRemodel_yoqe8n.webp",
     alt: "Beautiful Bathroom remodel",
   },
   {
-    src: "https://res.cloudinary.com/dsjx8ner3/image/upload/c_fill,w_1536,h_614,g_auto/v1742349297/patioEntrance_irwcjg.webp",
+    src: "https://res.cloudinary.com/dsjx8ner3/image/upload/c_crop,ar_16:9/v1742349297/patioEntrance_irwcjg.webp",
     alt: "Beautiful Patio Entrance",
   },
   {
-    src: "https://res.cloudinary.com/dsjx8ner3/image/upload/c_fill,w_1536,h_614,g_auto/v1742349320/kitchenRemodel_cg8a04.webp",
+    src: "https://res.cloudinary.com/dsjx8ner3/image/upload/c_crop,ar_16:9/v1742349320/kitchenRemodel_cg8a04.webp",
     alt: "Beautiful Kitchen Remodel",
   },
 ];
+// const slides = [
+//   {
+//     src: "https://res.cloudinary.com/dsjx8ner3/image/upload/c_fill,w_1536,h_614,g_auto/v1742349310/livingRoom_tres2j.webp",
+//     alt: "Beautiful Living Area",
+//   },
+//   {
+//     src: "https://res.cloudinary.com/dsjx8ner3/image/upload/c_fill,w_1536,h_614,g_auto/v1742349333/bathroomRemodel_yoqe8n.webp",
+//     alt: "Beautiful Bathroom remodel",
+//   },
+//   {
+//     src: "https://res.cloudinary.com/dsjx8ner3/image/upload/c_fill,w_1536,h_614,g_auto/v1742349297/patioEntrance_irwcjg.webp",
+//     alt: "Beautiful Patio Entrance",
+//   },
+//   {
+//     src: "https://res.cloudinary.com/dsjx8ner3/image/upload/c_fill,w_1536,h_614,g_auto/v1742349320/kitchenRemodel_cg8a04.webp",
+//     alt: "Beautiful Kitchen Remodel",
+//   },
+// ];
 
 const Hero = () => {
   return (
