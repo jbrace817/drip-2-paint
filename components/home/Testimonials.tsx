@@ -43,7 +43,7 @@ const data = [
     id: "item-4",
     customer: "— Mark Reynolds",
     testimonial:
-      "We hired Drip Painting for both interior and exterior work, and they did a fantastic job. The colors they helped us choose look amazing, and the quality of their work speaks for itself. We’ll definitely be using them again!",
+      "We hired Drip Painting for both interior and exterior work, and they did a fantastic job. The colors they helped us choose look amazing, and the quality of their work speaks for itself. We'll definitely be using them again!",
     image:
       "https://img.freepik.com/premium-photo/abstract-red-watercolor-white-background_196038-20282.jpg?w=740",
     alt: "Red colour lipstick border with empty space in the middle",
@@ -76,7 +76,7 @@ const data = [
     id: "item-8",
     customer: "— Jonathan Pierce",
     testimonial:
-      "After 20 years in business, it’s no wonder Drip Painting is the best around. They brought our vision to life with expert craftsmanship and a keen eye for detail. A+ service from start to finish!",
+      "After 20 years in business, it's no wonder Drip Painting is the best around. They brought our vision to life with expert craftsmanship and a keen eye for detail. A+ service from start to finish!",
     image:
       "https://img.freepik.com/premium-photo/abstract-green-paint-stroke-white-background_1351431-19351.jpg?w=740",
     alt: "Abstract green paint stroke on white background",
@@ -172,6 +172,7 @@ const Testimonials = () => {
               }}
               disabled={!canScrollPrev}
               className="disabled:pointer-events-auto"
+              aria-label="Previous testimonial"
             >
               <ArrowLeft className="size-5" />
             </Button>
@@ -183,6 +184,7 @@ const Testimonials = () => {
               }}
               disabled={!canScrollNext}
               className="disabled:pointer-events-auto"
+              aria-label="Next testimonial"
             >
               <ArrowRight className="size-5" />
             </Button>

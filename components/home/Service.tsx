@@ -1,63 +1,63 @@
-'use client';
-import * as React from 'react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+"use client";
+import * as React from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselApi,
-} from '@/components/ui/carousel';
-import { Button } from '@/components/ui/button';
-import Fade from 'embla-carousel-fade';
-import Image from 'next/image';
+} from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
+import Fade from "embla-carousel-fade";
+import Image from "next/image";
 
 const features = [
   {
-    id: 'feature-1',
-    tabLabel: 'Exteriors',
-    title: 'Exteriors',
+    id: "feature-1",
+    tabLabel: "Exteriors",
+    title: "Exteriors",
     description:
-      'A quality paint job protects your home’s exterior and boosts curb appeal. At Drip Painting, we ensure a durable, beautiful finish with expert techniques and the best products.',
+      "A quality paint job protects your home’s exterior and boosts curb appeal. At Drip Painting, we ensure a durable, beautiful finish with expert techniques and the best products.",
     image:
-      'https://res.cloudinary.com/dsjx8ner3/image/upload/v1737435684/FP_exterior_blue_hmhgz7.webp',
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/v1737435684/FP_exterior_blue_hmhgz7.webp",
   },
   {
-    id: 'feature-2',
-    tabLabel: 'Interiors',
-    title: 'Interiors',
+    id: "feature-2",
+    tabLabel: "Interiors",
+    title: "Interiors",
     description:
-      'Refresh your home effortlessly with Drip Painting. We deliver flawless results while protecting your space and ensuring a smooth, stress-free experience.',
+      "Refresh your home effortlessly with Drip Painting. We deliver flawless results while protecting your space and ensuring a smooth, stress-free experience.",
     image:
-      'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    id: 'feature-3',
-    tabLabel: 'Custom Finishes',
-    title: 'Custom Finishes',
+    id: "feature-3",
+    tabLabel: "Custom Finishes",
+    title: "Custom Finishes",
     description:
-      'Custom finishes add character and elegance to your space. At Drip Painting, we create unique textures and details, crafting a personalized look that reflects your style.',
+      "Custom finishes add character and elegance to your space. At Drip Painting, we create unique textures and details, crafting a personalized look that reflects your style.",
     image:
-      'https://images.unsplash.com/photo-1598928428433-1077478561d6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      "https://images.unsplash.com/photo-1598928428433-1077478561d6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    id: 'feature-4',
-    tabLabel: 'Bathrooms',
-    title: 'Bathrooms',
+    id: "feature-4",
+    tabLabel: "Bathrooms",
+    title: "Bathrooms",
     description:
       "Transform your bathroom into a stunning retreat with Drip Painting’s expert remodeling services. A bathroom remodel not only enhances your home's functionality and comfort but also increases its value.",
     image:
-      'https://images.unsplash.com/photo-1543502999-b65be91f22ea?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      "https://images.unsplash.com/photo-1543502999-b65be91f22ea?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    id: 'feature-5',
-    tabLabel: 'Kitchens',
-    title: 'Kitchens',
+    id: "feature-5",
+    tabLabel: "Kitchens",
+    title: "Kitchens",
     description:
-      'Updating your kitchen’s design is essential, but making it fit your lifestyle is just as important. At Drip Painting, we craft kitchens that are both stunning and functional.',
+      "Updating your kitchen’s design is essential, but making it fit your lifestyle is just as important. At Drip Painting, we craft kitchens that are both stunning and functional.",
     image:
-      'https://images.unsplash.com/photo-1539922812788-4ea8cb53ba45?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      "https://images.unsplash.com/photo-1539922812788-4ea8cb53ba45?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
 
@@ -77,10 +77,10 @@ const Service = () => {
       setSelection(features[index].id);
     };
 
-    api.on('select', syncCarouselToTabs);
+    api.on("select", syncCarouselToTabs);
 
     return () => {
-      api.off('select', syncCarouselToTabs);
+      api.off("select", syncCarouselToTabs);
     };
   }, [api]);
 
@@ -100,9 +100,9 @@ const Service = () => {
       const activeTab =
         tabRefs.current[features.findIndex((f) => f.id === selection)];
       activeTab?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center',
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
       });
     } else {
       hasMounted.current = true;
@@ -123,36 +123,36 @@ const Service = () => {
       setCanScrollNext(api.canScrollNext());
     };
     updateSelection();
-    api.on('select', updateSelection);
+    api.on("select", updateSelection);
     return () => {
-      api.off('select', updateSelection);
+      api.off("select", updateSelection);
     };
   }, [api]);
 
   return (
-    <section className="py-14 md:py-16 bg-white">
+    <section className="bg-white py-14 md:py-16">
       <div className="flex flex-col gap-12 md:gap-16">
         <div className="container mx-auto px-4">
           <div className="lg:max-w-3xl">
-            <p className="text-xl/7 font-semibold bg-gradient-to-r from-primary-light4 to-primary-dark2 inline-block bg-clip-text text-transparent">
+            <p className="inline-block bg-gradient-to-r from-primary-light4 to-primary-dark2 bg-clip-text text-xl/7 font-semibold text-transparent">
               What We Do
             </p>
-            <h2 className="mb-5 text-pretty text-3xl font-medium lg:text-5xl text-coolGray-dark5">
+            <h2 className="mb-5 text-pretty text-3xl font-medium text-coolGray-dark5 lg:text-5xl">
               Our Services
             </h2>
             <a
               href="#"
-              className="group font-body font-semibold text-[#4C63B6] flex items-center text-base lg:text-lg"
+              className="group flex items-center font-body text-base font-semibold text-[#4C63B6] lg:text-lg"
             >
               Learn More
               <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
         </div>
-        <div className="mx-auto px-4 container">
+        <div className="container mx-auto px-4">
           <Tabs value={selection} onValueChange={setSelection}>
             <div className="relative">
-              <div className="overflow-auto no-scrollbar">
+              <div className="no-scrollbar overflow-auto">
                 <div className="container min-w-fit">
                   <TabsList>
                     {features.map((feature, index) => (
@@ -175,7 +175,7 @@ const Service = () => {
             <div className="container mt-12 flex flex-col md:col-span-2 md:mt-20 md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
               <Carousel
                 setApi={setApi}
-                className="w-full rounded-lg overflow-hidden"
+                className="w-full overflow-hidden rounded-lg"
                 plugins={[Fade()]}
                 opts={{ loop: true }}
               >
@@ -187,7 +187,7 @@ const Service = () => {
                           <Image
                             src={feature.image}
                             alt={feature.title}
-                            className="h-full w-full object-cover rounded-lg"
+                            className="h-full w-full rounded-lg object-cover"
                             fill
                           />
                         </CardContent>
@@ -199,18 +199,18 @@ const Service = () => {
 
               {features.map((feature) => (
                 <TabsContent key={feature.id} value={feature.id}>
-                  <div className="flex flex-col justify-center min-h-full py-8 md:py-0 md:px-8 lg:px-10 ">
-                    <h3 className="mb-3 text-2xl font-medium text-pretty md:mb-4 lg:text-4xl lg:mb-6">
+                  <div className="flex min-h-full flex-col justify-center py-8 md:px-8 md:py-0 lg:px-10">
+                    <h3 className="mb-3 text-pretty text-2xl font-medium md:mb-4 lg:mb-6 lg:text-4xl">
                       {feature.title}
                     </h3>
-                    <p className="text-base lg:text-lg lg:max-w-xl">
+                    <p className="text-base lg:max-w-xl lg:text-lg">
                       {feature.description}
                     </p>
                   </div>
                 </TabsContent>
               ))}
             </div>
-            <div className="hidden shrink-0 md:flex md:items-center md:mt-6 md:justify-start md:gap-2 ">
+            <div className="hidden shrink-0 md:mt-6 md:flex md:items-center md:justify-start md:gap-2">
               <Button
                 size="icon"
                 variant="outline"
@@ -219,6 +219,7 @@ const Service = () => {
                 }}
                 disabled={!canScrollPrev}
                 className="disabled:pointer-events-auto"
+                aria-label="Previous service"
               >
                 <ArrowLeft className="size-5" />
               </Button>
@@ -230,6 +231,7 @@ const Service = () => {
                 }}
                 disabled={!canScrollNext}
                 className="disabled:pointer-events-auto"
+                aria-label="Next service"
               >
                 <ArrowRight className="size-5" />
               </Button>
