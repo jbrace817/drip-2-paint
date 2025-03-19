@@ -218,9 +218,19 @@ const Navbar = () => {
               </Link>
               <Sheet>
                 <SheetTrigger asChild>
-                  <Menu size={32} className="text-coolGray-dark5" />
+                  <button
+                    type="button"
+                    className="flex items-center"
+                    aria-haspopup="dialog"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu"
+                    aria-label="Open menu"
+                  >
+                    <Menu size={32} className="text-coolGray-dark5" />
+                  </button>
                 </SheetTrigger>
                 <SheetContent
+                  id="mobile-menu"
                   className="pb-safe flex min-h-[100dvh] flex-col justify-between overflow-y-auto"
                   side={"right"}
                 >
