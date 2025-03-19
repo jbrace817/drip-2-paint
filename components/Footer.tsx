@@ -53,24 +53,16 @@ const Footer = () => {
               </div>
               <ul className="flex items-center space-x-6 text-coolGray-dark3">
                 <li className="font-medium hover:text-primary">
-                  <a href="#">
-                    <FaInstagram className="size-6" />
-                  </a>
+                  <FaInstagram className="size-6" />
                 </li>
                 <li className="font-medium hover:text-primary">
-                  <a href="#">
-                    <FaFacebook className="size-6" />
-                  </a>
+                  <FaFacebook className="size-6" />
                 </li>
                 <li className="font-medium hover:text-primary">
-                  <a href="#">
-                    <FaTwitter className="size-6" />
-                  </a>
+                  <FaTwitter className="size-6" />
                 </li>
                 <li className="font-medium hover:text-primary">
-                  <a href="#">
-                    <FaLinkedin className="size-6" />
-                  </a>
+                  <FaLinkedin className="size-6" />
                 </li>
               </ul>
             </div>
