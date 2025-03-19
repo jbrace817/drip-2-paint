@@ -46,16 +46,22 @@ export default function HeroCarousel({ slides }: CarouselProps) {
           {slides.map((slide, index) => (
             <div className="relative flex-[0_0_100%]" key={index}>
               <div className="relative mx-auto w-full xl:w-10/12">
-                <Image
-                  src={slide.src}
-                  alt={slide.alt}
-                  width={1920}
-                  height={1080}
-                  className="rounded-lg"
-                  priority={index < 2}
-                  quality={85}
-                  sizes="(min-width: 1540px) calc(4.32vw + 1151px), (min-width: 1060px) calc(15.43vw + 832px), (min-width: 1020px) calc(1040vw - 9840px), (min-width: 780px) calc(23.64vw + 532px), (min-width: 720px) 640px, 93vw"
-                />
+                <div className="aspect-[16/9] w-full">
+                  <Image
+                    src={slide.src}
+                    alt={slide.alt}
+                    fill
+                    className="rounded-lg object-cover"
+                    priority={index === 0}
+                    loading={index === 0 ? "eager" : "lazy"}
+                    quality={75}
+                    placeholder="blur"
+                    blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
+                      '<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#f8fafc"/></svg>',
+                    ).toString("base64")}`}
+                    sizes="(min-width: 1540px) 1280px, (min-width: 1280px) 1024px, (min-width: 1020px) 896px, (min-width: 780px) 768px, (min-width: 720px) 640px, 93vw"
+                  />
+                </div>
               </div>
             </div>
           ))}
