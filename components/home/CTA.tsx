@@ -32,15 +32,15 @@ const CTA = ({ image = defaultIamge }) => {
               team. Contact us today for expert painting that lasts.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6 font-body">
-              <Button className="font-heading group font-semibold transition-all duration-150 hover:-translate-y-[0.15rem] hover:bg-primary hover:shadow-lg">
-                <Link
-                  href="/contact"
-                  className="flex items-center whitespace-nowrap"
-                >
+              <Link
+                href="/contact"
+                className="flex items-center whitespace-nowrap"
+              >
+                <Button className="font-heading group font-semibold transition-all duration-150 hover:-translate-y-[0.15rem] hover:bg-primary hover:shadow-lg">
                   Start Your Project
                   <ArrowRight className="ml-1 size-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             </div>
             <div className="absolute -top-1 bottom-0 left-0 right-0 -z-10 bg-[hsla(0,0%,99%,.6)]" />
           </div>

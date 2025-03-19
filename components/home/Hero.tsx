@@ -30,24 +30,6 @@ const slides = [
     alt: "Beautiful Kitchen Remodel",
   },
 ];
-// const slides = [
-//   {
-//     src: "https://res.cloudinary.com/dsjx8ner3/image/upload/c_fill,w_1536,h_614,g_auto/v1742349310/livingRoom_tres2j.webp",
-//     alt: "Beautiful Living Area",
-//   },
-//   {
-//     src: "https://res.cloudinary.com/dsjx8ner3/image/upload/c_fill,w_1536,h_614,g_auto/v1742349333/bathroomRemodel_yoqe8n.webp",
-//     alt: "Beautiful Bathroom remodel",
-//   },
-//   {
-//     src: "https://res.cloudinary.com/dsjx8ner3/image/upload/c_fill,w_1536,h_614,g_auto/v1742349297/patioEntrance_irwcjg.webp",
-//     alt: "Beautiful Patio Entrance",
-//   },
-//   {
-//     src: "https://res.cloudinary.com/dsjx8ner3/image/upload/c_fill,w_1536,h_614,g_auto/v1742349320/kitchenRemodel_cg8a04.webp",
-//     alt: "Beautiful Kitchen Remodel",
-//   },
-// ];
 
 const Hero = () => {
   return (
@@ -68,15 +50,15 @@ const Hero = () => {
             consultation&nbsp;today!
           </p>
           <div>
-            <Button className="font-heading group bg-primary-light5 font-semibold transition-all duration-150 hover:-translate-y-[0.15rem]">
-              <Link
-                href="/contact"
-                className="flex items-center whitespace-nowrap"
-              >
+            <Link
+              href="/contact"
+              className="flex items-center whitespace-nowrap"
+            >
+              <Button className="font-heading group bg-primary-light5 font-semibold transition-all duration-150 hover:-translate-y-[0.15rem]">
                 SCHEDULE NOW
                 <ArrowRight className="ml-1 size-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="container mx-auto">
