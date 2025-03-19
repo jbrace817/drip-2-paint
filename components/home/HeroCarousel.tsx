@@ -45,20 +45,16 @@ export default function HeroCarousel({ slides }: CarouselProps) {
         <div className="flex touch-pan-y">
           {slides.map((slide, index) => (
             <div className="relative flex-[0_0_100%]" key={index}>
-              <div className="aspect-video w-full xl:aspect-[5/2]">
+              <div className="relative w-full">
                 <Image
                   src={slide.src}
                   alt={slide.alt}
                   width={1536}
-                  height={768}
+                  height={614}
                   className="aspect-video rounded-lg object-cover xl:aspect-[5/2]"
                   priority={index < 2}
-                  sizes="(min-width: 1540px) calc(5.21vw + 1380px), (min-width: 1280px) calc(33.33vw + 773px), (min-width: 1060px) calc(14vw + 848px), (min-width: 1020px) calc(1040vw - 9840px), (min-width: 780px) calc(23.64vw + 532px), (min-width: 720px) 640px, 93vw"
                   quality={85}
-                  placeholder="blur"
-                  blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
-                    '<svg width="1536" height="768" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#e2e8f0"/></svg>',
-                  ).toString("base64")}`}
+                  sizes="(min-width: 1540px) calc(5.07vw + 1384px), (min-width: 1280px) calc(33.33vw + 775px), (min-width: 1040px) calc(30.45vw + 1059px), (min-width: 780px) calc(30vw + 777px), (min-width: 720px) 904px, 130.75vw"
                 />
               </div>
             </div>
