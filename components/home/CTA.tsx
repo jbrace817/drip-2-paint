@@ -42,7 +42,7 @@ const CTA = ({ image = defaultImage }) => {
                 </Button>
               </Link>
             </div>
-            <div className="absolute -top-1 bottom-0 left-0 right-0 -z-10 bg-[hsla(0,0%,99%,.6)]" />
+            <div className="absolute bottom-[-1px] left-0 right-0 top-[-1px] -z-10 bg-[hsla(0,0%,99%,.6)]" />
           </div>
         </div>
       </div>
