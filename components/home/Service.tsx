@@ -68,8 +68,8 @@ const features = [
 const Service = () => {
   const [selection, setSelection] = React.useState(features[0].id);
   const [api, setApi] = React.useState<CarouselApi>();
+  const [currentIndex, setCurrentIndex] = React.useState(0);
   const tabRefs = React.useRef<(HTMLButtonElement | null)[]>([]);
-  //   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
   const [canScrollNext, setCanScrollNext] = React.useState(false);
 
@@ -78,6 +78,7 @@ const Service = () => {
 
     const syncCarouselToTabs = () => {
       const index = api.selectedScrollSnap();
+      setCurrentIndex(index);
       setSelection(features[index].id);
     };
 
@@ -177,7 +178,7 @@ const Service = () => {
                 opts={{ loop: true }}
               >
                 <CarouselContent>
-                  {features.map((feature) => (
+                  {features.map((feature, index) => (
                     <CarouselItem key={feature.id}>
                       <Card>
                         <CardContent className="flex aspect-[3/2] items-center justify-center p-0">
@@ -186,6 +187,7 @@ const Service = () => {
                             alt={feature.title}
                             className="h-full w-full rounded-lg object-cover"
                             fill
+                            priority={index === currentIndex}
                           />
                         </CardContent>
                       </Card>
