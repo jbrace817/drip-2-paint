@@ -22,6 +22,7 @@ const features = [
       "A quality paint job protects your home's exterior and boosts curb appeal. At Drip Painting, we ensure a durable, beautiful finish with expert techniques and the best products.",
     image:
       "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1737435684/FP_exterior_blue_hmhgz7.webp",
+    link: "/services/exterior-painting-services",
   },
   {
     id: "feature-2",
@@ -31,6 +32,7 @@ const features = [
       "Refresh your home effortlessly with Drip Painting. We deliver flawless results while protecting your space and ensuring a smooth, stress-free experience.",
     image:
       "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742407740/interior_rcclrr.webp",
+    link: "/services/interior-painting-services",
   },
   {
     id: "feature-3",
@@ -49,6 +51,7 @@ const features = [
       "Transform your bathroom into a stunning retreat with Drip Painting's expert remodeling services. A bathroom remodel not only enhances your home's functionality and comfort but also increases its value.",
     image:
       "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742407738/bathrooms_rbmspi.webp",
+    link: "/services/custom-bathroom-remodels",
   },
   {
     id: "feature-5",
@@ -58,6 +61,7 @@ const features = [
       "Updating your kitchen's design is essential, but making it fit your lifestyle is just as important. At Drip Painting, we craft kitchens that are both stunning and functional.",
     image:
       "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742407738/kitchens_jfcr4g.webp",
+    link: "/services/custom-kitchen-remodels",
   },
 ];
 
@@ -140,13 +144,6 @@ const Service = () => {
             <h2 className="mb-5 text-pretty text-3xl font-medium text-coolGray-dark5 lg:text-5xl">
               Our Services
             </h2>
-            <a
-              href="#"
-              className="group flex items-center font-body text-base font-semibold text-[#4C63B6] lg:text-lg"
-            >
-              Learn More
-              <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
-            </a>
           </div>
         </div>
         <div className="container mx-auto px-4">
@@ -199,13 +196,20 @@ const Service = () => {
 
               {features.map((feature) => (
                 <TabsContent key={feature.id} value={feature.id}>
-                  <div className="flex min-h-full flex-col justify-center py-8 md:px-8 md:py-0 lg:px-10">
+                  <div className="flex min-h-full flex-col justify-center py-8 md:px-8 md:py-0 lg:px-10 2xl:max-w-2xl">
                     <h3 className="mb-3 text-pretty text-2xl font-medium md:mb-4 lg:mb-6 lg:text-4xl">
                       {feature.title}
                     </h3>
-                    <p className="text-base lg:max-w-xl lg:text-lg">
+                    <p className="mb-4 text-base lg:mb-6 lg:max-w-xl lg:text-lg xl:mb-12">
                       {feature.description}
                     </p>
+                    <a
+                      href={feature.link ? feature.link : "#"}
+                      className="group flex items-center justify-start text-base font-semibold text-[#4C63B6] md:justify-end md:pr-8 lg:pr-10 lg:text-lg"
+                    >
+                      Learn More
+                      <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
+                    </a>
                   </div>
                 </TabsContent>
               ))}
