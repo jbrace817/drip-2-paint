@@ -19,7 +19,7 @@ const data = [
     customer: "",
     testimonial: "",
     image:
-      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742433192/modernInterior_y57h0v.webp",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,dpr_2.0/v1742433192/modernInterior_y57h0v.webp",
     alt: "Modern clean interior design",
     sizes: "(min-width: 1040px) 340px, 294px",
   },
@@ -29,7 +29,7 @@ const data = [
     testimonial:
       "Drip Painting transformed our home! Their attention to detail was incredible, and the finished result exceeded our expectations. The crew was professional, punctual, and left everything spotless. Highly recommend!",
     image:
-      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742433189/purpleBackground_cxj5at.webp",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,dpr_2.0/v1742433189/purpleBackground_cxj5at.webp",
     alt: "Paint brush with liquid paint",
     sizes: "(min-width: 1040px) 340px, 283px",
   },
@@ -38,7 +38,7 @@ const data = [
     customer: "",
     testimonial: "",
     image:
-      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742433194/redInterior_vqbg7k.webp",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,dpr_2.0/v1742433194/redInterior_vqbg7k.webp",
     alt: "Modern living room interior design",
     sizes: "(min-width: 1040px) 340px, 283px",
   },
@@ -48,7 +48,7 @@ const data = [
     testimonial:
       "We hired Drip Painting for both interior and exterior work, and they did a fantastic job. The colors they helped us choose look amazing, and the quality of their work speaks for itself. We'll definitely be using them again!",
     image:
-      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742433191/redBackground_ungdaz.webp",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,dpr_2.0/v1742433191/redBackground_ungdaz.webp",
     alt: "Red colour lipstick border with empty space in the middle",
     sizes: "(min-width: 1040px) 340px, 321px",
   },
@@ -57,7 +57,7 @@ const data = [
     customer: "",
     testimonial: "",
     image:
-      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742433195/brownShades_dmzojc.webp",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,dpr_2.0/v1742433195/brownShades_dmzojc.webp",
     alt: "Home interior decorated in brown shades",
     sizes: "(min-width: 1040px) 340px, 294px",
   },
@@ -67,7 +67,7 @@ const data = [
     testimonial:
       "Absolutely thrilled with the custom finish they did in our living room! The team was friendly, efficient, and incredibly skilled. Our walls look like they belong in a design magazine. Thank you, Drip Painting!",
     image:
-      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742433187/yellowBackground_lv2x23.webp",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,dpr_2.0/v1742433187/yellowBackground_lv2x23.webp",
     alt: "Bright yellow paint with textured",
     sizes: "(min-width: 1040px) 340px, 283px",
   },
@@ -76,7 +76,7 @@ const data = [
     customer: "",
     testimonial: "",
     image:
-      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742433188/kitchen_rpprux.webp",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,dpr_2.0/v1742433188/kitchen_rpprux.webp",
     alt: "Kitchen white cabinets and counters",
     sizes: "350px",
   },
@@ -86,7 +86,7 @@ const data = [
     testimonial:
       "After 20 years in business, it's no wonder Drip Painting is the best around. They brought our vision to life with expert craftsmanship and a keen eye for detail. A+ service from start to finish!",
     image:
-      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742433190/greenBackground_dptqil.webp",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,dpr_2.0/v1742433190/greenBackground_dptqil.webp",
     alt: "Abstract green paint stroke on white background",
     sizes:
       "(min-width: 1040px) 340px, (min-width: 400px) 300px, calc(57.5vw + 82px)",
