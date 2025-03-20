@@ -31,7 +31,7 @@ const CTA = ({ image = defaultImage }) => {
               Beautiful interiors and polished exteriors start with the right
               team. Contact us today for expert painting that lasts.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6 font-body">
+            <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href="/contact"
                 className="flex items-center whitespace-nowrap"

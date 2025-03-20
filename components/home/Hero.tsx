@@ -44,7 +44,7 @@ const Hero = () => {
               strings={["Transformations", "Service", "Results"]}
             />
           </h1>
-          <p className="mb-6 max-w-xl font-body text-lg text-coolGray-dark2 md:mb-12 lg:text-xl">
+          <p className="mb-6 max-w-xl text-lg text-coolGray-dark2 md:mb-12 lg:text-xl">
             Drip Painting delivers licensed expertise and custom finishes with
             unmatched quality&nbsp;and care. Schedule your free
             consultation&nbsp;today!

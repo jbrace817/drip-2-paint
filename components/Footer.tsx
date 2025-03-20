@@ -88,7 +88,7 @@ const Footer = () => {
             <p className="text-coolGray-dark3">
               © 2025 Drip Painting Company. All rights reserved.
             </p>
-            <ul className="flex justify-center gap-4 font-body lg:justify-start">
+            <ul className="flex justify-center gap-4 lg:justify-start">
               <li className="hover:text-primary">
                 <a href="#"> Terms and Conditions</a>
               </li>
