@@ -19,8 +19,9 @@ const data = [
     customer: "",
     testimonial: "",
     image:
-      "https://img.freepik.com/free-photo/modern-clean-interior-design_23-2151929382.jpg?t=st=1737778312~exp=1737781912~hmac=c2f74d669b6971c28bc607f0d4e357e80cd33aa90584a09a7d290c3dc227c21b&w=740",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742433192/modernInterior_y57h0v.webp",
     alt: "Modern clean interior design",
+    sizes: "(min-width: 1040px) 340px, 294px",
   },
   {
     id: "item-2",
@@ -28,16 +29,18 @@ const data = [
     testimonial:
       "Drip Painting transformed our home! Their attention to detail was incredible, and the finished result exceeded our expectations. The crew was professional, punctual, and left everything spotless. Highly recommend!",
     image:
-      "https://img.freepik.com/free-photo/paint-brush-with-liquid-paint_144627-33542.jpg?t=st=1737776649~exp=1737780249~hmac=fd5702c7de1aaea164eb1fe03ff0a71050963c8e58f3c8aa10261c247e70a5ca&w=740",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742433189/purpleBackground_cxj5at.webp",
     alt: "Paint brush with liquid paint",
+    sizes: "(min-width: 1040px) 340px, 283px",
   },
   {
     id: "item-3",
     customer: "",
     testimonial: "",
     image:
-      "https://img.freepik.com/free-photo/modern-living-room-interior-design_23-2150794726.jpg?t=st=1737778600~exp=1737782200~hmac=5f2f22dc0810de95390c6cb9085ad138374d7a7e82e42c7712f10ac1a8fd9bbe&w=740",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742433194/redInterior_vqbg7k.webp",
     alt: "Modern living room interior design",
+    sizes: "(min-width: 1040px) 340px, 283px",
   },
   {
     id: "item-4",
@@ -45,16 +48,18 @@ const data = [
     testimonial:
       "We hired Drip Painting for both interior and exterior work, and they did a fantastic job. The colors they helped us choose look amazing, and the quality of their work speaks for itself. We'll definitely be using them again!",
     image:
-      "https://img.freepik.com/premium-photo/abstract-red-watercolor-white-background_196038-20282.jpg?w=740",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742433191/redBackground_ungdaz.webp",
     alt: "Red colour lipstick border with empty space in the middle",
+    sizes: "(min-width: 1040px) 340px, 321px",
   },
   {
     id: "item-5",
     customer: "",
     testimonial: "",
     image:
-      "https://img.freepik.com/free-photo/home-interior-decorated-brown-shades_23-2151934914.jpg?t=st=1737779530~exp=1737783130~hmac=08f038c30595d72e752591c32c77f86de4b4b2c5f61c31505b3e6ede06106bec&w=740",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742433195/brownShades_dmzojc.webp",
     alt: "Home interior decorated in brown shades",
+    sizes: "(min-width: 1040px) 340px, 294px",
   },
   {
     id: "item-6",
@@ -62,15 +67,18 @@ const data = [
     testimonial:
       "Absolutely thrilled with the custom finish they did in our living room! The team was friendly, efficient, and incredibly skilled. Our walls look like they belong in a design magazine. Thank you, Drip Painting!",
     image:
-      "https://img.freepik.com/free-photo/bright-yellow-paint-with-textured_23-2147746859.jpg?t=st=1737781806~exp=1737785406~hmac=f213501e7be1e11355127d789522098c124f817260b39297d484e31e7a177824&w=740",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742433187/yellowBackground_lv2x23.webp",
     alt: "Bright yellow paint with textured",
+    sizes: "(min-width: 1040px) 340px, 283px",
   },
   {
     id: "item-7",
     customer: "",
     testimonial: "",
-    image: "https://img.freepik.com/premium-photo/kitchen_602868-408.jpg?w=740",
+    image:
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742433188/kitchen_rpprux.webp",
     alt: "Kitchen white cabinets and counters",
+    sizes: "350px",
   },
   {
     id: "item-8",
@@ -78,8 +86,10 @@ const data = [
     testimonial:
       "After 20 years in business, it's no wonder Drip Painting is the best around. They brought our vision to life with expert craftsmanship and a keen eye for detail. A+ service from start to finish!",
     image:
-      "https://img.freepik.com/premium-photo/abstract-green-paint-stroke-white-background_1351431-19351.jpg?w=740",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742433190/greenBackground_dptqil.webp",
     alt: "Abstract green paint stroke on white background",
+    sizes:
+      "(min-width: 1040px) 340px, (min-width: 400px) 300px, calc(57.5vw + 82px)",
   },
 ];
 
@@ -138,6 +148,7 @@ const Testimonials = () => {
                       alt={item.alt}
                       className="absolute h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
                       fill
+                      sizes={item.sizes}
                     />
                     {/* <div className="absolute inset-0 h-full bg-[linear-gradient(hsl(var(--primary)/0.2),hsl(var(--primary)/0.8)_100%)] mix-blend-multiply" /> */}
                     {index % 2 === 1 ? (

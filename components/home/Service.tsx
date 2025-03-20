@@ -19,9 +19,9 @@ const features = [
     tabLabel: "Exteriors",
     title: "Exteriors",
     description:
-      "A quality paint job protects your home’s exterior and boosts curb appeal. At Drip Painting, we ensure a durable, beautiful finish with expert techniques and the best products.",
+      "A quality paint job protects your home's exterior and boosts curb appeal. At Drip Painting, we ensure a durable, beautiful finish with expert techniques and the best products.",
     image:
-      "https://res.cloudinary.com/dsjx8ner3/image/upload/v1737435684/FP_exterior_blue_hmhgz7.webp",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1737435684/FP_exterior_blue_hmhgz7.webp",
   },
   {
     id: "feature-2",
@@ -30,7 +30,7 @@ const features = [
     description:
       "Refresh your home effortlessly with Drip Painting. We deliver flawless results while protecting your space and ensuring a smooth, stress-free experience.",
     image:
-      "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742407740/interior_rcclrr.webp",
   },
   {
     id: "feature-3",
@@ -39,25 +39,25 @@ const features = [
     description:
       "Custom finishes add character and elegance to your space. At Drip Painting, we create unique textures and details, crafting a personalized look that reflects your style.",
     image:
-      "https://images.unsplash.com/photo-1598928428433-1077478561d6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742407739/customFinishes_opux1i.webp",
   },
   {
     id: "feature-4",
     tabLabel: "Bathrooms",
     title: "Bathrooms",
     description:
-      "Transform your bathroom into a stunning retreat with Drip Painting’s expert remodeling services. A bathroom remodel not only enhances your home's functionality and comfort but also increases its value.",
+      "Transform your bathroom into a stunning retreat with Drip Painting's expert remodeling services. A bathroom remodel not only enhances your home's functionality and comfort but also increases its value.",
     image:
-      "https://images.unsplash.com/photo-1543502999-b65be91f22ea?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742407738/bathrooms_rbmspi.webp",
   },
   {
     id: "feature-5",
     tabLabel: "Kitchens",
     title: "Kitchens",
     description:
-      "Updating your kitchen’s design is essential, but making it fit your lifestyle is just as important. At Drip Painting, we craft kitchens that are both stunning and functional.",
+      "Updating your kitchen's design is essential, but making it fit your lifestyle is just as important. At Drip Painting, we craft kitchens that are both stunning and functional.",
     image:
-      "https://images.unsplash.com/photo-1539922812788-4ea8cb53ba45?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742407738/kitchens_jfcr4g.webp",
   },
 ];
 

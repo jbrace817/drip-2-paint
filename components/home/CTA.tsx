@@ -10,10 +10,10 @@ const ParallaxContainer = dynamic(
   },
 );
 
-const defaultIamge =
-  "https://images.unsplash.com/photo-1669317139155-912572c38362?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+const defaultImage =
+  "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742434502/livingAreaStairs_o09qvn.webp";
 
-const CTA = ({ image = defaultIamge }) => {
+const CTA = ({ image = defaultImage }) => {
   return (
     <ParallaxContainer
       className="parallax-5"
