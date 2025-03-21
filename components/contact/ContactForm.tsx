@@ -28,6 +28,8 @@ import CoverageMap from "./EmbeddedMap";
 import { debugLog } from "@/utils/debugLog";
 import { ContactInfo } from "./ContactInfo";
 
+import { ShineBorder } from "../magicui/shine-border";
+
 // Define your form schema with Zod
 const formSchema = z.object({
   firstName: z
@@ -216,231 +218,245 @@ const ContactForm = () => {
           <div className="w-full max-w-screen-sm px-4 py-14 md:py-16 lg:px-0">
             {/* Form using shadcn/ui Form component */}
             <Form {...form}>
-              <form
-                key={formKey}
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="mx-auto flex max-w-screen-lg flex-col gap-6 rounded-lg border p-10"
-              >
-                {/* First and last name in a flex row */}
-                <div className="flex gap-4">
-                  <FormField
-                    control={form.control}
-                    name="firstName"
-                    render={({ field }) => (
-                      <FormItem className="relative grid w-full">
-                        <FormLabel>First Name</FormLabel>
-                        <FormControl>
-                          <Input placeholder="First Name" {...field} />
-                        </FormControl>
-                        <div
-                          className={
-                            form.formState.errors.firstName ||
-                            form.formState.errors.lastName
-                              ? "h-8"
-                              : "h-0"
-                          }
-                        >
-                          {/* Fixed height container */}
-                          <FormMessage className="absolute text-xs" />
-                        </div>
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="lastName"
-                    render={({ field }) => (
-                      <FormItem className="relative grid w-full">
-                        <FormLabel>Last Name</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Last Name" {...field} />
-                        </FormControl>
-                        <div
-                          className={
-                            form.formState.errors.lastName ||
-                            form.formState.errors.firstName
-                              ? "h-8"
-                              : "h-0"
-                          }
-                        >
-                          {/* Fixed height container */}
-                          <FormMessage className="absolute text-xs" />
-                        </div>
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                {/* Address and phone number */}
-                <div className="flex flex-col gap-4 md:flex-row">
-                  <FormField
-                    control={form.control}
-                    name="address"
-                    render={({ field }) => (
-                      <FormItem className="relative grid w-full">
-                        <FormLabel>Street Address</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Address" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="zipCode"
-                    render={({ field }) => (
-                      <FormItem className="relative grid w-full md:w-1/3">
-                        <FormLabel>Zip Code</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Zip Code" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                <div className="flex flex-col gap-4 md:flex-row">
-                  {/* Phone field */}
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem className="relative grid w-full">
-                        <FormLabel>Phone</FormLabel>
-                        <FormControl>
-                          <Input type="tel" placeholder="Phone" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  {/* Email field */}
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem className="relative grid w-full">
-                        <FormLabel>Email</FormLabel>
-                        <FormControl>
-                          <Input type="email" placeholder="Email" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                {/* Subject field */}
-                <FormField
-                  control={form.control}
-                  name="subject"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Subject</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Subject" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Message field */}
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Message</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder="Type your message here."
-                          className="min-h-[120px]"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <div className="flex flex-col gap-4 md:flex-row">
-                  <FormField
-                    control={form.control}
-                    name="heardFrom"
-                    render={({ field }) => (
-                      <FormItem className="relative grid w-full">
-                        <FormLabel>How did you hear about us?</FormLabel>
-                        <Select
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                        >
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select how you heard about us" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="Google">Google</SelectItem>
-                            <SelectItem value="Social Media">
-                              Social Media
-                            </SelectItem>
-                            <SelectItem value="Friend">Friend</SelectItem>
-                            <SelectItem value="Other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="timeline"
-                    render={({ field }) => (
-                      <FormItem className="relative grid w-full">
-                        <FormLabel>Preferred Timeline</FormLabel>
-                        <Select
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                        >
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select your timeline" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="ASAP">ASAP</SelectItem>
-                            <SelectItem value="1-3 months">
-                              1-3 months
-                            </SelectItem>
-                            <SelectItem value="3-6 months">
-                              3-6 months
-                            </SelectItem>
-                            <SelectItem value="6+ months">6+ months</SelectItem>
-                            <SelectItem value="Just Exploring">
-                              Just Exploring
-                            </SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                {/* Submit button */}
-                <Button
-                  type="submit"
-                  className="w-full"
-                  disabled={isSubmitting}
+              <div className="relative">
+                <form
+                  key={formKey}
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="relative z-10 mx-auto flex max-w-screen-lg flex-col gap-6 rounded-lg p-10"
                 >
-                  {isSubmitting
-                    ? "Sending..."
-                    : "Schedule your free consultation"}
-                </Button>
-              </form>
+                  {/* First and last name in a flex row */}
+                  <div className="flex gap-4">
+                    <FormField
+                      control={form.control}
+                      name="firstName"
+                      render={({ field }) => (
+                        <FormItem className="relative grid w-full">
+                          <FormLabel>First Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="First Name" {...field} />
+                          </FormControl>
+                          <div
+                            className={
+                              form.formState.errors.firstName ||
+                              form.formState.errors.lastName
+                                ? "h-8"
+                                : "h-0"
+                            }
+                          >
+                            {/* Fixed height container */}
+                            <FormMessage className="absolute text-xs" />
+                          </div>
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="lastName"
+                      render={({ field }) => (
+                        <FormItem className="relative grid w-full">
+                          <FormLabel>Last Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Last Name" {...field} />
+                          </FormControl>
+                          <div
+                            className={
+                              form.formState.errors.lastName ||
+                              form.formState.errors.firstName
+                                ? "h-8"
+                                : "h-0"
+                            }
+                          >
+                            {/* Fixed height container */}
+                            <FormMessage className="absolute text-xs" />
+                          </div>
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  {/* Address and phone number */}
+                  <div className="flex flex-col gap-4 md:flex-row">
+                    <FormField
+                      control={form.control}
+                      name="address"
+                      render={({ field }) => (
+                        <FormItem className="relative grid w-full">
+                          <FormLabel>Street Address</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Address" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="zipCode"
+                      render={({ field }) => (
+                        <FormItem className="relative grid w-full md:w-1/3">
+                          <FormLabel>Zip Code</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Zip Code" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-4 md:flex-row">
+                    {/* Phone field */}
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem className="relative grid w-full">
+                          <FormLabel>Phone</FormLabel>
+                          <FormControl>
+                            <Input type="tel" placeholder="Phone" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    {/* Email field */}
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem className="relative grid w-full">
+                          <FormLabel>Email</FormLabel>
+                          <FormControl>
+                            <Input
+                              type="email"
+                              placeholder="Email"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  {/* Subject field */}
+                  <FormField
+                    control={form.control}
+                    name="subject"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Subject</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Subject" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  {/* Message field */}
+                  <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Message</FormLabel>
+                        <FormControl>
+                          <Textarea
+                            placeholder="Type your message here."
+                            className="min-h-[120px]"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <div className="flex flex-col gap-4 md:flex-row">
+                    <FormField
+                      control={form.control}
+                      name="heardFrom"
+                      render={({ field }) => (
+                        <FormItem className="relative grid w-full">
+                          <FormLabel>How did you hear about us?</FormLabel>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select how you heard about us" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              <SelectItem value="Google">Google</SelectItem>
+                              <SelectItem value="Social Media">
+                                Social Media
+                              </SelectItem>
+                              <SelectItem value="Friend">Friend</SelectItem>
+                              <SelectItem value="Other">Other</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="timeline"
+                      render={({ field }) => (
+                        <FormItem className="relative grid w-full">
+                          <FormLabel>Preferred Timeline</FormLabel>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select your timeline" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              <SelectItem value="ASAP">ASAP</SelectItem>
+                              <SelectItem value="1-3 months">
+                                1-3 months
+                              </SelectItem>
+                              <SelectItem value="3-6 months">
+                                3-6 months
+                              </SelectItem>
+                              <SelectItem value="6+ months">
+                                6+ months
+                              </SelectItem>
+                              <SelectItem value="Just Exploring">
+                                Just Exploring
+                              </SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  {/* Submit button */}
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting
+                      ? "Sending..."
+                      : "Schedule your free consultation"}
+                  </Button>
+                </form>
+                <div className="absolute inset-0 rounded-lg border">
+                  <ShineBorder
+                    className="rounded-lg"
+                    shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+                  />
+                </div>
+              </div>
             </Form>
           </div>
         </div>

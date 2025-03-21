@@ -6,6 +6,7 @@ import Fade from "embla-carousel-fade";
 import AutoPlay from "embla-carousel-autoplay";
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
+import { ShineBorder } from "../magicui/shine-border";
 
 type CarouselProps = {
   slides: { src: string; alt: string }[];
@@ -60,6 +61,11 @@ export default function HeroCarousel({ slides }: CarouselProps) {
                       '<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#f8fafc"/></svg>',
                     ).toString("base64")}`}
                     sizes="(min-width: 1540px) 1280px, (min-width: 1280px) 1024px, (min-width: 1020px) 896px, (min-width: 780px) 768px, (min-width: 720px) 640px, 93vw"
+                  />
+                  <ShineBorder
+                    borderWidth={1.8}
+                    className="rounded-lg"
+                    shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
                   />
                 </div>
               </div>
