@@ -119,9 +119,16 @@ const Testimonials = () => {
             <p className="inline-block bg-gradient-to-r from-primary-light4 to-primary-dark2 bg-clip-text text-xl/7 font-semibold text-transparent">
               Local Voices
             </p>
-            <h2 className="text-pretty text-3xl font-medium text-coolGray-dark5 lg:text-5xl">
+            <h2 className="mb-3 text-pretty text-3xl font-medium text-coolGray-dark5 md:mb-4 lg:mb-6 lg:text-5xl">
               Shared Experiences
             </h2>
+            <p className="text-base text-coolGray-dark2 lg:text-lg">
+              We take pride in delivering top-quality service, but don&apos;t
+              just take our word for it. See what our customers have to say
+              about their experience working with us—real stories from
+              homeowners and businesses who trusted us to bring their vision to
+              life.
+            </p>
           </div>
         </div>
 
