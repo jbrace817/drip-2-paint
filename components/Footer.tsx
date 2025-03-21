@@ -4,19 +4,33 @@ import companyLogo from "@/public/images/dripLogo/dripLogo.svg";
 
 const sections = [
   {
-    title: "Sitemap",
+    title: "Services",
     links: [
-      { name: "Home", href: "#" },
-      { name: "Services", href: "#" },
-      { name: "Projects", href: "#" },
+      {
+        name: "Interiors ",
+        href: "/services/interior-painting-services",
+      },
+      {
+        name: "Exteriors ",
+        href: "/services/exterior-painting-services",
+      },
+      { name: "Bathrooms", href: "/services/custom-bathroom-remodels" },
+      { name: "Kitchens", href: "/services/custom-kitchen-remodels" },
     ],
   },
   {
     title: "Company",
     links: [
-      { name: "About", href: "#" },
-      { name: "Contact Us", href: "#" },
-      { name: "Blog", href: "#" },
+      { name: "About Us", href: "/about" },
+      { name: "Contact Us", href: "/contact" },
+      { name: "Blog", href: "/blog" },
+    ],
+  },
+  {
+    title: "Quick Links",
+    links: [
+      { name: "Home", href: "/" },
+      { name: "Gallery", href: "/gallery" },
     ],
   },
 ];
@@ -66,7 +80,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="grid grid-cols-2 gap-6 lg:gap-20">
+            <div className="grid grid-cols-3 gap-6 lg:gap-20">
               {sections.map((section, sectionIdx) => (
                 <div key={sectionIdx}>
                   <h3 className="mb-6 font-bold">{section.title}</h3>
