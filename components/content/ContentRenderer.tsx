@@ -36,7 +36,7 @@ export default function ContentRenderer({
       </Badge>
 
       {firstHeading && (
-        <ReactMarkdown className="mt-3 text-pretty text-3xl font-semibold tracking-tight sm:text-4xl">
+        <ReactMarkdown className="mt-3 text-pretty text-3xl font-medium tracking-tight sm:text-4xl">
           {firstHeading}
         </ReactMarkdown>
       )}
@@ -56,14 +56,14 @@ export default function ContentRenderer({
               <h3
                 id={sectionId}
                 ref={(ref) => addSectionRef(sectionId, ref)}
-                className="mt-16 scroll-m-24 text-pretty text-2xl font-semibold tracking-tight sm:text-3xl"
+                className="mt-16 scroll-m-24 text-pretty text-2xl font-medium tracking-tight sm:text-3xl"
               >
                 {children}
               </h3>
             );
           },
           h4: ({ children }) => (
-            <h4 className="mt-4 text-pretty text-xl font-semibold tracking-tight sm:text-2xl">
+            <h4 className="mt-4 text-pretty text-xl font-medium tracking-tight sm:text-2xl">
               {children}
             </h4>
           ),
