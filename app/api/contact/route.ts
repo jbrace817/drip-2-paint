@@ -9,7 +9,7 @@ const SITE_OWNER_EMAIL = process.env.SITE_OWNER_EMAIL;
 const FROM_EMAIL = "onboarding@resend.dev"; // Using Resend's default sender
 
 const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!,
 );
 
