@@ -42,6 +42,7 @@ const features = [
       "Custom finishes add character and elegance to your space. At Drip Painting, we create unique textures and details, crafting a personalized look that reflects your style.",
     image:
       "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742407739/customFinishes_opux1i.webp",
+    link: "/services/interior-painting-services",
   },
   {
     id: "feature-4",
@@ -209,7 +210,16 @@ const Service = () => {
                       href={feature.link ? feature.link : "#"}
                       className="group flex items-center justify-start text-base font-semibold text-[#4C63B6] md:justify-end md:pr-8 lg:pr-10 lg:text-lg"
                     >
-                      Learn More
+                      {feature.id === "feature-1" &&
+                        "Our Exterior Painting Services"}
+                      {feature.id === "feature-2" &&
+                        "Our Interior Painting Services"}
+                      {feature.id === "feature-3" &&
+                        "Our Custom Finishes Services"}
+                      {feature.id === "feature-4" &&
+                        "Our Bathroom Remodeling Services"}
+                      {feature.id === "feature-5" &&
+                        "Our Kitchen Remodeling Services"}
                       <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
                     </a>
                   </div>
