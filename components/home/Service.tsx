@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Fade from "embla-carousel-fade";
 import Image from "next/image";
+import Splatter from "../ui/decorative/Splatter";
 
 const features = [
   {
@@ -171,7 +172,9 @@ const Service = () => {
               </div>
               <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--background))_0%,transparent_10%,transparent_90%,hsl(var(--background))_100%)] md:hidden" />
             </div>
-            <div className="container mt-12 flex flex-col md:col-span-2 md:mt-20 md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
+            <div className="container relative mt-12 flex flex-col md:col-span-2 md:mt-20 md:grid md:grid-cols-2 md:items-center md:gap-6 lg:gap-8">
+              <Splatter twClass="absolute -top-20 right-0 md:left-56 lg:left-[23rem] xl:left-[27rem] xl:w-60 2xl:left-[36rem] md:-top-24 rotate-180 w-40 opacity-80" />
+              <Splatter twClass="absolute bottom-64 md:bottom-0 left-0 rotate-90 w-60 opacity-80" />
               <Carousel
                 setApi={setApi}
                 className="w-full overflow-hidden rounded-lg"
@@ -203,23 +206,24 @@ const Service = () => {
                     <h3 className="mb-3 text-pretty text-2xl font-medium md:mb-4 lg:mb-6 lg:text-4xl">
                       {feature.title}
                     </h3>
-                    <p className="mb-4 text-base lg:mb-6 lg:max-w-xl lg:text-lg xl:mb-12">
-                      {feature.description}
-                    </p>
+                    <div className="h-24 md:h-[140px] lg:h-[160px]">
+                      <p className="text-base lg:text-lg">
+                        {feature.description}
+                      </p>
+                    </div>
                     <a
                       href={feature.link ? feature.link : "#"}
-                      className="group flex items-center justify-start text-base font-semibold text-[#4C63B6] md:justify-end md:pr-8 lg:pr-10 lg:text-lg"
+                      className="group mt-4 flex items-center justify-start text-base font-semibold text-[#4C63B6] md:justify-end md:pr-8 lg:pr-10 lg:text-lg"
                     >
                       {feature.id === "feature-1" &&
-                        "Our Exterior Painting Services"}
+                        "Our Approach to Exteriors"}
                       {feature.id === "feature-2" &&
-                        "Our Interior Painting Services"}
+                        "How We Transform Interiors"}
                       {feature.id === "feature-3" &&
-                        "Our Custom Finishes Services"}
+                        "How We Create Custom Finishes"}
                       {feature.id === "feature-4" &&
-                        "Our Bathroom Remodeling Services"}
-                      {feature.id === "feature-5" &&
-                        "Our Kitchen Remodeling Services"}
+                        "Our Process for Bathrooms"}
+                      {feature.id === "feature-5" && "How We Remodel Kitchens"}
                       <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
                     </a>
                   </div>
