@@ -136,7 +136,7 @@ const Service = () => {
   }, [api]);
 
   return (
-    <section className="bg-white py-14 md:py-16">
+    <section className="py-14 md:py-16">
       <div className="flex flex-col gap-12 md:gap-16">
         <div className="container mx-auto px-4">
           <div className="lg:max-w-3xl">

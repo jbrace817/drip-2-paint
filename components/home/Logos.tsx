@@ -58,7 +58,7 @@ const logos = [
 
 const Logos = () => {
   return (
-    <section className="bg-white pb-14 pt-5 md:pb-16">
+    <section className="pb-14 pt-5 md:pb-16">
       <div className="container mx-auto flex flex-col items-center text-center">
         <h1 className="my-4 text-pretty text-2xl font-bold lg:text-4xl">
           Our Partnered Brands
