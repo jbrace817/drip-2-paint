@@ -4,11 +4,14 @@ import {
   CalendarClock,
   SearchCheck,
 } from "lucide-react";
+import Splatter from "@/components/ui/decorative/Splatter";
 
 const Why = () => {
   return (
-    <section className="bg-white py-14 md:py-16">
-      <div className="container mx-auto px-4">
+    <section className="py-14 md:py-16">
+      <div className="container relative mx-auto px-4">
+        <Splatter twClass="absolute right-8 md:right-20 -top-28 w-28 md:w-40 lg:w-60 xl:right-48 opacity-80" />
+        <Splatter twClass="absolute left-4 md:left-20 rotate-180 -bottom-8 w-28 md:w-32 xl:left-48 opacity-80" />
         <p className="inline-block bg-gradient-to-r from-primary-light4 to-primary-dark2 bg-clip-text text-xl/7 font-semibold text-transparent">
           Why Us
         </p>
