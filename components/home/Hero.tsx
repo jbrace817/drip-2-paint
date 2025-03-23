@@ -41,7 +41,7 @@ const Hero = () => {
             Expert Painting, Stunning
             <TypeWriter
               colorClass="text-support"
-              strings={["Transformations", "Service", "Results"]}
+              strings={["Results", "Transformations", "Service"]}
             />
           </h1>
           <p className="mb-6 max-w-xl text-lg text-coolGray-dark2 md:mb-12 lg:text-xl">

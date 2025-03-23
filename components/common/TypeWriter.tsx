@@ -1,6 +1,6 @@
-'use client';
-import React from 'react';
-import TypewriterComponent from 'typewriter-effect';
+"use client";
+import React from "react";
+import TypewriterComponent from "typewriter-effect";
 
 interface TypeWriterProps {
   strings: string[];
@@ -8,8 +8,8 @@ interface TypeWriterProps {
 }
 
 export default function TypeWriter({
-  strings = [],
-  colorClass = 'color-primary-1',
+  strings,
+  colorClass = "color-primary-1",
 }: TypeWriterProps) {
   return (
     <div className={`${colorClass}`}>
@@ -18,6 +18,7 @@ export default function TypeWriter({
           strings: strings,
           autoStart: true,
           loop: true,
+          cursor: "",
         }}
       />
     </div>
