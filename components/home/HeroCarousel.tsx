@@ -19,7 +19,7 @@ const OPTIONS: EmblaOptionsType = {
 export default function HeroCarousel({ slides }: CarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS, [
     Fade(),
-    AutoPlay({ playOnInit: true, delay: 5000, stopOnInteraction: false }),
+    AutoPlay({ playOnInit: true, delay: 8000, stopOnInteraction: false }),
   ]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
