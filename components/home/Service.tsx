@@ -191,7 +191,9 @@ const Service = () => {
                             alt={feature.title}
                             className="h-full w-full rounded-lg object-cover"
                             fill
-                            priority={index === currentIndex}
+                            priority={
+                              index === 0 ? false : index === currentIndex
+                            }
                           />
                         </CardContent>
                       </Card>
