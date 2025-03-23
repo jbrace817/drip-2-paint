@@ -7,19 +7,19 @@ import { Toaster } from "sonner";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
-  display: "block", // Changed to block for faster initial display
+  display: "swap",
   variable: "--font-openSans-header",
   weight: ["300", "400", "500", "700", "800"],
-  preload: true,
+  preload: false,
   fallback: ["Arial", "sans-serif"], // Added fallback fonts
   adjustFontFallback: true, // Enables automatic font fallback adjustment
 });
 const lato = Lato({
   subsets: ["latin"],
-  display: "block", // Changed to block for faster initial display
+  display: "swap",
   variable: "--font-lato-body",
   weight: ["100", "300", "400", "700", "900"],
-  preload: true,
+  preload: false,
   fallback: ["Helvetica", "Arial", "sans-serif"], // Added fallback fonts
   adjustFontFallback: true, // Enables automatic font fallback adjustment
 });
