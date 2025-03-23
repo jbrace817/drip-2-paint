@@ -7,9 +7,10 @@ import { useRef } from "react";
 
 type SplatterProps = {
   twClass: string;
+  zIndex?: number;
 };
 
-export default function Splatter({ twClass }: SplatterProps) {
+export default function Splatter({ twClass, zIndex = -1 }: SplatterProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -23,7 +24,7 @@ export default function Splatter({ twClass }: SplatterProps) {
       ref={containerRef}
       style={{ y }}
       aria-hidden="true"
-      className="absolute inset-0 z-[-1]"
+      className={`absolute inset-0 z-[${zIndex}]`}
     >
       <Image
         src={splatter}
