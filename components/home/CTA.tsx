@@ -1,28 +1,30 @@
 "use client";
-import dynamic from "next/dynamic";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-const ParallaxContainer = dynamic(
-  () => import("@/components/ui/parallax/ParallaxContainer"),
-  {
-    ssr: false, // Disable server-side rendering
-  },
-);
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import Splatter from "../ui/decorative/Splatter";
 
 const defaultImage =
   "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742434502/livingAreaStairs_o09qvn.webp";
 
 const CTA = ({ image = defaultImage }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
   return (
-    <ParallaxContainer
-      className="parallax-5"
-      style={{
-        backgroundImage: `url(${image})`,
-      }}
-    >
-      <div className="relative">
-        <div className="my-14 px-4 py-[clamp(3.75rem,7.82vw,6.25rem)] sm:px-6 sm:py-32 md:my-16 lg:px-8">
+    <div className="relative">
+      <div
+        ref={ref}
+        className="relative flex w-full items-center justify-center overflow-hidden xl:min-h-[500px]"
+      >
+        <div className="absolute inset-0 z-[1] bg-[hsla(0,0%,99%,.6)]" />
+        <div className="relative z-10 px-4 py-[clamp(3.75rem,7.82vw,6.25rem)] sm:px-6 sm:py-32 md:py-16 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="sm:text-5x text-balance text-4xl font-semibold tracking-tight text-coolGray-dark5">
               Bring your vision to life. Get a free quote today
@@ -42,11 +44,33 @@ const CTA = ({ image = defaultImage }) => {
                 </Button>
               </Link>
             </div>
-            <div className="absolute bottom-[-1px] left-0 right-0 top-[-1px] -z-10 bg-[hsla(0,0%,99%,.6)]" />
           </div>
         </div>
+
+        <motion.div
+          style={{
+            y: useTransform(scrollYProgress, [0, 1], [-50, 50]),
+          }}
+          className="absolute inset-0 -z-10 h-full w-full"
+        >
+          <Image
+            src={image}
+            className="object-cover"
+            alt="Interior design background"
+            fill
+            sizes="100vw"
+          />
+        </motion.div>
       </div>
-    </ParallaxContainer>
+      <Splatter
+        twClass="absolute right-8 md:right-20 -top-28 w-28 md:w-40 lg:w-60 xl:right-48 opacity-80 "
+        zIndex={-20}
+      />
+      <Splatter
+        twClass="absolute left-1/4 md:left-20 bottom-8 w-28 md:w-32 xl:left-48 opacity-80 md:w-60 lg:w-80"
+        zIndex={-20}
+      />
+    </div>
   );
 };
 
