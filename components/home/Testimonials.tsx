@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import { RiDoubleQuotesL } from "react-icons/ri";
+import Splatter from "../ui/decorative/Splatter";
 
 const data = [
   {
@@ -113,7 +114,9 @@ const Testimonials = () => {
   }, [carouselApi]);
   return (
     <section className="pb-28 pt-14 md:pb-32 md:pt-16">
-      <div className="container mx-auto flex flex-col px-4 md:gap-6 lg:col-span-2 lg:mt-20 lg:grid lg:grid-cols-[1fr_2fr] lg:gap-8">
+      <div className="container relative mx-auto flex flex-col px-4 md:gap-6 lg:col-span-2 lg:mt-20 lg:grid lg:grid-cols-[1fr_2fr] lg:gap-8">
+        <Splatter twClass="hidden absolute right-8 md:right-20 -top-36 rotate-90 w-28 md:block md:w-40 lg:w-60 xl:right-48 opacity-80 " />
+        <Splatter twClass="absolute left-1/4 bottom-0 w-28 opacity-80 md:w-32 md:w-60 md:left-20 lg:w-60 xl:left-48" />
         <div className="mb-8 flex items-end justify-between lg:flex-col lg:items-start lg:justify-between">
           <div>
             <p className="inline-block bg-gradient-to-r from-primary-light4 to-primary-dark2 bg-clip-text text-xl/7 font-semibold text-transparent">
