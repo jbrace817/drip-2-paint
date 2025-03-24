@@ -62,14 +62,8 @@ const CTA = ({ image = defaultImage }) => {
           />
         </motion.div>
       </div>
-      <Splatter
-        twClass="absolute right-8 md:right-20 -top-28 w-28 md:w-40 lg:w-60 xl:right-48 opacity-80 "
-        zIndex={-30}
-      />
-      <Splatter
-        twClass="absolute left-1/4 md:left-20 bottom-8 w-28 md:w-32 xl:left-48 opacity-80 md:w-60 lg:w-80"
-        zIndex={-30}
-      />
+      <Splatter twClass="absolute right-8 md:right-20 -top-28 w-28 md:w-40 lg:w-60 xl:right-48 opacity-80 " />
+      <Splatter twClass="absolute left-1/4 md:left-20 bottom-8 w-28 md:w-32 xl:left-48 opacity-80 md:w-60 lg:w-80" />
     </div>
   );
 };
