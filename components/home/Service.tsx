@@ -1,6 +1,6 @@
 "use client";
-import * as React from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { ArrowLeft, ArrowRight, LoaderCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import Fade from "embla-carousel-fade";
 import Image from "next/image";
 import Splatter from "../ui/decorative/Splatter";
-
+import useImageLoading from "@/hooks/useImageLoading";
 const features = [
   {
     id: "feature-1",
@@ -68,14 +68,17 @@ const features = [
 ];
 
 const Service = () => {
-  const [selection, setSelection] = React.useState(features[0].id);
-  const [api, setApi] = React.useState<CarouselApi>();
-  const [currentIndex, setCurrentIndex] = React.useState(0);
-  const tabRefs = React.useRef<(HTMLButtonElement | null)[]>([]);
-  const [canScrollPrev, setCanScrollPrev] = React.useState(false);
-  const [canScrollNext, setCanScrollNext] = React.useState(false);
+  const [selection, setSelection] = useState(features[0].id);
+  const [api, setApi] = useState<CarouselApi>();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+  const { loadingImages, handleImageLoad, handleImageStart } = useImageLoading(
+    features.map((f) => f.id),
+  );
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!api) return;
 
     const syncCarouselToTabs = () => {
@@ -92,17 +95,17 @@ const Service = () => {
   }, [api]);
 
   // Update Carousel when Tabs change
-  React.useEffect(() => {
+  useEffect(() => {
     if (!api) return;
     const index = features.findIndex((feature) => feature.id === selection);
     api.scrollTo(index);
   }, [selection, api]);
 
   // Scroll the active tab into view
-  const hasMounted = React.useRef(false);
-  const initialSelection = React.useRef(selection);
+  const hasMounted = useRef(false);
+  const initialSelection = useRef(selection);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (hasMounted.current && selection !== initialSelection.current) {
       const activeTab =
         tabRefs.current[features.findIndex((f) => f.id === selection)];
@@ -116,12 +119,12 @@ const Service = () => {
     }
   }, [selection]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     hasMounted.current = true;
   }, []);
 
   //Arrow functionality to update Carousel and tabs
-  React.useEffect(() => {
+  useEffect(() => {
     if (!api) {
       return;
     }
@@ -185,7 +188,13 @@ const Service = () => {
                   {features.map((feature, index) => (
                     <CarouselItem key={feature.id}>
                       <Card>
-                        <CardContent className="flex aspect-[3/2] items-center justify-center p-0">
+                        <CardContent className="relative flex aspect-[3/2] items-center justify-center p-0">
+                          {loadingImages[feature.id] && (
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <LoaderCircle className="size-10 animate-spin text-primary-light4" />
+                            </div>
+                          )}
+
                           <Image
                             src={feature.image}
                             alt={feature.title}
@@ -194,6 +203,14 @@ const Service = () => {
                             priority={
                               index === 0 ? false : index === currentIndex
                             }
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            quality={80}
+                            onLoad={() => handleImageLoad(feature.id)}
+                            onError={() => handleImageLoad(feature.id)}
+                            onLoadingComplete={() =>
+                              handleImageLoad(feature.id)
+                            }
+                            onLoadStart={() => handleImageStart(feature.id)}
                           />
                         </CardContent>
                       </Card>
