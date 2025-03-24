@@ -62,7 +62,7 @@ export default function SetsUsApart() {
         </div>
 
         <div className="mb-14 w-full px-4 md:my-16 lg:mt-0 lg:w-1/2">
-          <h3 className="mb-8 text-pretty text-2xl font-semibold tracking-tight sm:text-4xl">
+          <h3 className="mb-8 text-pretty text-2xl font-medium tracking-tight sm:text-4xl">
             What Sets Us Apart
           </h3>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -101,9 +101,7 @@ export default function SetsUsApart() {
                   <feature.icon className="h-8 w-8" />
                 </div>
                 <div>
-                  <h4 className="mb-2 text-lg font-semibold">
-                    {feature.title}
-                  </h4>
+                  <h4 className="mb-2 text-xl font-medium">{feature.title}</h4>
                   <p className="text-gray-600">{feature.description}</p>
                 </div>
               </div>
