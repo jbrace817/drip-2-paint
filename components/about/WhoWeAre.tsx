@@ -18,7 +18,7 @@ export default function WhoWeAre() {
               <div className="relative md:z-30 md:ml-[30%] md:w-[70%]">
                 <div className="relative aspect-[3/2] overflow-hidden rounded-lg shadow-lg md:aspect-[4/3]">
                   <Image
-                    src="https://img.freepik.com/premium-photo/contractor-worker-assembling-new-apartment-kitchen-cabinets_1304075-298.jpg?w=1060"
+                    src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1742869629/cabinets_oy9hyt.webp"
                     alt="About Drip 2 Paint"
                     fill
                     className="object-cover"
@@ -28,7 +28,7 @@ export default function WhoWeAre() {
               <div className="relative md:z-40 md:-mt-[15%] md:w-[55%]">
                 <div className="relative aspect-[3/2] overflow-hidden rounded-lg shadow-lg md:aspect-[4/3]">
                   <Image
-                    src="https://img.freepik.com/premium-photo/close-up-two-beautiful-young-designer-women-working-design-project-while-choosing-materials-office_519356-261.jpg?w=1060"
+                    src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1742869630/materials_panflr.webp"
                     alt="About Drip 2 Paint"
                     fill
                     className="object-cover"

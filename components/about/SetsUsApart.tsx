@@ -21,7 +21,7 @@ export default function SetsUsApart() {
             <div className="mt-[25px] w-full max-w-full md:w-6/12 md:px-[12.5px]">
               <div className="relative mt-10 aspect-[4/5] overflow-hidden rounded-lg shadow-lg">
                 <Image
-                  src="https://img.freepik.com/premium-photo/three-men-white-work-clothes-are-standing-ladder_1035771-18808.jpg?w=740"
+                  src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1742868797/4guys_c39hap.webp"
                   alt="Our Work"
                   fill
                   className="object-cover object-top"
@@ -49,7 +49,7 @@ export default function SetsUsApart() {
                 <div className="mt-[25px] w-full max-w-full md:w-10/12 md:px-[12.5px]">
                   <div className="relative aspect-square overflow-hidden rounded-lg shadow-lg">
                     <Image
-                      src="https://img.freepik.com/premium-photo/man-with-glasses-hat-is-holding-paint-brush-front-painting-man-with-red-pai_1177960-37507.jpg?w=1060"
+                      src="https://res.cloudinary.com/dsjx8ner3/image/upload/v1742869094/2guys_qc0prg.webp"
                       alt="Our Work"
                       fill
                       className="object-cover"

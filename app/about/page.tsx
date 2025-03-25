@@ -1,7 +1,17 @@
 import Image from "next/image";
 import WhoWeAre from "@/components/about/WhoWeAre";
-import SetsUsApart from "@/components/about/SetsUsApart";
-import { Testimonial } from "@/components/testimonials/Testimonial";
+
+import dynamic from "next/dynamic";
+
+const SetsUsApart = dynamic(() => import("@/components/about/SetsUsApart"), {
+  ssr: false,
+});
+const Testimonial = dynamic(
+  () => import("@/components/testimonials/Testimonial"),
+  {
+    ssr: false,
+  },
+);
 
 async function AboutPage() {
   return (
