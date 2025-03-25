@@ -24,11 +24,20 @@ import {
   SelectValue,
 } from "../ui/select";
 
-import CoverageMap from "./EmbeddedMap";
+//Dynamic Imports
+import dynamic from "next/dynamic";
+const CoverageMap = dynamic(() => import("./EmbeddedMap"), { ssr: false });
+
 import { debugLog } from "@/utils/debugLog";
 import { ContactInfo } from "./ContactInfo";
 
-import { ShineBorder } from "../magicui/shine-border";
+// Change static import to dynamic
+const ShineBorder = dynamic(
+  () => import("../magicui/shine-border").then((mod) => mod.ShineBorder),
+  {
+    ssr: true, // Keep SSR enabled since it's a visual component that should be pre-rendered
+  },
+);
 
 // Define your form schema with Zod
 const formSchema = z.object({

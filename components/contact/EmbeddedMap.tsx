@@ -1,5 +1,25 @@
-import { GoogleMap, LoadScript, Polygon } from "@react-google-maps/api";
 import { useMemo } from "react";
+import dynamic from "next/dynamic";
+import type {
+  LoadScriptProps,
+  GoogleMapProps,
+  PolygonProps,
+} from "@react-google-maps/api";
+
+const LoadScript = dynamic<LoadScriptProps>(
+  () => import("@react-google-maps/api").then((mod) => mod.LoadScript),
+  { ssr: false },
+);
+
+const GoogleMap = dynamic<GoogleMapProps>(
+  () => import("@react-google-maps/api").then((mod) => mod.GoogleMap),
+  { ssr: false },
+);
+
+const Polygon = dynamic<PolygonProps>(
+  () => import("@react-google-maps/api").then((mod) => mod.Polygon),
+  { ssr: false },
+);
 
 const CENTER = { lat: 40.1166, lng: -75.2166 }; // Chalfont, PA approximate center
 
@@ -65,6 +85,7 @@ const CoverageMap = () => {
 
   return (
     <LoadScript
+      id="google-map-script"
       googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}
     >
       <GoogleMap
