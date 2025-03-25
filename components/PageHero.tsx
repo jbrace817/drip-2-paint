@@ -21,6 +21,7 @@ export default function PageHero({ title, imageSrc, children }: PageHeroProps) {
             fill
             className="rounded-md object-cover"
             priority
+            sizes="(min-width: 1400px) 1280px, 93.7vw"
           />
         </div>
       )}

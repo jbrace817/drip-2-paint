@@ -1,6 +1,10 @@
-import { ContactForm } from "@/components/contact/ContactForm";
 import PageHero from "@/components/PageHero";
 import React from "react";
+import dynamic from "next/dynamic";
+
+const ContactForm = dynamic(() => import("@/components/contact/ContactForm"), {
+  ssr: false,
+});
 
 export default function ContactPage() {
   const title = (
@@ -19,7 +23,7 @@ export default function ContactPage() {
       <PageHero
         title={title}
         imageSrc={
-          "https://img.freepik.com/free-photo/medium-shot-people-working-together_23-2149721916.jpg?t=st=1741630249~exp=1741633849~hmac=974a5ec97767ba8618f84e746d7965557c9bec369664c3b8a45017c5e7c8f873&w=1060"
+          "https://res.cloudinary.com/dsjx8ner3/image/upload/v1742866400/contactHero_luayxo.webp"
         }
       />
       <ContactForm />

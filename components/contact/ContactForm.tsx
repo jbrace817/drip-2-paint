@@ -202,9 +202,9 @@ const ContactForm = () => {
           <div className="flex w-full max-w-sm flex-col justify-between gap-10">
             <div className="flex flex-col justify-evenly gap-10">
               <div className="mx-auto w-fit lg:mx-0">
-                <h3 className="mb-6 text-center text-2xl font-semibold lg:text-left">
+                <h2 className="mb-6 text-center text-2xl font-semibold lg:text-left">
                   Contact Details
-                </h3>
+                </h2>
                 <ContactInfo />
               </div>
             </div>
@@ -465,4 +465,4 @@ const ContactForm = () => {
   );
 };
 
-export { ContactForm };
+export default ContactForm;
