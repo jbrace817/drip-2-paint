@@ -3,11 +3,11 @@ title: Exterior Painting Services
 badge: Protect, Enhance, Impress
 image: https://images.unsplash.com/photo-1560026315-6640b67f281d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 gallery:
-  - image_upload: https://img.freepik.com/free-photo/modern-cottage-with-green-roof-surrounded-by-autumn-forest-landscape-generated-by-artificial-intelligence_188544-150620.jpg?t=st=1740110734~exp=1740114334~hmac=2071d151c065a2704c497dc1270a2b165c2ed8758b015d51e6c7e11a2b6daa3d&w=1380
-  - image_upload: https://img.freepik.com/premium-photo/painter-applying-fresh-paint-house-exterior-skilled-precisea-man-is-currently-standing-scaffolding-painting-yellow-building_1068362-5491.jpg?w=996
   - image_upload: https://images.unsplash.com/photo-1646394878140-d0df685d16b6?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
   - image_upload: https://images.unsplash.com/photo-1644185794112-f634ba17ced9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  - image_upload: https://res.cloudinary.com/dsjx8ner3/image/upload/v1735734476/freepik__adjust__54031_poocbe.webp
   - image_upload: https://images.unsplash.com/photo-1645013062104-451abe603017?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  - image_upload: https://res.cloudinary.com/dsjx8ner3/image/upload/v1733969294/back_cihkoa.webp
 ---
 ## Transform Your Home's Exterior with Expert Painting
 
