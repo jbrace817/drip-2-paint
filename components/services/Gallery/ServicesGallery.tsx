@@ -30,45 +30,48 @@ function ServicesGallery({ gallery }: GalleryProps) {
           </h3>
         </div>
         <div className="grid auto-rows-[136px] grid-cols-2 gap-4 px-4 md:grid-cols-5 md:px-0 lg:auto-rows-[228px]">
-          {gallery.map((image, index) => (
-            <div
-              key={index}
-              className={`group relative ${
-                index === 0
-                  ? "col-span-2 row-span-2 md:col-span-3 md:row-span-2"
-                  : ""
-              } h-full w-full overflow-hidden rounded-lg`}
-            >
-              <Image
-                onClick={() => {
-                  setImageIndex(index);
-                  setOpen(true);
-                }}
-                src={image.image_upload}
-                alt={`Gallery image ${index + 1}`}
-                fill
-                sizes={
-                  index === 0
-                    ? "(max-width: 768px) 100vw, 60vw" // First image
-                    : "(max-width: 768px) 50vw, 20vw" // Other images
-                }
-                className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
-              />
-              {/* Overlay for last image */}
-              {index === gallery.length - 1 && (
-                <Link href={"/gallery"}>
-                  <div className="absolute inset-0 z-10 rounded-lg bg-black/50 group-hover:cursor-pointer">
-                    <div className="z-20 flex h-full w-full flex-col items-center justify-center">
-                      <p className="text-xl text-coolGray-light1 lg:text-2xl">
-                        View More
-                      </p>
-                      <CircleArrowRight className="mt-4 h-8 w-8 text-coolGray-light1 transition-all duration-300 group-hover:scale-105 lg:h-12 lg:w-12" />
-                    </div>
-                  </div>
-                </Link>
-              )}
-            </div>
-          ))}
+          {gallery.map(
+            (image, index) =>
+              index < 5 && (
+                <div
+                  key={index}
+                  className={`group relative ${
+                    index === 0
+                      ? "col-span-2 row-span-2 md:col-span-3 md:row-span-2"
+                      : ""
+                  } h-full w-full overflow-hidden rounded-lg`}
+                >
+                  <Image
+                    onClick={() => {
+                      setImageIndex(index);
+                      setOpen(true);
+                    }}
+                    src={image.image_upload}
+                    alt={`Gallery image ${index + 1}`}
+                    fill
+                    sizes={
+                      index === 0
+                        ? "(max-width: 768px) 100vw, 60vw" // First image
+                        : "(max-width: 768px) 50vw, 20vw" // Other images
+                    }
+                    className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                  />
+                  {/* Overlay for last image */}
+                  {index === 4 && (
+                    <Link href={"/gallery"}>
+                      <div className="absolute inset-0 z-10 rounded-lg bg-black/50 group-hover:cursor-pointer">
+                        <div className="z-20 flex h-full w-full flex-col items-center justify-center">
+                          <p className="text-xl text-coolGray-light1 lg:text-2xl">
+                            View More
+                          </p>
+                          <CircleArrowRight className="mt-4 h-8 w-8 text-coolGray-light1 transition-all duration-300 group-hover:scale-105 lg:h-12 lg:w-12" />
+                        </div>
+                      </div>
+                    </Link>
+                  )}
+                </div>
+              ),
+          )}
         </div>
       </div>
       <Lightbox
