@@ -3,17 +3,29 @@ import { useState, useEffect, useRef } from "react";
 import { ArrowLeft, ArrowRight, LoaderCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselApi,
-} from "@/components/ui/carousel";
+import type { CarouselApi } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 import Fade from "embla-carousel-fade";
 import Image from "next/image";
 import Splatter from "../ui/decorative/Splatter";
 import useImageLoading from "@/hooks/useImageLoading";
+import dynamic from "next/dynamic";
+
+const Carousel = dynamic(
+  () => import("@/components/ui/carousel").then((mod) => mod.Carousel),
+  { ssr: false },
+);
+
+const CarouselContent = dynamic(
+  () => import("@/components/ui/carousel").then((mod) => mod.CarouselContent),
+  { ssr: false },
+);
+
+const CarouselItem = dynamic(
+  () => import("@/components/ui/carousel").then((mod) => mod.CarouselItem),
+  { ssr: false },
+);
+
 const features = [
   {
     id: "feature-1",
