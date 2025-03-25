@@ -1,10 +1,6 @@
 import PageHero from "@/components/PageHero";
 import React from "react";
-import dynamic from "next/dynamic";
-
-const ContactForm = dynamic(() => import("@/components/contact/ContactForm"), {
-  ssr: false,
-});
+import ContactForm from "@/components/contact/ContactForm";
 
 export default function ContactPage() {
   const title = (
