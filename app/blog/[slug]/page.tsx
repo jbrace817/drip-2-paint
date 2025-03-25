@@ -11,7 +11,7 @@ import {
 import ContentRenderer from "@/components/content/ContentRenderer";
 import PageNav from "@/components/content/PageNav";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Testimonial } from "@/components/testimonials/Testimonial";
+import Testimonial from "@/components/testimonials/Testimonial";
 import { getRelatedPosts } from "@/lib/getRelatedPosts";
 import BlogCarousel from "@/components/blog/BlogCarousel";
 
