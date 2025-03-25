@@ -5,8 +5,8 @@ image: https://images.unsplash.com/photo-1560026315-6640b67f281d?q=80&w=2070&aut
 gallery:
   - image_upload: https://images.unsplash.com/photo-1646394878140-d0df685d16b6?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
   - image_upload: https://images.unsplash.com/photo-1644185794112-f634ba17ced9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-  - image_upload: https://res.cloudinary.com/dsjx8ner3/image/upload/v1735734476/freepik__adjust__54031_poocbe.webp
   - image_upload: https://images.unsplash.com/photo-1645013062104-451abe603017?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  - image_upload: https://res.cloudinary.com/dsjx8ner3/image/upload/v1737435684/FP_exterior_blue_hmhgz7.webp
   - image_upload: https://res.cloudinary.com/dsjx8ner3/image/upload/v1733969294/back_cihkoa.webp
 ---
 ## Transform Your Home's Exterior with Expert Painting
