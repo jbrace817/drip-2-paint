@@ -15,7 +15,7 @@ const Testimonial = dynamic(
 
 async function AboutPage() {
   return (
-    <main className="py-0 md:px-4 xl:px-6">
+    <main className="overflow-x-hidden py-0 md:px-4 xl:px-6">
       <div className="rounded-lg bg-gradient-to-b from-coolGray-light2 from-80% to-white px-4 pb-14">
         <h1 className="py-14 text-center text-4xl font-medium md:py-16 md:text-5xl">
           About Drip Paint
