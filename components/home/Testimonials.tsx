@@ -173,7 +173,8 @@ const Testimonials = () => {
                       className="absolute h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
                       width={680}
                       height={864}
-                      priority={currentIndex === index}
+                      loading={index <= currentIndex + 2 ? "eager" : "lazy"} // Load current and next image
+                      fetchPriority={index === currentIndex ? "high" : "auto"} // Prioritize current image
                     />
                     {/* <div className="absolute inset-0 h-full bg-[linear-gradient(hsl(var(--primary)/0.2),hsl(var(--primary)/0.8)_100%)] mix-blend-multiply" /> */}
                     {index % 2 === 1 ? (
