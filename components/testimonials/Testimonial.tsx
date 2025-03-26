@@ -138,6 +138,7 @@ const Testimonial = () => {
           <Carousel
             opts={{
               loop: true,
+              watchDrag: false,
             }}
             plugins={[plugin1.current]}
             onMouseLeave={() => plugin1.current.play()}
@@ -174,6 +175,7 @@ const Testimonial = () => {
           <Carousel
             opts={{
               loop: true,
+              watchDrag: false,
             }}
             plugins={[plugin2.current]}
             onMouseLeave={() => plugin2.current.play()}
