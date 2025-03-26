@@ -33,6 +33,9 @@ export async function generateStaticParams() {
   }));
 }
 
+// Get the number of posts
+const numberOfPosts = getAllFiles("blog") as BlogPost[];
+
 export default async function BlogPostPage({ params }: ContentProps) {
   // Fetch the individual blog post by slug
   const post = (await getFileBySlug("blog", params.slug)) as BlogPost;
@@ -143,7 +146,9 @@ export default async function BlogPostPage({ params }: ContentProps) {
         </div>
       </section>
       <Testimonial />
-      {relatedPosts.length >= 3 && <BlogCarousel initialPosts={relatedPosts} />}
+      {numberOfPosts.length >= 4 && (
+        <BlogCarousel initialPosts={relatedPosts} />
+      )}
     </main>
   );
 }
