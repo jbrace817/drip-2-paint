@@ -5,7 +5,10 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import Splatter from "../ui/decorative/Splatter";
+import dynamic from "next/dynamic";
+const Splatter = dynamic(() => import("../ui/decorative/Splatter"), {
+  ssr: false,
+});
 
 const defaultImage =
   "https://res.cloudinary.com/dsjx8ner3/image/upload/f_auto,q_auto,w_1920,dpr_2.0/v1742434502/livingAreaStairs_o09qvn.webp";
@@ -22,8 +25,8 @@ const CTA = ({ image = defaultImage }) => {
       <div
         ref={ref}
         className="relative flex w-full items-center justify-center overflow-hidden xl:min-h-[500px]"
+        style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
       >
-        <div className="absolute inset-0 z-[1] bg-[hsla(0,0%,99%,.6)]" />
         <div className="relative z-10 px-4 py-[clamp(3.75rem,7.82vw,6.25rem)] sm:px-6 sm:py-32 md:py-16 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="sm:text-5x text-balance text-4xl font-semibold tracking-tight text-coolGray-dark5">
@@ -46,21 +49,23 @@ const CTA = ({ image = defaultImage }) => {
             </div>
           </div>
         </div>
-
-        <motion.div
-          style={{
-            y: useTransform(scrollYProgress, [0, 1], [-50, 50]),
-          }}
-          className="absolute inset-0 -z-10 h-full w-full"
-        >
-          <Image
-            src={image}
-            className="object-cover"
-            alt="Interior design background"
-            fill
-            sizes="100vw"
-          />
-        </motion.div>
+        <div className="fixed left-0 top-[-10vh] h-[120vh] w-full">
+          <motion.div
+            style={{
+              y: useTransform(scrollYProgress, [0, 1], ["-10vh", "10vh"]),
+            }}
+            className="relative -z-10 h-full w-full"
+          >
+            <div className="absolute inset-0 z-[1] h-full w-full bg-[hsla(0,0%,99%,.6)]" />
+            <Image
+              src={image}
+              className="object-cover"
+              alt="Interior design background"
+              fill
+              sizes="100vw"
+            />
+          </motion.div>
+        </div>
       </div>
       <Splatter twClass="absolute right-8 md:right-20 -top-28 w-28 md:w-40 lg:w-60 xl:right-48 opacity-80 " />
       <Splatter twClass="absolute left-1/4 md:left-20 bottom-8 w-28 md:w-32 xl:left-48 opacity-80 md:w-60 lg:w-80" />
