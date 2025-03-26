@@ -7,10 +7,11 @@ import type { CarouselApi } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 import Fade from "embla-carousel-fade";
 import Image from "next/image";
-import Splatter from "../ui/decorative/Splatter";
 import useImageLoading from "@/hooks/useImageLoading";
 import dynamic from "next/dynamic";
-
+const Splatter = dynamic(() => import("../ui/decorative/Splatter"), {
+  ssr: false,
+});
 const Carousel = dynamic(
   () => import("@/components/ui/carousel").then((mod) => mod.Carousel),
   { ssr: false },

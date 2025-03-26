@@ -7,8 +7,10 @@ import { Button } from "@/components/ui/button";
 import type { CarouselApi } from "@/components/ui/carousel";
 import Image from "next/image";
 import { RiDoubleQuotesL } from "react-icons/ri";
-import Splatter from "../ui/decorative/Splatter";
 import dynamic from "next/dynamic";
+const Splatter = dynamic(() => import("../ui/decorative/Splatter"), {
+  ssr: false,
+});
 
 const Carousel = dynamic(
   () => import("@/components/ui/carousel").then((mod) => mod.Carousel),

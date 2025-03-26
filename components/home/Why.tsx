@@ -4,7 +4,10 @@ import {
   CalendarClock,
   SearchCheck,
 } from "lucide-react";
-import Splatter from "@/components/ui/decorative/Splatter";
+import dynamic from "next/dynamic";
+const Splatter = dynamic(() => import("../ui/decorative/Splatter"), {
+  ssr: false,
+});
 
 const Why = () => {
   return (
