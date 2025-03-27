@@ -66,7 +66,7 @@ export function BlogFilters({
         ))}
       </div>
       <Select onValueChange={onSortChange} defaultValue="newest">
-        <SelectTrigger className="w-[180px]">
+        <SelectTrigger className="w-[180px]" aria-label="Sort by">
           <SelectValue placeholder="Sort by" />
         </SelectTrigger>
         <SelectContent>
