@@ -1,3 +1,5 @@
+"use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "../ui/badge";
@@ -11,10 +13,23 @@ interface CardProps {
 }
 
 export default function BlogCard({ index, post, priority = false }: CardProps) {
-  // Format the date in a way that will be consistent between server and client
-  const formattedDate = post.date
-    ? new Date(post.date).toISOString().split("T")[0]
-    : "";
+  // Use ISO string for initial render to match server
+  const [formattedDate, setFormattedDate] = useState(
+    post.date ? new Date(post.date).toISOString().split("T")[0] : "",
+  );
+
+  // After hydration, format the date with locale settings
+  useEffect(() => {
+    if (post.date) {
+      setFormattedDate(
+        new Date(post.date).toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        }),
+      );
+    }
+  }, [post.date]);
 
   return (
     <Link
