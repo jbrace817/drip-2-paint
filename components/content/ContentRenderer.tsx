@@ -36,7 +36,24 @@ export default function ContentRenderer({
       </Badge>
 
       {firstHeading && (
-        <ReactMarkdown className="mt-3 text-pretty text-3xl font-medium tracking-tight sm:text-4xl">
+        <ReactMarkdown
+          components={{
+            h2: ({ children }) => {
+              const sectionId = children
+                ? children.toString().toLowerCase().replace(/\s+/g, "-")
+                : "";
+              return (
+                <h2
+                  id={sectionId}
+                  ref={(ref) => addSectionRef(sectionId, ref)}
+                  className="mt-3 text-pretty text-3xl font-medium tracking-tight sm:text-4xl"
+                >
+                  {children}
+                </h2>
+              );
+            },
+          }}
+        >
           {firstHeading}
         </ReactMarkdown>
       )}

@@ -15,8 +15,8 @@ export function extractFirstElements(content: string): ExtractedContent {
   for (let i = 0; i < paragraphs.length; i++) {
     const trimmed = paragraphs[i].trim();
 
-    if (!firstHeading && trimmed.startsWith("#")) {
-      firstHeading = trimmed; // Capture first heading
+    if (!firstHeading && trimmed.match(/^##\s/)) {
+      firstHeading = trimmed.replace(/^##\s*/, ""); // Capture first heading
       continue;
     }
 

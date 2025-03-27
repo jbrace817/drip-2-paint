@@ -160,7 +160,7 @@ export default async function BlogPostPage({ params }: ContentProps) {
               badge={post.frontmatter.category}
             />
           </div>
-          <PageNav sections={allH3Headings} />
+          <PageNav sections={[firstHeading, ...allH3Headings]} />
         </div>
       </section>
       <Testimonial />
