@@ -5,10 +5,7 @@ author: James Brace
 image: https://images.unsplash.com/photo-1536007164800-b7f11331f35c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 category: Tips & Techniques
 ---
-
-
-
-### Our Stress-Free Preparation Guide
+## Our Stress-Free Preparation Guide
 
 Hiring professional painters is an exciting way to transform your living space, but proper preparation is key to ensuring a smooth, efficient painting process. By taking the right steps before the painting crew arrives, you can protect your belongings, help the painters work more effectively, and ultimately achieve the best possible results. 
 
