@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Splatter from "@/components/ui/decorative/Splatter";
+import Link from "next/link";
 
 interface Benefit {
   title: string;
@@ -85,7 +86,9 @@ const ServiceCTA = () => {
               ))}
             </ul>
             <div className="text-center">
-              <Button>Get Your Free Consultation</Button>
+              <Link href="/contact">
+                <Button>Get Your Free Consultation</Button>
+              </Link>
               {pathname.includes("interior") ||
               pathname.includes("exterior") ? (
                 <p className="mt-4 text-sm text-coolGray-dark4">

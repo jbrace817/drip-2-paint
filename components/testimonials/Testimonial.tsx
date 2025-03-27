@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/carousel";
 import { FaStar } from "react-icons/fa";
 import Splatter from "../ui/decorative/Splatter";
+import Link from "next/link";
 
 const testimonials1 = [
   {
@@ -130,7 +131,9 @@ const Testimonial = () => {
           Join the many happy homeowners who have seen their vision come to
           life.
         </p>
-        <Button className="mt-6">Schedule a Consultation</Button>
+        <Link href="/contact">
+          <Button className="mt-6">Schedule a Consultation</Button>
+        </Link>
       </div>
       <div className="relative mx-auto lg:container">
         <Splatter twClass="z-[-1] absolute left-0 rotate-[90deg] -top-[20%] lg:-top-[40%] w-[50%] md:w-[25%] xl:w-[18%]" />
