@@ -1,7 +1,7 @@
 export interface BlogPost {
   slug: string;
   title: string;
-  date: Date;
+  date: Date | string;
   author: string;
   image: string;
   category: string;

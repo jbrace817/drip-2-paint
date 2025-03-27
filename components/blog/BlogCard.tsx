@@ -11,6 +11,11 @@ interface CardProps {
 }
 
 export default function BlogCard({ index, post, priority = false }: CardProps) {
+  // Format the date in a way that will be consistent between server and client
+  const formattedDate = post.date
+    ? new Date(post.date).toISOString().split("T")[0]
+    : "";
+
   return (
     <Link
       key={index}
@@ -56,9 +61,7 @@ export default function BlogCard({ index, post, priority = false }: CardProps) {
         </Avatar>
         <div className="flex flex-col gap-px">
           <span className="text-xs font-medium">{post.author}</span>
-          <span className="text-xs text-muted-foreground">
-            {post.date?.toLocaleDateString()}
-          </span>
+          <span className="text-xs text-muted-foreground">{formattedDate}</span>
         </div>
       </div>
     </Link>

@@ -47,9 +47,9 @@ export async function getRelatedPosts(
 
     // Sort all posts by date (newest first)
     validPosts.sort((a, b) => {
-      const dateA = new Date(a.date || "");
-      const dateB = new Date(b.date || "");
-      return dateB.getTime() - dateA.getTime();
+      const dateA = a.date ? new Date(a.date).getTime() : 0;
+      const dateB = b.date ? new Date(b.date).getTime() : 0;
+      return dateB - dateA;
     });
 
     // If category is provided, prioritize posts from that category

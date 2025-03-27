@@ -2,7 +2,15 @@ import BlogCards from "@/components/blog/BlogCards";
 import { getRelatedPosts } from "@/lib/getRelatedPosts";
 
 export default async function BlogList() {
-  const validPosts = await getRelatedPosts("", "", Infinity);
+  // Get all blog posts
+  const posts = await getRelatedPosts("", "", Infinity);
+
+  // Ensure date objects are properly serialized for client components
+  const validPosts = posts.map((post) => ({
+    ...post,
+    // Convert Date objects to ISO strings for consistent handling between server and client
+    date: post.date ? new Date(post.date).toISOString() : "",
+  }));
 
   return (
     <main className="py-14 md:py-16">
