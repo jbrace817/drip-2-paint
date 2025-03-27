@@ -7,7 +7,7 @@ category: Inspiration
 ---
 The modern home office is more than just a functional space—it's a sanctuary of creativity, productivity, and personal expression. Choosing the right paint colors and techniques can transform an ordinary room into a motivational environment that enhances focus, creativity, and overall work performance. 
 
-### The Psychology of Color in Your Workspace
+## The Psychology of Color in Your Workspace
 
 Color is a powerful tool that directly influences our mood, energy, and cognitive function. When designing a home office, understanding the psychological impact of different hues becomes crucial. Soft blues evoke a sense of calm and concentration, making them ideal for professionals who need steady focus and mental clarity. Green tones connect us with nature, promoting a sense of balance and reducing stress—perfect for those working in high-pressure environments or creative fields that require sustained mental energy. 
 
