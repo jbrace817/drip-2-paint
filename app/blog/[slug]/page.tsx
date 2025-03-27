@@ -11,9 +11,18 @@ import {
 import ContentRenderer from "@/components/content/ContentRenderer";
 import PageNav from "@/components/content/PageNav";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import Testimonial from "@/components/testimonials/Testimonial";
 import { getRelatedPosts } from "@/lib/getRelatedPosts";
-import BlogCarousel from "@/components/blog/BlogCarousel";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+const BlogCarousel = dynamic(() => import("@/components/blog/BlogCarousel"), {
+  ssr: false,
+});
+const Testimonial = dynamic(
+  () => import("@/components/testimonials/Testimonial"),
+  {
+    ssr: false,
+  },
+);
 
 interface BlogPost extends BaseBlogPost {
   frontmatter: {
@@ -81,7 +90,10 @@ export default async function BlogPostPage({ params }: ContentProps) {
       <section className="container mx-auto max-w-screen-xl">
         <div className="flex items-center gap-3 px-4 text-sm md:text-base">
           <Avatar className="h-8 w-8 border">
-            <AvatarImage src="https://shadcnblocks.com/images/block/avatar-1.webp" />
+            <AvatarImage
+              src="https://shadcnblocks.com/images/block/avatar-1.webp"
+              alt={post.frontmatter.author}
+            />
           </Avatar>
           <span>
             <a href="#" className="font-medium">
@@ -98,37 +110,43 @@ export default async function BlogPostPage({ params }: ContentProps) {
           </p>
           <ul className="mb-11 flex gap-2 border-b pb-8">
             <li>
-              <Button
-                variant="secondary"
-                size="icon"
-                className="group rounded-full"
-              >
-                <a href="#">
+              <Link href="#">
+                <Button
+                  variant="secondary"
+                  size="icon"
+                  className="group rounded-full"
+                  aria-label="Share on Facebook"
+                >
                   <Facebook className="h-4 w-4 fill-muted-foreground text-muted-foreground transition-colors group-hover:fill-primary group-hover:text-primary" />
-                </a>
-              </Button>
+                  <span className="sr-only">Share on Facebook</span>
+                </Button>
+              </Link>
             </li>
             <li>
-              <Button
-                variant="secondary"
-                size="icon"
-                className="group rounded-full"
-              >
-                <a href="#">
+              <Link href="#">
+                <Button
+                  variant="secondary"
+                  size="icon"
+                  className="group rounded-full"
+                  aria-label="Share on LinkedIn"
+                >
                   <Linkedin className="h-4 w-4 fill-muted-foreground text-muted-foreground transition-colors group-hover:fill-primary group-hover:text-primary" />
-                </a>
-              </Button>
+                  <span className="sr-only">Share on LinkedIn</span>
+                </Button>
+              </Link>
             </li>
             <li>
-              <Button
-                variant="secondary"
-                size="icon"
-                className="group rounded-full"
-              >
-                <a href="#">
+              <Link href="#">
+                <Button
+                  variant="secondary"
+                  size="icon"
+                  className="group rounded-full"
+                  aria-label="Share on Twitter"
+                >
                   <Twitter className="h-4 w-4 fill-muted-foreground text-muted-foreground transition-colors group-hover:fill-primary group-hover:text-primary" />
-                </a>
-              </Button>
+                  <span className="sr-only">Share on Twitter</span>
+                </Button>
+              </Link>
             </li>
           </ul>
         </div>
