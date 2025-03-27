@@ -72,7 +72,8 @@ const config: Config = {
   				dark5: 'hsl(var(--coolGray-dark5))'
   			},
   			support: {
-  				DEFAULT: 'hsl(var(--indigo-light5))'
+  				DEFAULT: 'hsl(var(--indigo-light5))',
+  				dark3: 'hsl(var(--indigo-dark3))'
   			}
   		},
   		fontFamily: {

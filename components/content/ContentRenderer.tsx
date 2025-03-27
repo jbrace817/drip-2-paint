@@ -32,7 +32,7 @@ export default function ContentRenderer({
         variant="outline"
         className="border-support text-support lg:text-sm"
       >
-        {badge}
+        <span className="text-support-dark3">{badge}</span>
       </Badge>
 
       {firstHeading && (
