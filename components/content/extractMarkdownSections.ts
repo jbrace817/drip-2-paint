@@ -10,19 +10,22 @@ export function extractFirstElements(content: string): ExtractedContent {
   let firstHeading = "";
   let firstParagraph = "";
   const allH3Headings: string[] = [];
-  let restOfContent = content;
 
+  // Scan for the headings and first paragraph, but don't modify the content
   for (let i = 0; i < paragraphs.length; i++) {
     const trimmed = paragraphs[i].trim();
 
     if (!firstHeading && trimmed.match(/^##\s/)) {
       firstHeading = trimmed.replace(/^##\s*/, ""); // Capture first heading
-      continue;
     }
 
-    if (!firstParagraph && trimmed !== "" && !trimmed.startsWith("-")) {
-      firstParagraph = trimmed; // Capture first paragraph
-      restOfContent = paragraphs.slice(i + 1).join("\n\n"); // Remaining content
+    if (
+      !firstParagraph &&
+      trimmed !== "" &&
+      !trimmed.startsWith("#") &&
+      !trimmed.startsWith("-")
+    ) {
+      firstParagraph = trimmed; // Capture first paragraph for potential summary use
     }
 
     if (/^###\s(?!#)/.test(trimmed)) {
@@ -30,5 +33,10 @@ export function extractFirstElements(content: string): ExtractedContent {
     }
   }
 
-  return { firstHeading, firstParagraph, restOfContent, allH3Headings };
+  return {
+    firstHeading,
+    firstParagraph,
+    restOfContent: content, // Return the unmodified content
+    allH3Headings,
+  };
 }

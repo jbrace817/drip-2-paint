@@ -5,18 +5,19 @@ import ReactMarkdown from "react-markdown";
 import { Badge } from "@/components/ui/badge";
 
 interface ContentRendererProps {
-  firstHeading: string;
+  firstHeading?: string;
   firstParagraph?: string;
   restOfContent: string;
   allH3Headings?: string[];
   badge?: string;
+  showFirstParagraphSeparately?: boolean;
 }
 
 export default function ContentRenderer({
-  firstHeading,
   firstParagraph,
   restOfContent,
   badge,
+  showFirstParagraphSeparately = false,
 }: ContentRendererProps) {
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
@@ -25,7 +26,6 @@ export default function ContentRenderer({
       sectionRefs.current[id] = ref;
     }
   };
-
   return (
     <main>
       <Badge
@@ -35,36 +35,49 @@ export default function ContentRenderer({
         <span className="text-support-dark3">{badge}</span>
       </Badge>
 
-      {firstHeading && (
-        <ReactMarkdown
-          components={{
-            h2: ({ children }) => {
-              const sectionId = children
-                ? children.toString().toLowerCase().replace(/\s+/g, "-")
-                : "";
-              return (
-                <h2
-                  id={sectionId}
-                  ref={(ref) => addSectionRef(sectionId, ref)}
-                  className="mt-3 text-pretty text-3xl font-medium tracking-tight sm:text-4xl"
-                >
-                  {children}
-                </h2>
-              );
-            },
-          }}
-        >
-          {firstHeading}
-        </ReactMarkdown>
-      )}
+      {/* <ReactMarkdown
+        components={{
+          h2: ({ children }) => {
+            const sectionId = children
+              ? children.toString().toLowerCase().replace(/\s+/g, "-")
+              : "";
+            return (
+              <h2
+                id={sectionId}
+                ref={(ref) => addSectionRef(sectionId, ref)}
+                className="mt-3 text-pretty text-3xl font-medium tracking-tight sm:text-4xl"
+              >
+                {children}
+              </h2>
+            );
+          },
+        }}
+      >
+        {firstHeading}
+      </ReactMarkdown> */}
 
-      {firstParagraph && (
+      {/* Only show the first paragraph separately if explicitly requested */}
+      {showFirstParagraphSeparately && firstParagraph && (
         <p className="mt-6 text-xl/8 text-coolGray-dark2">{firstParagraph}</p>
       )}
 
       <ReactMarkdown
         className="prose prose-lg max-w-none"
         components={{
+          h2: ({ children }) => {
+            const sectionId = children
+              ? children.toString().toLowerCase().replace(/\s+/g, "-")
+              : "";
+            return (
+              <h2
+                id={sectionId}
+                ref={(ref) => addSectionRef(sectionId, ref)}
+                className="mt-6 scroll-m-32 text-pretty text-3xl font-medium tracking-tight sm:text-4xl"
+              >
+                {children}
+              </h2>
+            );
+          },
           h3: ({ children }) => {
             const sectionId = children
               ? children.toString().toLowerCase().replace(/\s+/g, "-")
@@ -73,7 +86,7 @@ export default function ContentRenderer({
               <h3
                 id={sectionId}
                 ref={(ref) => addSectionRef(sectionId, ref)}
-                className="mt-16 scroll-m-24 text-pretty text-2xl font-medium tracking-tight sm:text-3xl"
+                className="mt-16 scroll-m-32 text-pretty text-2xl font-medium tracking-tight sm:text-3xl"
               >
                 {children}
               </h3>

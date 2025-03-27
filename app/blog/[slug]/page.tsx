@@ -153,11 +153,11 @@ export default async function BlogPostPage({ params }: ContentProps) {
         <div className="relative grid-cols-3 gap-20 px-4 lg:grid">
           <div className="lg:col-span-2">
             <ContentRenderer
-              firstHeading={firstHeading}
               firstParagraph={firstParagraph}
               restOfContent={restOfContent}
               allH3Headings={allH3Headings}
               badge={post.frontmatter.category}
+              showFirstParagraphSeparately={false}
             />
           </div>
           <PageNav sections={[firstHeading, ...allH3Headings]} />
