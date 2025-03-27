@@ -5,10 +5,7 @@ author: James Brace
 image: https://images.unsplash.com/photo-1606744824163-985d376605aa?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 category: Insights
 ---
-
-
-
-### Painting Industry Trends: What's Hot in 2025
+## Painting Industry Trends: What's Hot in 2025
 
 The painting industry is continuously evolving, driven by technological innovations, environmental concerns, and changing consumer preferences. Here are the most exciting trends transforming the painting business landscape this year. 
 
