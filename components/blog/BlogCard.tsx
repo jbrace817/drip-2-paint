@@ -7,9 +7,10 @@ import { BlogPost } from "@/types/blog";
 interface CardProps {
   index: number;
   post: BlogPost;
+  priority?: boolean;
 }
 
-export default function BlogCard({ index, post }: CardProps) {
+export default function BlogCard({ index, post, priority = false }: CardProps) {
   return (
     <Link
       key={index}
@@ -24,9 +25,9 @@ export default function BlogCard({ index, post }: CardProps) {
             placeholder="blur"
             blurDataURL={post.image}
             className="aspect-[3/2] object-cover object-center"
-            width={1920}
-            height={1080}
-            priority={index < 6}
+            width={484}
+            height={323}
+            priority={priority ? index < 6 : false}
           />
         </div>
       </div>
@@ -36,7 +37,7 @@ export default function BlogCard({ index, post }: CardProps) {
           variant="outline"
           className="border-support text-support lg:text-sm"
         >
-          {post.category}
+          <span className="text-support-dark3">{post.category}</span>
         </Badge>
       </div>
       <div className="mb-2 line-clamp-3 break-words pt-4 text-lg font-medium md:mb-3 md:pt-4 md:text-2xl lg:pt-4 lg:text-3xl">
@@ -47,7 +48,10 @@ export default function BlogCard({ index, post }: CardProps) {
       </div>
       <div className="flex items-center gap-2">
         <Avatar className="size-12">
-          <AvatarImage src="https://shadcnblocks.com/images/block/avatar-1.webp" />
+          <AvatarImage
+            src="https://shadcnblocks.com/images/block/avatar-1.webp"
+            alt={post.author}
+          />
           <AvatarFallback>JB</AvatarFallback>
         </Avatar>
         <div className="flex flex-col gap-px">
