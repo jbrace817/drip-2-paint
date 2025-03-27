@@ -196,12 +196,15 @@ const Navbar = () => {
               </div>
 
               <div className="flex gap-2">
-                {/* <Link href="/contact">
-                <Button size="sm">Contact Us</Button>
-              </Link> */}
-                <div className="hidden lg:block">
-                  <ContactInfo variant="navbar" />
-                </div>
+                <Link href="/contact">
+                  <Button size="sm">Contact Us</Button>
+                </Link>
+                {/* <div className="hidden lg:block">
+                  <ContactInfo
+                    variant="navbar"
+                    className="flex items-center gap-4"
+                  />
+                </div> */}
               </div>
             </div>
           </nav>
