@@ -52,6 +52,7 @@ export default function BlogCarousel({
               }}
               disabled={!canScrollPrev}
               className="disabled:pointer-events-auto"
+              aria-label="Previous article"
             >
               <ArrowLeft className="size-5" />
             </Button>
@@ -63,6 +64,7 @@ export default function BlogCarousel({
               }}
               disabled={!canScrollNext}
               className="disabled:pointer-events-auto"
+              aria-label="Next article"
             >
               <ArrowRight className="size-5" />
             </Button>
