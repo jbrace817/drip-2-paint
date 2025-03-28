@@ -5,7 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "sonner";
 import dynamic from "next/dynamic";
-
+import Banner from "@/components/Banner";
 const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
 
 const openSans = Open_Sans({
@@ -40,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${openSans.variable} ${lato.variable} antialiased`}>
+        <Banner />
         <Navbar />
         {children}
         <Footer />
