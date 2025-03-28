@@ -96,9 +96,9 @@ export default async function BlogPostPage({ params }: ContentProps) {
             />
           </Avatar>
           <span>
-            <a href="#" className="font-medium">
+            <Link href="#" className="font-medium">
               By {post.frontmatter.author}
-            </a>
+            </Link>
             <span className="ml-1 text-muted-foreground">
               on {formattedDate}
             </span>
