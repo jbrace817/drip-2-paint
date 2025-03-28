@@ -15,7 +15,7 @@ export default async function BlogList() {
   return (
     <main className="py-14 md:py-16">
       <div className="container mx-auto px-4">
-        <div className="mb-8 md:mb-14 lg:mb-16">
+        <div className="mb-8 max-w-2xl text-pretty md:mb-14 md:max-w-md lg:mb-16 lg:max-w-2xl">
           <div className="flex items-start justify-between gap-8">
             <div>
               <p className="inline-block bg-gradient-to-r from-primary-light4 to-primary-dark2 bg-clip-text text-xl/7 font-semibold text-transparent">
