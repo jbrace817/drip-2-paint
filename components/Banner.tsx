@@ -51,7 +51,7 @@ const Banner = () => {
             : "h-0 overflow-hidden opacity-0"
         }`}
       >
-        <div className="bg-primary py-2">
+        <div className="bg-primary-light5 py-2">
           <div className="container mx-auto flex items-center justify-between px-4">
             <p className="flex-auto text-center text-sm font-medium text-primary-foreground">
               {bannerData?.text}
