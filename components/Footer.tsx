@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import companyLogo from "@/public/images/dripLogo/dripLogo.svg";
+import Link from "next/link";
 
 const sections = [
   {
@@ -90,7 +91,7 @@ const Footer = () => {
                         key={linkIdx}
                         className="font-medium hover:text-primary"
                       >
-                        <a href={link.href}>{link.name}</a>
+                        <Link href={link.href}>{link.name}</Link>
                       </li>
                     ))}
                   </ul>
@@ -104,10 +105,10 @@ const Footer = () => {
             </p>
             <ul className="flex justify-center gap-4 lg:justify-start">
               <li className="hover:text-primary">
-                <a href="#"> Terms and Conditions</a>
+                <Link href="#"> Terms and Conditions</Link>
               </li>
               <li className="hover:text-primary">
-                <a href="#"> Privacy Policy</a>
+                <Link href="#"> Privacy Policy</Link>
               </li>
             </ul>
           </div>
