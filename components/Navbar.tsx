@@ -32,6 +32,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ContactInfo } from "./contact/ContactInfo";
+import Banner from "./Banner";
 const subMenuItemsOne = [
   {
     title: "Interior Painting",
@@ -103,6 +104,7 @@ const Navbar = () => {
         isVisible ? "translate-y-0" : "-translate-y-full"
       } ${isTop ? "bg-white" : "bg-white/60 backdrop-blur-md"}`}
     >
+      <Banner />
       <div className="py-6">
         <div className="container mx-auto px-4">
           <nav className="hidden justify-between lg:flex">
