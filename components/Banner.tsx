@@ -12,15 +12,12 @@ const Banner = () => {
   const [isBannerActive, setIsBannerActive] = useState<boolean | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const dismissBanner = () => {
-    setIsBannerActive(false);
-    localStorage.setItem("bannerDismissed", "true");
-  };
-
   useEffect(() => {
-    const bannerDismissed = localStorage.getItem("bannerDismissed");
+    const bannerDismissed = sessionStorage.getItem("bannerDismissed");
     if (bannerDismissed) {
       setIsBannerActive(false);
+      setIsLoading(false);
+      return;
     }
   }, [bannerData]);
 
@@ -36,7 +33,20 @@ const Banner = () => {
       }
     };
     fetchBannerData();
+
+    function unloadHandler() {
+      sessionStorage.removeItem("bannerDismissed");
+    }
+    window.addEventListener("beforeunload", unloadHandler);
+    return () => {
+      window.removeEventListener("beforeunload", unloadHandler);
+    };
   }, []);
+
+  const dismissBanner = () => {
+    setIsBannerActive(false);
+    sessionStorage.setItem("bannerDismissed", "true");
+  };
 
   if (isLoading) {
     return null;
