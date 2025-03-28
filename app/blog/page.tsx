@@ -18,15 +18,18 @@ export default async function BlogList() {
         <div className="mb-8 md:mb-14 lg:mb-16">
           <div className="flex items-start justify-between gap-8">
             <div>
-              <p className="text-wider mb-4 text-sm font-medium text-muted-foreground">
-                Eyebrow
-              </p>
-              <h2 className="mb-4 w-full text-4xl font-medium md:mb-5 md:text-5xl lg:mb-6 lg:text-6xl">
+              <p className="inline-block bg-gradient-to-r from-primary-light4 to-primary-dark2 bg-clip-text text-xl/7 font-semibold text-transparent">
                 Blog
+              </p>
+              <h2 className="mb-4 text-pretty text-3xl font-medium text-coolGray-dark5 md:mb-5 lg:mb-6 lg:text-5xl">
+                Splashes of Creativity
               </h2>
             </div>
           </div>
-          <p>Duis sem sem, gravida vel porttitor eu, volutpat ut arcu</p>
+          <p>
+            Every brushstroke tells a story. Explore ideas, techniques, and
+            trends to transform your home with color.
+          </p>
         </div>
         <BlogCards initialPosts={validPosts} />
       </div>
