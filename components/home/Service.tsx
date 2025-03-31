@@ -220,9 +220,6 @@ const Service = () => {
                             quality={80}
                             onLoad={() => handleImageLoad(feature.id)}
                             onError={() => handleImageLoad(feature.id)}
-                            onLoadingComplete={() =>
-                              handleImageLoad(feature.id)
-                            }
                             onLoadStart={() => handleImageStart(feature.id)}
                           />
                         </CardContent>
